@@ -25,13 +25,21 @@
     #plantory-concept .p-sheet{padding:18px}
     #plantory-concept .p-summary{grid-template-columns:66px minmax(0,1fr)}
     @media(max-width:360px){#plantory-concept .p-content{padding-left:12px;padding-right:12px}#plantory-concept .p-box{padding:15px}#plantory-concept .p-method{font-size:12px}#plantory-concept .p-chrome{padding:14px 16px}}
+    #plantory-concept .p-navbutton{flex:1;min-width:44px;justify-content:center}
+    #plantory-concept .p-textbutton{min-height:44px}
+    #plantory-concept .p-mode-note{font-size:12px;color:var(--p-muted);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--p-line)}
+    #plantory-concept #p-garden-view>.p-goalnote{margin:0 0 18px}
+    #plantory-concept #p-observation-help ol{padding-left:20px;margin:12px 0}
+    #plantory-concept #p-observation-help li{margin:8px 0}
+    #plantory-concept #p-observation-help p{font-size:13px}
+    #plantory-concept #p-observation-help small{display:block;font-size:11px;margin-top:10px}
   </style>
   <header class="p-chrome">
     <div class="p-logo"><i data-lucide="sprout" aria-hidden="true"></i>plantory <span class="p-sample">서비스 시안</span></div>
     <div class="p-avatar">나의 작은 정원 <span>나</span></div>
   </header>
-  <main class="p-content">
-    <div class="p-intro"><div><p class="p-eyebrow">GROW YOUR OWN WAY</p><h1 id="p-page-title">내 식물의 다음 모습, 함께 찾아요.</h1><p id="p-page-sub">지금 가진 식물부터, 새로 만들 작은 정원까지.</p></div><button type="button" class="p-textbutton" data-action="garden"><i data-lucide="leaf" aria-hidden="true"></i> 내 정원 보기</button></div>
+  <main class="p-content"><p class="p-mode-note">체험용 시안 · 선택은 이 화면에서만 유지돼요.</p>
+    <div class="p-intro"><div><p class="p-eyebrow">GROW YOUR OWN WAY</p><h1 id="p-page-title" tabindex="-1">내 식물의 다음 모습, 함께 찾아요.</h1><p id="p-page-sub">지금 가진 식물부터, 새로 만들 작은 정원까지.</p></div><button type="button" class="p-textbutton" data-action="garden"><i data-lucide="leaf" aria-hidden="true"></i> 내 정원 보기</button></div>
     <section id="p-match-view">
       <div class="p-paths" aria-label="필요한 도움 선택">
         <button type="button" class="p-path" data-path="care" aria-pressed="true"><i data-lucide="scissors" aria-hidden="true"></i><span><strong>내 식물 가꾸기</strong><small>수형 · 분갈이 · 관리</small></span></button>
@@ -62,12 +70,12 @@
           <p class="p-under">실제 요청이나 결제는 진행되지 않아요.</p>
         </section>
       </div>
-      <section class="p-sheet" id="p-request-sheet" hidden aria-label="매칭 요청서 미리보기"><div class="p-sectionhead"><h2>이렇게 전달돼요</h2><span class="p-sampletag">요청서 예시</span></div><dl class="p-summary" id="p-summary"></dl><div class="p-goalnote">연락처와 집 사진은 공유할 항목을 선택한 뒤 전달하는 흐름입니다.</div><div class="p-sheetactions" style="margin-top:16px"><button class="p-secondary" type="button" id="p-close">조건 다시 고르기</button><button class="p-textbutton" type="button" id="p-analyze">이 방향의 검토 질문 보기 <i data-lucide="arrow-up-right" aria-hidden="true"></i></button></div><p id="p-analysis-feedback" class="p-feedback" aria-live="polite"></p></section>
+      <section class="p-sheet" id="p-request-sheet" hidden aria-label="매칭 요청서 미리보기"><div class="p-sectionhead"><h2 id="p-request-title" tabindex="-1">이렇게 전달돼요</h2><span class="p-sampletag">요청서 예시</span></div><dl class="p-summary" id="p-summary"></dl><div class="p-goalnote" id="p-share-note">연락처와 집 사진은 공유할 항목을 선택한 뒤 전달하는 흐름입니다.</div><div class="p-sheetactions" style="margin-top:16px"><button class="p-secondary" type="button" id="p-close">조건 다시 고르기</button><button class="p-textbutton" type="button" id="p-analyze">다음 단계 안내 <i data-lucide="arrow-up-right" aria-hidden="true"></i></button></div><p id="p-analysis-feedback" class="p-feedback" aria-live="polite"></p></section>
     </section>
-    <section id="p-garden-view" hidden><div class="p-garden-grid"><article class="p-garden-item"><i data-lucide="sprout" aria-hidden="true"></i><h3>거실의 몬스테라</h3><p class="p-small">거실 창가 · 오늘 상태 확인</p><button type="button" class="p-textbutton" data-action="care">수형 가꾸기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article><article class="p-garden-item"><i data-lucide="leaf" aria-hidden="true"></i><h3>책장의 스킨답서스</h3><p class="p-small">거실 책장 · 성장 사진 남기기</p><button type="button" class="p-textbutton" data-action="space">공간 조합 찾기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article><article class="p-garden-item"><i data-lucide="trees" aria-hidden="true"></i><h3>책상 위 작은 숲</h3><p class="p-small">밀폐형 테라리움 · 결로 관찰</p><button type="button" class="p-textbutton" data-action="terrarium">제작·관리 방법 보기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article></div></section>
+    <section id="p-garden-view" hidden><p class="p-goalnote">샘플 3개를 둘러볼 수 있어요. 새 식물 등록·가족 기록·용기별 관리 화면은 아직 준비 전이에요.</p><div class="p-garden-grid"><article class="p-garden-item"><i data-lucide="sprout" aria-hidden="true"></i><h3>거실의 몬스테라</h3><p class="p-small">거실 창가 · 오늘 상태 확인</p><button type="button" class="p-textbutton" data-action="care">수형 가꾸기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article><article class="p-garden-item"><i data-lucide="leaf" aria-hidden="true"></i><h3>책장의 스킨답서스</h3><p class="p-small">거실 책장 · 성장 사진 남기기</p><button type="button" class="p-textbutton" data-action="space" data-source="책장의 스킨답서스">공간 조합 찾기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article><article class="p-garden-item"><i data-lucide="trees" aria-hidden="true"></i><h3>책상 위 작은 숲</h3><p class="p-small">밀폐형 테라리움 · 용기별 관리 화면 준비 중</p><button type="button" class="p-textbutton" data-action="terrarium">새 작품 제작 방법 보기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article></div></section>
     <section id="p-guide-view" hidden><div class="p-guidelist"><button type="button" class="p-guide" data-action="care"><i data-lucide="scissors" aria-hidden="true"></i><span><strong>원하는 수형으로 가꾸기</strong><span class="p-small">목표부터 작업 후 관찰까지</span></span></button><button type="button" class="p-guide" data-action="repot"><i data-lucide="shovel" aria-hidden="true"></i><span><strong>분갈이 준비하기</strong><span class="p-small">화분 규격과 준비물 확인</span></span></button><button type="button" class="p-guide" data-action="space"><i data-lucide="sun" aria-hidden="true"></i><span><strong>우리집 환경 살펴보기</strong><span class="p-small">생육 조건과 취향을 함께</span></span></button><button type="button" class="p-guide" data-action="terrarium"><i data-lucide="trees" aria-hidden="true"></i><span><strong>작은 정원 시작하기</strong><span class="p-small">직접 제작·클래스·완성품 선택</span></span></button></div></section>
     <section class="p-bottom" id="p-daily">
-      <article class="p-minibox"><h3><i data-lucide="droplets" aria-hidden="true"></i> 오늘의 작은 돌봄</h3><div class="p-careline"><div><p>몬스테라의 흙 상태 확인</p><p class="p-small">물주기 전에 지금 상태를 살펴봐요.</p></div></div><div class="p-record"><button type="button" data-record="아직 젖어 있음">아직 젖어 있어요</button><button type="button" data-record="말라 있음">말랐어요</button><button type="button" data-record="확인 방법 필요">잘 모르겠어요</button></div><p class="p-feedback" id="p-record-feedback" aria-live="polite"></p></article>
+      <article class="p-minibox"><h3><i data-lucide="droplets" aria-hidden="true"></i> 오늘의 작은 돌봄</h3><div class="p-careline"><div><p>몬스테라의 흙 상태 확인</p><p class="p-small">물주기 전에 지금 상태를 살펴봐요.</p></div></div><div class="p-record"><button type="button" data-record="아직 젖어 있음">아직 젖어 있어요</button><button type="button" data-record="말라 있음">말랐어요</button><button type="button" data-record="확인 방법 필요">잘 모르겠어요</button></div><p class="p-feedback" id="p-record-feedback" aria-live="polite"></p><div id="p-observation-help" class="p-goalnote" hidden><strong>일반 흙 화분의 관찰 방법</strong><ol><li>겉흙만 보지 말고 손가락을 조금 넣어 안쪽의 촉촉함도 확인해요.</li><li>안전하게 들 수 있는 작은 화분만 들어 평소보다 가벼운지 비교해요.</li><li>젖음·마름·모름을 구분해요. 이 확인만으로 물주기를 결정하지 않고 식물별 조건을 함께 살펴요.</li></ol><p>식물·용토·화분마다 달라요. 수경재배·밀폐 테라리움·팔루다리움에는 이 안내를 그대로 적용하지 않아요.</p><small>근거: 메릴랜드대학교·아이오와주립대학교 원예 안내. 링크는 사용성 검토 문서에 있어요.</small></div></article>
       <article class="p-minibox"><h3><i data-lucide="notebook-pen" aria-hidden="true"></i> 가꾸고 나서도, 이어지는 기록</h3><p class="p-small">상담과 작업 이력이 내 식물의 이야기로 남아요.</p><div class="p-timeline" style="margin-top:15px"><span>목표 수형</span><span>작업 기록</span><span>성장 비교</span></div><button type="button" class="p-textbutton" data-action="garden" style="margin-top:8px">내 정원에서 이어보기 <i data-lucide="arrow-right" aria-hidden="true"></i></button></article>
     </section>
   </main>
@@ -76,22 +84,89 @@
     (function(){
       const root=document.getElementById('plantory-concept');
       const q=s=>root.querySelector(s),qa=s=>Array.from(root.querySelectorAll(s));
-      const state={path:'care',method:'advice',goal:0,page:'match',radius:18,look:'forest',compact:false};
+      const state={path:'care',method:'advice',goal:0,page:'match'};
       const data={
         care:{name:'거실의 몬스테라',label:'내 정원에서 선택 · 예시',info:'거실 창가 · 속화분 지름 20cm',icon:'sprout',question:'어떤 모습으로 가꾸고 싶나요?',goals:['퍼진 수형 정리','화분 바꾸기','건강하게 회복'],field1:'최근 변화',options1:['한쪽으로 많이 퍼졌어요','최근 분갈이를 했어요','특별한 변화는 없어요'],field2:'원하는 시기',options2:['방법부터 알아볼래요','이번 달 안에','상담 후 결정'],note:'작업 여부는 식물의 상태를 확인한 뒤 결정해요.',photo:'정면·측면 사진 추가 흐름 보기',titles:{self:'우리 식물에 맞는 방법 찾기',advice:'자르기 전에, 방향부터 함께',expert:'직접 하기 어렵다면 맡겨요'},copy:{self:'식물 상태와 목표를 확인하고 가이드·준비물을 골라요.',advice:'지지대·유인·가지 정리 중 어떤 방법이 맞을지 상담해요.',expert:'가능한 작업과 장소를 확인한 뒤 작업자를 연결해요.'},checks:{self:['목표에 맞는 관리 가이드','보유 화분·지지대 활용 확인','작업 전후 사진과 경과 기록'],advice:['전체 모습과 줄기 상태 확인','원하는 크기와 수형 상담','직접 할 일과 맡길 일 구분'],expert:['작업 범위와 가능한 방법 확인','지역·운반 조건에 맞는 전문가','작업 후 관리법과 이력 연결']}},
         space:{name:'거실 창가의 빈자리',label:'꾸미고 싶은 공간 · 예시',info:'밝은 우드 취향 · 선반 위 공간',icon:'armchair',question:'어떤 조합을 찾고 있나요?',goals:['식물·화분 함께','내 화분 활용','보유 식물 재배치'],field1:'빛 조건',options1:['아직 확인하지 않았어요','직사광이 들어와요','밝지만 직사광은 없어요'],field2:'전체 예산',options2:['5만 원 이내','5만–10만 원','10만–20만 원'],note:'사진의 밝기만으로 생육 적합성을 확정하지 않아요.',photo:'공간 사진 추가 흐름 보기',titles:{self:'우리집 조건부터 맞춰봐요',advice:'공간과 취향을 함께 살펴요',expert:'공간에 맞는 구성을 제안받아요'},copy:{self:'실제로 놓을 수 있는 크기와 환경을 먼저 확인해요.',advice:'잘 자랄 환경인지, 내가 좋아하는 분위기인지 나누어 살펴요.',expert:'공간 제안부터 상품·설치 조건까지 상담할 곳을 찾아요.'},checks:{self:['공간 치수와 빛 조건 확인','속화분·겉화분 규격 비교','보유 물품을 우선한 구매 목록'],advice:['공간 사진과 실제 치수 확인','식물·화분 조합 후보 비교','생육 조건과 스타일 각각 안내'],expert:['예산에 맞는 구성 제안','판매·배송·설치 가능 조건 확인','구매 후 내 정원 관리로 연결']}},
         terrarium:{name:'책상 위에 놓을 작은 숲',label:'만들고 싶은 작품 · 예시',info:'이끼 테라리움 · 20cm 용기',icon:'trees',question:'어떤 모습이 마음에 드나요?',goals:['이끼 가득 작은 숲','돌과 식물이 있는 정원','내 참고 사진으로'],field1:'제작 경험',options1:['처음 만들어봐요','한두 번 만들어봤어요','혼자 만들어본 적 있어요'],field2:'전체 예산',options2:['5만 원 이내','5만–10만 원','10만 원 이상'],note:'제작 방식에 따라 재료·공방·완성품으로 연결해요.',photo:'원하는 작품 사진 추가 흐름 보기',titles:{self:'필요한 재료부터 차근차근',advice:'배우면서 나만의 작품 만들기',expert:'원하는 분위기로 제작 의뢰'},copy:{self:'용기 크기와 원하는 구성을 기준으로 준비물을 정리해요.',advice:'경험과 취향에 맞는 공방·클래스 상담으로 연결해요.',expert:'참고 이미지와 예산을 전달하고 가능한 구성을 확인해요.'},checks:{self:['구성 식물과 재료 목록','가지고 있는 용기 활용 확인','제작 순서와 이후 관리 안내'],advice:['취향과 경험에 맞는 클래스','포함 재료·용기·일정 확인','작품 등록과 수업 후 관리'],expert:['제작 가능한 구성과 규격','제작 기간·배송 조건·견적 확인','완성 후 용기 관리기록 연결']}}
       };
+      const drafts = Object.fromEntries(Object.keys(data).map(key => [key, {goal:0,method:'advice',fields:[data[key].options1[0],data[key].options2[0]],source:null}]));
+      const labels = {
+        care:{self:'직접 해볼래요',advice:'사진 상담',expert:'작업 맡기기'},
+        space:{self:'직접 고르기',advice:'조합 상담',expert:'구성 맡기기'},
+        terrarium:{self:'직접 만들기',advice:'공방에서 배우기',expert:'완성품 의뢰'}
+      };
+      const goalContent = {
+        care:[null,
+          {titles:{self:'분갈이 전, 화분과 준비물 확인',advice:'지금 분갈이가 필요한지 상담',expert:'분갈이 작업 범위와 운반 확인'},copy:'현재 화분·배수·최근 작업과 식물 상태를 확인해 분갈이 여부부터 판단해요.',checks:['현재 화분과 바꿀 화분의 규격','용토·배수 상태와 최근 분갈이 이력','진행 여부와 작업 후 관찰 계획']},
+          {titles:{self:'상태 변화부터 차근차근 확인',advice:'관찰 기록을 모아 회복 방향 상담',expert:'상태를 직접 확인할 도움 찾기'},copy:'변한 부위와 시작 시점, 최근 물주기·자리 이동을 정리해요. 사진만으로 원인을 확정하지 않아요.',checks:['전체·문제 부위·잎 뒷면 사진','증상 시작 시점과 최근 관리 변화','추가 확인과 경과 관찰 방법']}
+        ],
+        space:[null,
+          {titles:{self:'내 화분의 규격부터 확인',advice:'가진 화분에 맞는 식물 상담',expert:'내 화분을 활용한 구성 제안'},copy:'겉화분의 안쪽 치수·배수 구조와 놓을 공간을 확인해요. 이 시안에는 규격 입력과 실제 상품 비교가 아직 없어요.',checks:['화분 내경·깊이와 배수구 유무','속화분이 들어가는 실제 규격','놓을 공간의 치수·빛 조건']},
+          {titles:{self:'보유 식물의 자리 다시 살펴보기',advice:'식물에 맞는 새 자리 상담',expert:'보유 식물 재배치 도움 찾기'},copy:'기존 식물의 현재 위치와 옮길 공간을 함께 비교해요. 새 물건이 필요한지도 나누어 판단해요.',checks:['선택한 식물의 크기와 현재 위치','옮길 공간의 치수·빛 조건','보유 화분·받침 우선 활용']}
+        ],
+        terrarium:[null,
+          {titles:{self:'돌과 식물의 구성 준비하기',advice:'돌 배치를 배우는 공방 찾기',expert:'돌과 식물이 있는 작품 의뢰'},copy:'용기 규격과 원하는 구성을 정리하고 함께 쓸 식물·재료의 조건을 확인해요.',checks:['용기 형태·크기와 놓을 환경','돌·식물·배지 구성과 포함 재료','제작 방식과 완성 후 관리 부담']},
+          {titles:{self:'참고 사진을 제작 조건으로 정리',advice:'원하는 작품을 배울 공방 찾기',expert:'참고 작품의 제작 가능 범위 확인'},copy:'사진에서 마음에 드는 부분과 실제 용기 크기를 나눠 전달해요. 동일한 완성 모습은 보장하지 않아요.',checks:['참고 사진의 출처와 원하는 부분','내 용기·예산에서 가능한 구성','재료 대체·제작 기간·관리 조건']}
+        ]
+      };
       function icons(){if(globalThis.lucide)globalThis.lucide.createIcons({attrs:{width:18,height:18}});}
-      function renderResult(){const d=data[state.path];q('#p-result-title').textContent=d.titles[state.method];q('#p-result-copy').textContent=d.copy[state.method];q('#p-checks').innerHTML=d.checks[state.method].map(t=>'<li><i data-lucide="check" aria-hidden="true"></i><span>'+t+'</span></li>').join('');q('#p-partner').textContent=state.method==='self'?'가이드 · 필요한 상품 연결':state.method==='advice'?(state.path==='terrarium'?'공방 · 클래스 상담':'사진 상담 · 전문가 연결'):'전문가 · 제작자 연결';q('#p-pricing').textContent=state.method==='self'?'구매 전 비용 확인':'비용은 견적 확인 후 결정';qa('[data-method]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.method===state.method)));q('#p-request-sheet').hidden=true;icons();}
-      function renderPath(){const d=data[state.path];qa('[data-path]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.path===state.path)));q('#p-object-name').textContent=d.name;q('#p-object-label').textContent=d.label;q('#p-object-info').textContent=d.info;q('#p-art').innerHTML='<i data-lucide="'+d.icon+'" aria-hidden="true"></i>';q('#p-question').textContent=d.question;q('#p-goals').innerHTML=d.goals.map((g,i)=>'<button type="button" class="p-chip" data-goal="'+i+'" aria-pressed="'+(i===state.goal)+'">'+g+'</button>').join('');q('#p-fields').innerHTML='<label>'+d.field1+'<select class="p-input" id="p-field-one">'+d.options1.map(o=>'<option>'+o+'</option>').join('')+'</select></label><label>'+d.field2+'<select class="p-input" id="p-field-two">'+d.options2.map(o=>'<option>'+o+'</option>').join('')+'</select></label>';q('#p-fieldnote').textContent=d.note;q('#p-photo-label').textContent=d.photo;q('#p-photo-feedback').textContent='';renderResult();}
-      function navigate(page){state.page=page;q('#p-match-view').hidden=page!=='match';q('#p-garden-view').hidden=page!=='garden';q('#p-guide-view').hidden=page!=='guide';q('#p-daily').hidden=page==='guide';const titles={match:['내 식물의 다음 모습, 함께 찾아요.','지금 가진 식물부터, 새로 만들 작은 정원까지.'],garden:['우리집의 작은 정원','샘플 식물 3개 · 식물마다 가꾸는 방법도 다르게.'],today:['오늘은 상태부터 살펴봐요.','밀린 물주기 대신, 지금 필요한 확인부터.'],guide:['가꾸는 방법을 찾아보세요.','직접 해보기부터 전문가의 도움까지.']};q('#p-page-title').textContent=titles[page][0];q('#p-page-sub').textContent=titles[page][1];qa('[data-nav]').forEach(b=>{if(b.dataset.nav===page)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});}
-      root.addEventListener('click',event=>{const b=event.target.closest('button');if(!b||!root.contains(b))return;if(b.dataset.path){state.path=b.dataset.path;state.goal=0;renderPath();}if(b.dataset.method){state.method=b.dataset.method;renderResult();}if(b.dataset.goal!==undefined){state.goal=Number(b.dataset.goal);qa('[data-goal]').forEach(x=>x.setAttribute('aria-pressed',String(Number(x.dataset.goal)===state.goal)));renderResult();}if(b.dataset.nav)navigate(b.dataset.nav);if(b.dataset.action){if(b.dataset.action==='garden')navigate('garden');else{state.path=b.dataset.action==='repot'?'care':b.dataset.action;state.goal=b.dataset.action==='repot'?1:0;navigate('match');renderPath();}}if(b.dataset.record){q('#p-record-feedback').textContent=b.dataset.record==='확인 방법 필요'?'확인 방법을 안내받는 단계로 이어져요.':'예시 기록: '+b.dataset.record+' · 실제 물주기와 구분해 남겨요.';}});
-      q('#p-photo-button').addEventListener('click',()=>{q('#p-photo-feedback').textContent=state.path==='care'?'사진 선택 → 전체·측면 확인 → 공유할 사진 선택':state.path==='space'?'공간 사진 선택 → 놓을 위치 표시 → 실제 치수 입력':'참고 사진 선택 → 원하는 부분 선택 → 제작 조건 확인';});
-      q('#p-preview').addEventListener('click',()=>{const d=data[state.path];const values=[['대상',d.name],['목표',d.goals[state.goal]],['진행 방식',{self:'직접 하기',advice:'상담·클래스',expert:'전문가에게 맡기기'}[state.method]],[d.field1,q('#p-field-one').value],[d.field2,q('#p-field-two').value]];const summary=q('#p-summary');summary.replaceChildren();values.forEach(([k,v])=>{const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v;summary.append(dt,dd);});q('#p-request-sheet').hidden=false;q('#p-analysis-feedback').textContent='';});
-      q('#p-close').addEventListener('click',()=>{q('#p-request-sheet').hidden=true;q('#p-preview').focus();});
-      q('#p-analyze').addEventListener('click',()=>{const d=data[state.path];q('#p-analysis-feedback').textContent='검토할 질문: '+d.goals[state.goal]+'를 위해 최근 실제로 쓴 비용은 얼마인가요? 현재 해결 방법은 무엇이며, 제안된 도움에 비용을 낼 이유는 무엇인가요? 이 시안은 요청을 전송하지 않습니다.';});
-      renderPath();
+      function saveDraft(){const d=drafts[state.path];d.goal=state.goal;d.method=state.method;if(q('#p-field-one'))d.fields=[q('#p-field-one').value,q('#p-field-two').value];}
+      function summaryValues(){const d=data[state.path];return [['대상',q('#p-object-name').textContent],['목표',d.goals[state.goal]],['진행 방식',labels[state.path][state.method]],[d.field1,q('#p-field-one').value],[d.field2,q('#p-field-two').value]];}
+      function renderSummary(){const summary=q('#p-summary');summary.replaceChildren();summaryValues().forEach(([key,value])=>{const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=value;summary.append(dt,dd);});}
+      function renderResult(){
+        const d=data[state.path],detail=goalContent[state.path][state.goal];
+        q('#p-result-title').textContent=(detail?detail.titles:d.titles)[state.method];
+        q('#p-result-copy').textContent=detail?detail.copy:d.copy[state.method];
+        q('#p-checks').replaceChildren();
+        (detail?detail.checks:d.checks[state.method]).forEach(text=>{const li=document.createElement('li'),icon=document.createElement('i'),span=document.createElement('span');icon.dataset.lucide='check';icon.setAttribute('aria-hidden','true');span.textContent=text;li.append(icon,span);q('#p-checks').append(li);});
+        q('#p-partner').textContent=state.method==='self'?'가이드 · 필요한 상품 연결':state.method==='advice'?(state.path==='terrarium'?'공방 · 클래스 상담':'사진 상담 · 전문가 연결'):'전문가 · 제작자 연결';
+        q('#p-preview span').textContent=state.method==='self'?'준비 내용 미리보기':'매칭 요청서 미리보기';
+        q('#p-request-title').textContent=state.method==='self'?'준비 내용을 정리했어요':'이렇게 전달돼요';
+        q('#p-share-note').textContent=state.method==='self'?'필요한 정보와 준비물을 정리하는 예시예요. 실제 가이드·상품 추천은 아직 없어요.':'정식 서비스에서는 공유할 항목을 선택해 전달해요. 이 시안에는 사진 선택·공유·전송 기능이 없어요.';
+        q('#p-pricing').textContent=state.method==='self'?'구매 전 비용 확인':'비용은 견적 확인 후 결정';
+        qa('[data-method]').forEach(button=>{button.setAttribute('aria-pressed',String(button.dataset.method===state.method));button.querySelector('span').textContent=labels[state.path][button.dataset.method];});
+        qa('[data-goal]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.goal)===state.goal)));
+        q('#p-photo-label').textContent=state.path==='care'&&state.goal===2?'상태 변화 사진 준비 안내':d.photo;
+        if(!q('#p-request-sheet').hidden){renderSummary();q('#p-analysis-feedback').textContent='변경한 조건을 요청서에 반영했어요.';}
+        icons();
+      }
+      function renderPath(){
+        const d=data[state.path],draft=drafts[state.path];
+        qa('[data-path]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.path===state.path)));
+        q('#p-object-name').textContent=draft.source||d.name;
+        q('#p-object-label').textContent=draft.source?'내 정원에서 이어서 · 예시':d.label;
+        q('#p-object-info').textContent=draft.source==='책장의 스킨답서스'?'현재 거실 책장 · 옮길 자리 확인':d.info;
+        q('#p-art').innerHTML='<i data-lucide="'+d.icon+'" aria-hidden="true"></i>';
+        q('#p-question').textContent=d.question;
+        q('#p-goals').replaceChildren();d.goals.forEach((goal,index)=>{const button=document.createElement('button');button.type='button';button.className='p-chip';button.dataset.goal=String(index);button.textContent=goal;q('#p-goals').append(button);});
+        q('#p-fields').replaceChildren();
+        [[d.field1,d.options1,'p-field-one'],[d.field2,d.options2,'p-field-two']].forEach(([title,values,id],index)=>{const label=document.createElement('label'),select=document.createElement('select');label.textContent=title;select.className='p-input';select.id=id;values.forEach(value=>{const option=document.createElement('option');option.textContent=value;select.append(option);});select.value=draft.fields[index];label.append(select);q('#p-fields').append(label);});
+        q('#p-fieldnote').textContent=d.note;q('#p-photo-feedback').textContent='';renderResult();
+      }
+      function switchPath(path,goal,source){saveDraft();state.path=path;const draft=drafts[path];if(goal!==undefined)draft.goal=goal;if(source!==undefined)draft.source=source;state.goal=draft.goal;state.method=draft.method;q('#p-request-sheet').hidden=true;renderPath();}
+      function navigate(page){
+        saveDraft();state.page=page;q('#p-match-view').hidden=page!=='match';q('#p-garden-view').hidden=page!=='garden';q('#p-guide-view').hidden=page!=='guide';q('#p-daily').hidden=page!=='today';
+        const titles={match:['내 식물의 다음 모습, 함께 찾아요.','지금 가진 식물부터, 새로 만들 작은 정원까지.'],garden:['우리집의 작은 정원','샘플 정원 · 실제 식물과 기록은 저장되지 않아요.'],today:['오늘은 상태부터 살펴봐요.','밀린 물주기 대신, 지금 필요한 확인부터.'],guide:['가꾸는 방법을 찾아보세요.','직접 해보기부터 전문가의 도움까지.']};
+        q('#p-page-title').textContent=titles[page][0];q('#p-page-sub').textContent=titles[page][1];
+        qa('[data-nav]').forEach(button=>{if(button.dataset.nav===page)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');});
+        window.scrollTo({top:0,behavior:'instant'});q('#p-page-title').focus({preventScroll:true});
+      }
+      root.addEventListener('change',event=>{if(event.target.matches('#p-field-one,#p-field-two')){saveDraft();if(!q('#p-request-sheet').hidden){renderSummary();q('#p-analysis-feedback').textContent='변경한 조건을 요청서에 반영했어요.';}}});
+      root.addEventListener('click',event=>{
+        const button=event.target.closest('button');if(!button||!root.contains(button))return;
+        if(button.dataset.path)switchPath(button.dataset.path);
+        if(button.dataset.method){state.method=button.dataset.method;saveDraft();renderResult();}
+        if(button.dataset.goal!==undefined){state.goal=Number(button.dataset.goal);q('#p-photo-feedback').textContent='';saveDraft();renderResult();}
+        if(button.dataset.nav)navigate(button.dataset.nav);
+        if(button.dataset.action){if(button.dataset.action==='garden')navigate('garden');else{const path=button.dataset.action==='repot'?'care':button.dataset.action;const goal=button.dataset.action==='repot'?1:button.dataset.action==='care'?0:button.dataset.source?2:undefined;switchPath(path,goal,button.dataset.source);navigate('match');}}
+        if(button.dataset.record){q('#p-observation-help').hidden=button.dataset.record!=='확인 방법 필요';q('#p-record-feedback').textContent=button.dataset.record==='확인 방법 필요'?'아래의 관찰 방법을 살펴보세요. 확실하지 않으면 모름으로 남겨도 돼요.':'예시 선택: '+button.dataset.record+' · 실제 물주기나 저장된 기록은 아니에요.';}
+      });
+      q('#p-photo-button').addEventListener('click',()=>{q('#p-photo-feedback').textContent=state.path==='care'?(state.goal===2?'전체·변한 부위·잎 뒷면 사진과 변화가 시작된 시점을 준비해요.':'정면·측면 사진과 최근 작업 이력을 준비해요.'):state.path==='space'?'공간 사진과 놓을 위치의 실제 치수를 준비해요.':'참고 사진에서 원하는 부분과 제작 조건을 정리해요.';q('#p-photo-feedback').textContent+=' 이 시안은 사진을 선택하거나 전송하지 않아요.';});
+      q('#p-preview').addEventListener('click',()=>{saveDraft();renderSummary();q('#p-request-sheet').hidden=false;q('#p-analysis-feedback').textContent='';q('#p-request-sheet').scrollIntoView({block:'start',behavior:'instant'});q('#p-request-title').focus({preventScroll:true});});
+      q('#p-close').addEventListener('click',()=>{q('#p-request-sheet').hidden=true;q('#p-field-one').focus();});
+      q('#p-analyze').addEventListener('click',()=>{q('#p-analysis-feedback').textContent=state.method==='self'?'정식 서비스에서는 조건에 맞는 가이드와 준비물 후보를 비교하는 단계로 이어져요. 이 시안에는 실제 가이드·상품 목록이 없어요.':'정식 서비스에서는 공유할 사진·정보를 고른 뒤 제공 범위·총액·일정을 확인하고 수락해요. 이 시안은 요청을 전송하거나 예약하지 않아요.';});
+      renderPath();q('#p-daily').hidden=true;
     })();
   </script>
 </div>

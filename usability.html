@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Plantory · 페르소나 사용성 검토</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/planning.css">
+  <style>
+    .review .section{scroll-margin-top:20px}.review h1{font-size:30px;line-height:1.5}.review .cover{padding-top:26px}.review .eyebrow{margin-bottom:20px}.review p{word-break:keep-all;overflow-wrap:break-word}.review .lead{font-size:15px}.review .tag{white-space:normal}.review a{min-height:44px}.review .link-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.review .link-row a{display:flex;align-items:center;padding:0 14px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-size:14px;background:var(--white)}.review .finding{padding:19px 0;border-bottom:1px solid var(--line)}.review .finding:last-child{border-bottom:0}.review .finding h3{font-size:16px}.review .finding p{margin-top:8px;font-size:14px}.review .before{color:#796133}.review details{border-bottom:1px solid var(--line);padding:7px 0}.review summary{display:flex;align-items:center;gap:10px;font-size:15px;min-height:52px;cursor:pointer}.review summary span{font-family:Georgia,serif;color:var(--muted);font-size:13px}.review summary::after{content:'＋';margin-left:auto}.review details[open] summary::after{content:'−'}.review .persona-body{padding:7px 0 20px}.review .persona-body p+p{margin-top:12px}.review .persona-body p{font-size:14px}.review .persona-body strong{color:var(--ink)}.review ol{margin:20px 0 0;padding-left:20px}.review ol li{margin:17px 0;font-size:14px;color:var(--muted)}.review ol li strong{display:block;color:var(--ink);margin-bottom:4px}.review .note{font-size:13px;padding-left:13px;border-left:3px solid #9bb582;margin-top:20px}.review .review-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:flex;justify-content:space-around;background:var(--paper);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom));z-index:10}.review-nav a{display:flex;align-items:center;justify-content:center;flex:1;min-height:48px;font-size:13px;text-decoration:none}.review .footer{padding:22px;font-size:12px;color:var(--muted)}@media print{.review .review-nav{display:none}.review details .persona-body{display:block}}
+  </style>
+</head>
+<body class="review">
+<div class="book">
+  <header class="topbar"><a class="wordmark" href="index.html">plantory <span class="mark">p.</span></a><span class="edition">USABILITY / 02</span></header>
+  <main>
+    <section class="cover" id="result">
+      <div class="eyebrow"><span>가상 페르소나 8개 · 과업 검토</span><span>2026.09.30</span></div>
+      <h1>선택은 더 명확하게.<br>첫 관리 경험은<br><em>다음 검증으로.</em></h1>
+      <p class="lead">고객의 상황을 가정해 모바일 시안을 직접 눌러봤습니다. 목표와 다른 안내, 선택 손실, 요청서 불일치를 고쳤습니다. 등록·기록·실제 제안 비교는 아직 검토할 화면이 필요합니다.</p>
+      <p class="note"><strong>실제 사용자 조사 결과가 아닙니다.</strong><br>가상의 상황을 적용한 브라우저 검토입니다. 만족도·구매 의사·성공률은 측정하지 않았습니다.</p>
+      <div class="link-row"><a href="concept.html">수정한 시안 보기 ↗</a><a href="docs/usability-review.md">상세 검토 기록 ↗</a></div>
+    </section>
+    <section class="section">
+      <p class="section-index">관찰 → 수정 → 재확인</p><h2>현재 흐름에서 고친 것</h2>
+      <div class="finding"><h3>01 · 목표에 맞는 도움</h3><p class="before">분갈이·회복을 골라도 가지 정리 상담이 나왔습니다.</p><p>목표별 안내·준비 항목을 나눴습니다. 가이드에서 수형을 열면 이전 분갈이 목표가 아닌 수형으로 시작합니다.</p></div>
+      <div class="finding"><h3>02 · 돌아와도 남는 선택</h3><p class="before">다른 아이템을 보고 돌아오면 목표와 예산이 초기화됐습니다.</p><p>같은 화면을 열어둔 동안 각 아이템의 목표·조건·도움 방식을 유지합니다.</p></div>
+      <div class="finding"><h3>03 · 최신 조건을 보여주는 요청서</h3><p class="before">예산을 바꿔도 열린 요청서는 이전 값을 보여줬습니다.</p><p>조건·목표·도움 방식이 바뀌면 요청서도 갱신됩니다.</p></div>
+      <div class="finding"><h3>04 · 받는 도움을 이름으로 구분</h3><p>테라리움은 직접 만들기·공방에서 배우기·완성품 의뢰로 나눴습니다. 직접 할 때에는 ‘준비 내용’을 확인합니다.</p></div>
+      <div class="finding"><h3>05 · 이동한 화면의 시작 찾기</h3><p>메뉴 전환 시 시작 위치와 제목으로 초점을 옮기고, 요청서를 열면 제목에 초점을 둡니다.</p></div>
+      <div class="finding"><h3>06 · 선택한 식물 이어받기</h3><p>정원의 스킨답서스에서 조합을 찾으면 해당 식물과 재배치 목표가 함께 이어집니다.</p></div>
+      <div class="finding"><h3>07 · 모를 때 할 수 있는 관찰</h3><p>‘잘 모르겠어요’에 흙의 촉감·작은 화분 무게 등을 살펴보는 안내를 넣었습니다. 일반 흙 화분에 한정하며 급수를 결정하는 지시는 아닙니다.</p></div>
+      <div class="finding"><h3>08 · 시안에서 되는 일 구분</h3><p>저장·전송되지 않는 체험임을 표시했습니다. 기존 용기 관리를 약속하던 버튼은 새 작품 제작 버튼으로 바로잡았습니다.</p></div>
+    </section>
+    <section class="section shaded" id="personas">
+      <p class="section-index">사람의 상황에서 보기</p><h2>8가지 가상 과업</h2><p>항목을 누르면 막힌 지점과 남은 범위를 볼 수 있습니다. 이름과 상황은 모두 가상입니다.</p>
+      <details><summary><span>P01</span>민지 · 처음 받은 식물</summary><div class="persona-body"><p><strong>목표</strong> 이름과 물 준 날을 몰라도 등록하고 첫 관찰을 시작하기.</p><p><strong>확인</strong> 등록 진입점이 없습니다. 모름 선택의 관찰 안내는 수정했습니다.</p><p><strong>남은 범위</strong> 이름 미상 등록 → 첫 기록 → 다음 방문.</p></div></details>
+      <details><summary><span>P02</span>준호 · 가족과 여러 화분</summary><div class="persona-body"><p><strong>목표</strong> 누가 언제 관리했는지 확인하고 실수한 기록 취소하기.</p><p><strong>확인</strong> 예시 반응만 있고 담당자·시각·기록·취소는 없습니다.</p><p><strong>남은 범위</strong> 공동관리 과업은 아직 평가할 수 없습니다.</p></div></details>
+      <details><summary><span>P03</span>수연 · 분갈이 전 도움 찾기</summary><div class="persona-body"><p><strong>목표</strong> 분갈이 여부를 상담하기 위해 조건 정리하기.</p><p><strong>확인</strong> 분갈이를 선택해도 수형 상담이 나오던 문제를 수정했습니다.</p><p><strong>남은 범위</strong> 요청 준비까지만 체험할 수 있습니다. 실제 전문가·가격·작업 제안이 필요합니다.</p></div></details>
+      <details><summary><span>P04</span>현우 · 가지고 있는 화분 활용</summary><div class="persona-body"><p><strong>목표</strong> 예산과 가진 화분에 맞는 조합을 비교하기.</p><p><strong>확인</strong> 다른 아이템을 다녀와도 선택이 남고 요청서도 최신 조건으로 바뀝니다.</p><p><strong>남은 범위</strong> 화분 내부 치수 입력, 실제 후보와 배송 포함 총액이 필요합니다.</p></div></details>
+      <details><summary><span>P05</span>은서 · 첫 테라리움 수업</summary><div class="persona-body"><p><strong>목표</strong> 직접 만들기·수업·완성품 중 맞는 방식 고르기.</p><p><strong>확인</strong> 버튼과 요청서에서 ‘공방에서 배우기’의 의미가 일치하도록 수정했습니다.</p><p><strong>남은 범위</strong> 지역·일정·가격·포함 재료가 없어 실제 수업 선택은 평가할 수 없습니다.</p></div></details>
+      <details><summary><span>P06</span>지호 · 이미 만든 용기 관리</summary><div class="persona-body"><p><strong>목표</strong> 보유 테라리움의 결로와 환기를 확인하기.</p><p><strong>확인</strong> 관리 버튼이 신규 제작으로 가던 기대 불일치를 바로잡았습니다.</p><p><strong>남은 범위</strong> 용기별 관리 화면은 아직 없습니다. 제작과 별도의 과업입니다.</p></div></details>
+      <details><summary><span>P07</span>다은 · 갑자기 달라진 잎</summary><div class="persona-body"><p><strong>목표</strong> 상태 변화에 필요한 관찰과 상담 자료 확인하기.</p><p><strong>확인</strong> 가지치기 안내 대신 증상·시점·관리 변화의 확인으로 바꿨습니다.</p><p><strong>남은 범위</strong> 사진과 이력 연결, 실제 상담이 필요합니다. 진단과 회복 효과를 시험한 것은 아닙니다.</p></div></details>
+      <details><summary><span>P08</span>영숙 · 작은 화면에서 차근차근</summary><div class="persona-body"><p><strong>목표</strong> 이동한 화면과 대상, 전달할 내용을 놓치지 않기.</p><p><strong>확인</strong> 메뉴 시작 위치·요청서 초점·선택한 식물 연결을 수정했습니다.</p><p><strong>남은 범위</strong> 실제 공유 선택은 미지원입니다. 화면 크기 확인이 실제 고령자·스크린리더 검증을 대신하지 않습니다.</p></div></details>
+    </section>
+    <section class="section" id="next">
+      <p class="section-index">다음 검증을 위한 순서</p><h2>기능 수보다,<br>끝낼 수 있는 과업.</h2>
+      <ol><li><strong>등록 → 관찰 → 기록 수정</strong>이름 미상·모름을 허용하고 첫 관리 경험을 완결합니다.</li><li><strong>요청서 → 두 제안 비교</strong>받는 결과, 가격, 시점, 포함·제외 사항을 보고 고를 수 있게 합니다.</li><li><strong>보유 화분 규격 → 실제 후보</strong>실측 정보와 모르는 정보를 구분하고 조합을 비교합니다.</li><li><strong>제작과 별도의 용기 관리</strong>결로·환기·수위·장비를 일반 화분과 구분합니다.</li><li><strong>가족 기록과 선택적 공유</strong>누가 무엇을 했고 어떤 정보를 전달하는지 확인합니다.</li></ol>
+      <p class="note">다음에는 실제 사람 5~8명에게 준비된 과업만 제시하는 소규모 관찰을 제안합니다. 미구현 화면은 참가자의 실패로 세지 않습니다.</p>
+    </section>
+    <section class="section"><p class="section-index">확인 범위</p><h2>확인한 것과 남은 것</h2><p>모바일 화면 크기로 설정한 브라우저에서 목표별 도움 방식, 선택 유지, 요약 갱신, 메뉴 이동과 관찰 안내를 확인했습니다. 실제 휴대폰·스크린리더·고객 인터뷰·결제 실험은 아직 진행하지 않았습니다.</p><div class="link-row"><a href="docs/usability-review.md">과업·증거·근거 원문 ↗</a><a href="concept.html">모바일 시안 다시 보기 ↗</a></div></section>
+  </main>
+  <footer class="footer">PLANTORY · 가상 검토를 실제 사용자 결과로 해석하지 않습니다.</footer>
+  <nav class="review-nav" aria-label="검토 문서 메뉴"><a href="#result">수정 결과</a><a href="#personas">페르소나</a><a href="#next">다음 검증</a></nav>
+</div>
+</body>
+</html>

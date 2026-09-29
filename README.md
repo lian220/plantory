@@ -24,6 +24,8 @@ python3 -m http.server 8874 --bind 127.0.0.1
 | [결정과 미결정](docs/decisions.md) | 사용자 확정 사항과 아직 검토할 문제 |
 | [확인 기록](docs/verification.md) | 문서·브라우저·상호작용 확인 범위 |
 | [모바일 시각 기획서](index.html) | 아이템 비교·고객 여정·수익 가정 탐색 |
+| [페르소나 사용성 검토](usability.html) | 8가지 가상 과업·수정 결과·남은 범위 |
+| [사용성 검토 상세](docs/usability-review.md) | 재현 근거·우선순위·실제 사용자 검토 제안 |
 | [모바일 서비스 시안](concept.html) | 도움 방식과 매칭 요청서 예시 |
 
 ## 합의한 방향
@@ -38,6 +40,10 @@ python3 -m http.server 8874 --bind 127.0.0.1
 ## 구성
 
 HTML/CSS/JavaScript로 작성한 독립 문서다. 빌드·서비스 계정·API 키가 필요하지 않다. 기획 내용과 시안은 샘플이며 사용자 입력은 현재 화면에서만 사용한다. 외부에 요청을 보내거나 개인 정보를 저장하지 않는다.
+
+## 서비스 시안 수정
+
+`assets/concept.fragment.html`을 수정한 뒤 `python3 scripts/export-concept.py`로 `concept.html`에 반영한다. 기존 내장 아이콘과 단독 실행 형태를 유지하며, 다시 열어 동작을 확인한다.
 
 ## 저장소
 
