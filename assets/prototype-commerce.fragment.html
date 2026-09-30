@@ -1,0 +1,270 @@
+<style>
+#plantory-concept .p-buy-wrap{display:grid;gap:16px;min-width:0}
+#plantory-concept .p-buy-wrap h2{font-size:19px;line-height:1.4}
+#plantory-concept .p-buy-wrap h3{font-size:17px;line-height:1.4}
+#plantory-concept .p-buy-wrap p+p{margin-top:8px}
+#plantory-concept .p-buy-note{background:var(--p-soft);border-radius:12px;padding:13px 15px;font-size:13px;color:var(--p-muted)}
+#plantory-concept .p-buy-topline{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:8px;font-size:12px;color:var(--p-muted)}
+#plantory-concept .p-buy-tag{display:inline-block;background:var(--p-soft);color:var(--p-accent);border-radius:6px;padding:3px 7px}
+#plantory-concept .p-buy-filters{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+#plantory-concept .p-buy-filters label{min-width:0;font-size:13px}
+#plantory-concept .p-buy-facts{display:grid;grid-template-columns:76px minmax(0,1fr);gap:7px 10px;font-size:13px;margin:14px 0}
+#plantory-concept .p-buy-facts dt{color:var(--p-muted)}
+#plantory-concept .p-buy-facts dd{margin:0;min-width:0}
+#plantory-concept .p-buy-price{font-size:20px;line-height:1.4;margin-top:10px!important;letter-spacing:-.4px}
+#plantory-concept .p-buy-status{font-size:13px;color:var(--p-accent);min-height:20px}
+#plantory-concept .p-buy-picked{display:grid;gap:8px;margin:12px 0}
+#plantory-concept .p-buy-picked-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--p-line);padding-bottom:7px;font-size:13px}
+#plantory-concept .p-buy-picked-row>span{min-width:0}
+#plantory-concept .p-buy-picked-row button{flex:0 0 auto;min-height:44px}
+#plantory-concept .p-buy-empty{padding:25px 16px;text-align:center;border:1px dashed var(--p-line);border-radius:12px}
+#plantory-concept .p-buy-choice{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;margin-top:9px}
+#plantory-concept .p-buy-choice input{width:20px;height:20px;accent-color:var(--p-accent);flex:0 0 auto}
+#plantory-concept .p-buy-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:14px}
+#plantory-concept .p-buy-quantity .p-input{width:94px;flex:0 0 94px;margin:0}
+#plantory-concept .p-buy-included{border-color:var(--p-accent)}
+#plantory-concept .p-buy-summary{background:var(--p-soft);border:1px solid var(--p-line);border-radius:14px;padding:18px}
+#plantory-concept .p-buy-summary ul{padding-left:19px;margin:10px 0;font-size:13px}
+#plantory-concept .p-buy-summary li{margin:5px 0}
+#plantory-concept .p-buy-wrap button[aria-pressed=true]{border-color:var(--p-accent);background:var(--p-soft);color:var(--p-accent)}
+#plantory-concept .p-buy-wrap .p-actions{margin-top:12px}
+#plantory-concept .p-buy-wrap .p-actions>*{min-width:110px}
+#plantory-concept .p-buy-wrap input:focus-visible{outline:3px solid var(--p-accent);outline-offset:3px}
+</style>
+<script>
+// source below
+<!-- include:prototype-commerce-model.js -->
+</script>
+<script>
+(function () {
+  'use strict';
+  const api = window.PlantoryPrototype;
+  const model = window.PlantoryCommerceModel;
+  if (!api || !model) return;
+  const offers = model.offers;
+  const offerById = id => offers.find(offer => offer.id === id);
+  const money = value => new Intl.NumberFormat('ko-KR').format(value) + '원';
+  const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
+  const state = { query: '', kind: 'all', market: 'all', selected: [], stage: 'list', detailId: null, detailBack: 'list', message: '' };
+  const marketLabel = { new: '신품', sharing: '개인 분양', used: '중고 자재', personal: '개인 소량 판매', free: '무료 나눔', outlet: '상태 공개 식물' };
+  const notice = '<p class="p-buy-note">모든 상품·가격·판매처는 체험용 가상 예시예요. 실제 매물 검색·실시간 가격·판매처 연결·결제는 없어요. 선택은 이 창에서만 유지돼요.</p>';
+  function totalLabel(cost, method) { return cost.total === null ? '확인된 금액 ' + money(cost.knownTotal) + ' + 미확인 비용' : '구매 총액 ' + money(cost.total) + (method === 'delivery' ? ' · 일반 배송 기준' : method === 'pickup' ? ' · 직거래 기준' : ' · 예시 수령 조건 기준'); }
+  function facts(rows) { return '<dl class="p-buy-facts">' + rows.map(([key,value]) => '<dt>' + esc(key) + '</dt><dd>' + esc(value) + '</dd>').join('') + '</dl>'; }
+  function costFacts(offer) {
+    return facts([
+      ['판매 호가', money(offer.price)],
+      ['필수옵션', offer.optionCost ? money(offer.optionCost) + ' · ' + offer.optionLabel : '추가 비용 없음 · 예시 조건'],
+      ['배송·수령', offer.method === 'pickup' ? '직거래 · 배송비 없음 / 이동비 별도' : offer.shipping === null ? '배송비 미확인' : money(offer.shipping)],
+      ['지역·방법', offer.region]
+    ]);
+  }
+  function details(offer) {
+    const rows = [['규격',offer.size],['상태',offer.condition],['사진 표시',offer.photoType + ' · 실제 사진은 없는 텍스트 예시'],['포함 구성',offer.components]];
+    if (offer.kind === 'plant') rows.splice(2,0,['발근',offer.rooting]);
+    if (offer.remaining) rows.push(['잔량',offer.remaining],['개봉 여부',offer.opened],['보관',offer.storage]);
+    return facts(rows);
+  }
+  function card(offer, expanded) {
+    const selected = state.selected.includes(offer.id), soldout = offer.availability !== 'available';
+    const cost = model.offerTotal(offer);
+    return '<article class="p-box' + (selected ? ' p-buy-included' : '') + '" data-buy-card="' + esc(offer.id) + '">' +
+      '<div class="p-buy-topline"><span class="p-buy-tag">' + marketLabel[offer.market] + '</span><span>' + esc(offer.seller) + '</span><span>' + (soldout ? '품절 예시' : '판매 중 예시') + '</span></div>' +
+      '<h3>' + esc(offer.name) + '</h3>' + details(offer) +
+      (expanded ? costFacts(offer) : '<p class="p-small">판매 호가 ' + money(offer.price) + ' · ' + (offer.method === 'pickup' ? '지역 직거래' : offer.shipping === null ? '배송비 미확인' : '배송 ' + money(offer.shipping)) + (offer.optionCost ? ' · 필수옵션 ' + money(offer.optionCost) : '') + '</p>') +
+      '<p class="p-buy-price">' + totalLabel(cost,offer.method) + '</p>' +
+      (cost.total === null ? '<p class="p-small">' + esc(cost.unknownCosts.join(' · ')) + ' · 총액 미확정</p>' : '') +
+      '<div class="p-actions"><button type="button" class="p-secondary" data-buy-select="' + esc(offer.id) + '" aria-pressed="' + selected + '" aria-label="' + esc(offer.name) + ' ' + esc(offer.seller) + ' 비교 ' + (selected ? '해제' : '선택') + '"' + (soldout ? ' disabled' : '') + '>' + (soldout ? '품절 · 선택 불가' : selected ? '비교에서 빼기' : '비교에 담기') + '</button><button type="button" class="p-secondary" data-buy-detail="' + esc(offer.id) + '">조건·확인 질문</button></div></article>';
+  }
+  function selectionHTML() {
+    return '<h2 id="p-buy-selection-title" tabindex="-1">비교에 담은 항목 <span class="p-small">' + state.selected.length + '/3</span></h2><div class="p-buy-picked">' +
+      (state.selected.length ? state.selected.map(id => { const offer = offerById(id); return '<div class="p-buy-picked-row"><span>' + esc(offer.name) + '<br><small>' + esc(offer.seller) + '</small></span><button type="button" class="p-secondary" data-buy-remove="' + esc(id) + '" aria-label="' + esc(offer.name + ' ' + offer.seller) + ' 비교에서 빼기">빼기</button></div>'; }).join('') : '<p class="p-small">마음에 드는 항목을 2~3개 담아 보세요. 검색 조건을 바꿔도 선택은 유지돼요.</p>') +
+      '</div><button type="button" id="p-buy-compare" class="p-primary" data-buy-compare' + (state.selected.length < 2 ? ' disabled' : '') + '>선택한 ' + state.selected.length + '개 비교하기</button><p class="p-small" style="margin-top:8px">' + (state.selected.length < 2 ? '비교하려면 최소 2개가 필요해요.' : '최대 3개까지 비교할 수 있어요.') + '</p>';
+  }
+  function filteredOffers() {
+    const query = state.query.trim().toLocaleLowerCase();
+    return offers.filter(offer => (state.kind === 'all' || offer.kind === state.kind) && (state.market === 'all' || offer.market === state.market) && (!query || (offer.name + ' ' + offer.size + ' ' + offer.condition + ' ' + offer.seller).toLocaleLowerCase().includes(query)));
+  }
+  function updateCatalog(host) {
+    const results = filteredOffers();
+    host.querySelector('#p-buy-count').textContent = results.length + '개 가상 예시 · 품절 항목은 비교에 담을 수 없어요.';
+    host.querySelector('#p-buy-results').innerHTML = results.length ? results.map(offer => card(offer,false)).join('') : '<p class="p-buy-empty">맞는 예시가 없어요.<br>검색어 또는 조건을 바꿔 보세요.</p>';
+    host.querySelector('#p-buy-selection').innerHTML = selectionHTML();
+    host.querySelector('#p-buy-message').textContent = state.message;
+  }
+  function comparisonHTML() {
+    const selected = state.selected.map(offerById), result = model.comparison(selected);
+    const texts = {
+      'insufficient': ['비교할 항목을 더 담아 주세요','2개 이상 담으면 조건과 구매 총액을 함께 볼 수 있어요.'],
+      'plant-conditions': ['식물은 개체 조건을 비교해요','이름이 같아도 크기·발근·잎 상태·구성이 달라요. 동일 상품의 최저가 순위를 만들지 않아요.'],
+      'same-spec': ['같은 규격 자재의 구매 총액','같은 제품·용량·상태를 1개씩 비교해요. 다른 양이나 품목은 아래 준비물 예산에서 계산해 보세요.'],
+      'different-conditions': ['서로 다른 조건을 살펴봐요','품목·규격·상태가 달라 동일 상품 가격 순위를 만들지 않아요. L·kg·개 단위는 임의로 환산하지 않아요.']
+    };
+    return '<button type="button" class="p-secondary" data-buy-list>← 예시 목록으로</button><section class="p-box"><h2>' + texts[result.mode][0] + '</h2><p class="p-small" style="margin-top:8px">' + texts[result.mode][1] + '</p>' + (!result.canRank ? '<p class="p-small" style="margin-top:8px">배송비가 미확인이면 확인된 금액만 표시해요.</p>' : '') + '</section>' + selected.map(offer => card(offer,true)).join('') + '<button type="button" class="p-secondary" data-buy-budget>보유품을 빼고 준비물 예산 보기</button>';
+  }
+  function confirmationHTML(offer) {
+    const cost = model.offerTotal(offer), available = offer.availability === 'available';
+    return '<button type="button" class="p-secondary" data-buy-back>← ' + (state.detailBack === 'compare' ? '비교로 돌아가기' : state.detailBack === 'budget' ? '준비물 예산으로' : '예시 목록으로') + '</button><article class="p-box"><div class="p-buy-topline"><span class="p-buy-tag">판매처 확인 예시</span><span>' + (available ? '판매 중' : '품절') + '</span></div><h2>' + esc(offer.name) + '</h2><p class="p-small" style="margin-top:8px">' + esc(offer.seller) + ' · ' + marketLabel[offer.market] + '</p>' + details(offer) + costFacts(offer) + '<p class="p-buy-price">' + totalLabel(cost,offer.method) + '</p><p class="p-small">출처: ' + esc(offer.sourceLabel) + '<br>확인 시점: ' + esc(offer.checkedAt) + '<br>판매 호가 예시이며 실제 거래 완료 가격이 아니에요.</p></article>' +
+      '<section class="p-box"><h2>판매자에게 확인할 질문</h2><p style="margin-top:12px">' + esc(offer.question) + '</p><p class="p-small" style="margin-top:12px">회원·첫 구매·카드·쿠폰 할인은 일반 가격과 따로 확인하고, 적립금은 결제 금액에서 빼지 않아요. 예약·품절 여부와 수령 조건도 다시 확인해요.</p></section>' +
+      '<section class="p-buy-summary"><h2>다음 흐름도 체험해 보세요</h2><p class="p-small" style="margin-top:8px">실제 판매처를 열거나 구매를 접수하지 않아요.</p><div class="p-actions">' + (offer.kind === 'plant' ? '<button type="button" class="p-primary" data-buy-arrival="' + esc(offer.id) + '"' + (available ? '' : ' disabled') + '>' + (available ? '이 식물을 받았다고 가정하기' : '품절 예시 · 수령 체험 불가') + '</button>' : '<button type="button" class="p-primary" data-buy-budget="' + esc(offer.id) + '">이 자재로 준비물 예산 보기</button>') + '</div><p class="p-small" style="margin-top:10px">' + (offer.kind === 'plant' ? '새 식물 입양 체크로 이어져요. 실제 구매 기록은 아니에요.' : '자재는 식물로 등록하지 않아요.') + '</p></section>';
+  }
+  function renderCommerce(host, context) {
+    context = context || {};
+    if (context.stage) state.stage = context.stage;
+    else state.stage = 'list';
+    if (context.offerId && offerById(context.offerId)) state.detailId = context.offerId;
+    let body;
+    if (state.stage === 'detail' && offerById(state.detailId)) body = confirmationHTML(offerById(state.detailId));
+    else if (state.stage === 'compare') body = comparisonHTML();
+    else {
+      state.stage = 'list';
+      body = '<section class="p-box"><h2>어떤 물건을 찾고 있나요?</h2><label class="p-label" for="p-buy-search" style="margin-top:14px">가상 예시에서 검색</label><input class="p-input" id="p-buy-search" type="search" maxlength="80" placeholder="몬스테라, 배양토, 화분…" value="' + esc(state.query) + '"><div class="p-buy-filters"><label for="p-buy-kind">품목<select class="p-input" id="p-buy-kind"><option value="all">식물·자재 전체</option><option value="plant">식물</option><option value="material">자재·화분</option></select></label><label for="p-buy-market">판매 유형<select class="p-input" id="p-buy-market"><option value="all">전체 유형</option><option value="new">신품</option><option value="sharing">개인 분양</option><option value="used">중고 자재</option><option value="personal">개인 소량 판매</option><option value="free">무료 나눔</option><option value="outlet">상태 공개 식물</option></select></label></div><p class="p-small" style="margin-top:12px">식물은 개체 조건, 같은 규격의 자재는 구매 총액을 비교해요.</p></section><section class="p-box" id="p-buy-selection" aria-label="비교 선택 목록"></section><p class="p-small" id="p-buy-count" role="status"></p><div class="p-stack" id="p-buy-results"></div>';
+    }
+    host.innerHTML = '<div class="p-buy-wrap">' + notice + '<div class="p-actions"><button type="button" class="p-secondary" data-buy-list aria-pressed="true">구매 비교</button><button type="button" class="p-secondary" data-buy-budget>준비물 총예산</button></div><p class="p-buy-status" id="p-buy-message" role="status" aria-live="polite">' + esc(state.message) + '</p>' + body + '<section class="p-buy-note"><p>개인 소량 판매·무료 나눔과 상태 공개 식물도 가상 예시로 살펴볼 수 있어요. 개봉 자재의 재사용 가능 여부나 식물의 회복을 확정하지 않아요.</p><button type="button" class="p-secondary" data-buy-transfer style="margin-top:12px">남는 자재 판매·나눔 글 체험</button></section></div>';
+    if (state.stage === 'list') {
+      host.querySelector('#p-buy-kind').value = state.kind;
+      host.querySelector('#p-buy-market').value = state.market;
+      updateCatalog(host);
+    }
+    host.oninput = event => {
+      if (event.target.id !== 'p-buy-search') return;
+      state.query = event.target.value; state.message = ''; updateCatalog(host);
+    };
+    host.onchange = event => {
+      if (event.target.id === 'p-buy-kind') state.kind = event.target.value;
+      else if (event.target.id === 'p-buy-market') state.market = event.target.value;
+      else return;
+      state.message = ''; updateCatalog(host);
+    };
+    host.onclick = event => {
+      const button = event.target.closest('button');
+      if (!button || button.disabled) return;
+      if (button.hasAttribute('data-buy-select') || button.hasAttribute('data-buy-remove')) {
+        const id = button.getAttribute('data-buy-select') || button.getAttribute('data-buy-remove');
+        const offer = offerById(id); if (!offer || offer.availability !== 'available') return;
+        if (state.selected.includes(id)) { state.selected = state.selected.filter(value => value !== id); state.message = offer.name + '을 비교에서 뺐어요.'; }
+        else if (state.selected.length >= 3) { state.message = '최대 3개까지 비교할 수 있어요. 담은 항목을 먼저 빼 주세요.'; }
+        else { state.selected.push(id); state.message = offer.name + '을 비교에 담았어요.'; }
+        const selector = button.hasAttribute('data-buy-select') ? '[data-buy-select="' + id + '"]' : '#p-buy-compare';
+        if (state.stage === 'list') updateCatalog(host);
+        else renderCommerce(host,{stage:state.stage});
+        const preferredFocus = host.querySelector(selector);
+        const focus = preferredFocus && !preferredFocus.disabled ? preferredFocus : host.querySelector('#p-buy-selection-title') || host.querySelector('[data-buy-list]');
+        if (focus) focus.focus();
+      } else if (button.hasAttribute('data-buy-compare')) {
+        if (state.selected.length >= 2) api.open('commerce',{stage:'compare'});
+      } else if (button.hasAttribute('data-buy-detail')) {
+        state.detailBack = state.stage; state.message = ''; api.open('commerce',{stage:'detail',offerId:button.getAttribute('data-buy-detail')});
+      } else if (button.hasAttribute('data-buy-arrival')) {
+        const offer = offerById(button.getAttribute('data-buy-arrival'));
+        if (offer && offer.kind === 'plant' && offer.availability === 'available') api.open('arrival',{offer:{...offer}});
+      } else if (button.hasAttribute('data-buy-budget')) {
+        api.open('budget',{offerId:button.getAttribute('data-buy-budget') || undefined});
+      } else if (button.hasAttribute('data-buy-transfer')) {
+        api.open('transfer',{kind:'material'});
+      } else if (button.hasAttribute('data-buy-back')) {
+        state.message = ''; if (state.detailBack === 'budget') api.open('budget'); else api.open('commerce',{stage:state.detailBack});
+      } else if (button.hasAttribute('data-buy-list')) {
+        state.message = ''; api.open('commerce',{stage:'list'});
+      }
+    };
+  }
+  const unknownPlant = { id:'terrarium-plant-tbd',kind:'plant',name:'환경에 맞는 테라리움 식물',sellerId:'tbd',seller:'판매처 미정',price:null,optionCost:0,shipping:null,method:'delivery',availability:'available' };
+  function row(id, offerId, quantity, optional, included) { return {id,offer:offerById(offerId),quantity,optional:!!optional,included:included !== false,owned:false}; }
+  const plans = {
+    repot: [row('repot-soil','soil-green',2),row('repot-pot','pot-used',1),row('repot-perlite','perlite-green',1,true,false)],
+    terrarium: [row('terrarium-jar','jar-workshop',1),row('terrarium-soil','soil-workshop',1),row('terrarium-perlite','perlite-green',1,true,false),{id:'terrarium-plant',offer:unknownPlant,quantity:1,optional:false,included:true,owned:false}]
+  };
+  const budgetState = { purpose:'repot', message:'', invalidQuantityIds:new Set() };
+  function budgetRowsHTML(rows) {
+    return rows.map(item => '<article class="p-box" data-buy-budget-row="' + esc(item.id) + '"><div class="p-buy-topline"><span class="p-buy-tag">' + (item.optional ? '선택 품목' : '이 예산 예시의 필수 품목') + '</span><span>' + esc(item.offer.seller) + '</span></div><h3>' + esc(item.offer.name) + '</h3><p class="p-small" style="margin-top:8px">' + esc(item.offer.components || '식물 종류·가격·배송비를 더 확인해야 해요.') + '</p><p class="p-small">' + (item.offer.price === null ? '상품 가격 미확인' : '1개 ' + money(item.offer.price)) + (item.offer.method === 'pickup' ? ' · 지역 직거래 / 이동비 별도' : ' · 판매처별 배송비는 아래에서 합산') + '</p>' +
+      '<label class="p-buy-choice"><input type="checkbox" data-buy-owned="' + esc(item.id) + '"' + (item.owned ? ' checked' : '') + '>가지고 있어요 · 구매비에서 제외</label>' +
+      (item.optional ? '<label class="p-buy-choice"><input type="checkbox" data-buy-included="' + esc(item.id) + '"' + (item.included ? ' checked' : '') + (item.owned ? ' disabled' : '') + '>이번 준비물에 포함하기</label>' : '') +
+      '<label class="p-buy-quantity" for="p-buy-qty-' + esc(item.id) + '">구매 수량<input class="p-input" id="p-buy-qty-' + esc(item.id) + '" data-buy-quantity="' + esc(item.id) + '" type="number" min="1" max="99" step="1" inputmode="numeric" value="' + item.quantity + '"' + (item.owned || (item.optional && !item.included) ? ' disabled' : '') + '></label>' +
+      (offerById(item.offer.id) ? '<button type="button" class="p-textbutton" data-buy-offer-from-budget="' + esc(item.offer.id) + '">규격·수령 조건 확인</button>' : '') + '</article>').join('');
+  }
+  function budgetSummaryHTML(rows) {
+    if (rows.some(item => budgetState.invalidQuantityIds.has(item.id) && !item.owned && (!item.optional || item.included))) {
+      return '<h2>구매 수량을 확인해 주세요</h2><p class="p-small">수량을 1~99 사이 정수로 입력하면 준비물 합계를 보여드려요. 입력 중인 수량의 비용은 아직 계산하지 않았어요.</p>';
+    }
+    const cost = model.budgetTotal(rows);
+    return '<h2>보유품을 뺀 준비물 예산</h2><p class="p-buy-price">' + totalLabel(cost) + '</p>' +
+      facts([['상품·옵션',money(cost.itemSubtotal)],['확인된 배송',money(cost.shippingTotal)],['보유품 제외',cost.excludedOwned + '개 품목']]) +
+      '<h3>판매처별 수령 비용</h3><ul>' + (cost.shippingGroups.length ? cost.shippingGroups.map(group => '<li>' + esc(group.seller) + ': ' + (group.method === 'pickup' ? '직거래 · 이동비 별도' : group.shipping === null ? '배송비 미확인' : money(group.shipping) + ' · 한 번 합산') + '</li>').join('') : '<li>구매할 품목이 없어요.</li>') + '</ul>' +
+      (cost.unknownCosts.length ? '<h3>더 확인할 비용</h3><ul>' + cost.unknownCosts.map(item => '<li>' + esc(item) + '</li>').join('') + '</ul><p class="p-small">미확인 금액을 0원으로 보지 않아요. 확인 전에는 총액을 확정하지 않아요.</p>' : '<p class="p-small">선택한 가상 예시 조건에서의 합계예요. 실제 견적이나 최저가가 아니에요.</p>') +
+      '<p class="p-small">이 예시는 같은 판매처의 택배를 한 묶음으로 보내는 조건이에요. 도서산간 추가비와 직거래 이동비는 포함하지 않아요.</p>';
+  }
+  function updateBudget(host) {
+    host.querySelector('#p-buy-budget-total').innerHTML = budgetSummaryHTML(plans[budgetState.purpose]);
+    host.querySelector('#p-buy-budget-message').textContent = budgetState.message;
+  }
+  function renderBudget(host, context) {
+    context = context || {};
+    if (budgetState.invalidQuantityIds.size) {
+      budgetState.invalidQuantityIds.clear();
+      budgetState.message = '입력 중이던 수량을 마지막 유효 수량으로 되돌렸어요.';
+    }
+    if (context.purpose && plans[context.purpose]) budgetState.purpose = context.purpose;
+    const rows = plans[budgetState.purpose], added = offerById(context.offerId);
+    if (added && added.kind === 'material' && !rows.some(item => item.offer.id === added.id)) {
+      rows.push({id:budgetState.purpose + '-extra-' + added.id,offer:added,quantity:1,optional:true,included:true,owned:false});
+      budgetState.message = added.name + '을 선택 품목에 더했어요. 이미 담은 비슷한 자재와 중복인지 확인해 주세요.';
+    }
+    host.innerHTML = '<div class="p-buy-wrap">' + notice + '<div class="p-actions"><button type="button" class="p-secondary" data-buy-catalog>구매 비교</button><button type="button" class="p-secondary" aria-pressed="true">준비물 총예산</button></div><section class="p-box"><h2>무엇을 준비하나요?</h2><div class="p-actions"><button type="button" id="p-buy-purpose-repot" class="p-secondary" data-buy-purpose="repot" aria-pressed="' + (budgetState.purpose === 'repot') + '">분갈이 예산</button><button type="button" id="p-buy-purpose-terrarium" class="p-secondary" data-buy-purpose="terrarium" aria-pressed="' + (budgetState.purpose === 'terrarium') + '">테라리움 예산</button></div><p class="p-small" style="margin-top:12px">수량과 비용을 계산하는 체험용 준비물이에요. 특정 식물에 맞는 재료·배합·분갈이 시기를 추천하는 목록은 아니에요.</p></section><p id="p-buy-budget-message" class="p-buy-status" role="status" aria-live="polite">' + esc(budgetState.message) + '</p><div class="p-stack" id="p-buy-budget-lines">' + budgetRowsHTML(rows) + '</div><section class="p-buy-summary" id="p-buy-budget-total" aria-label="준비물 비용 합계" aria-live="polite">' + budgetSummaryHTML(rows) + '</section><button type="button" class="p-secondary" data-buy-catalog>소포장·다른 자재 비교하기</button></div>';
+    function updateQuantity(input, commit) {
+      const item = rows.find(value => value.id === input.getAttribute('data-buy-quantity'));
+      if (!item || input.disabled) return;
+      const quantity = Number(input.value);
+      const valid = input.value.trim() !== '' && !input.validity.badInput && Number.isInteger(quantity) && quantity >= 1 && quantity <= 99;
+      if (valid) {
+        item.quantity = quantity;
+        budgetState.invalidQuantityIds.delete(item.id);
+        input.removeAttribute('aria-invalid');
+        budgetState.message = item.offer.name + '의 예산을 다시 계산했어요.';
+      } else if (commit) {
+        input.value = String(item.quantity);
+        budgetState.invalidQuantityIds.delete(item.id);
+        input.removeAttribute('aria-invalid');
+        budgetState.message = '수량은 1~99 사이 정수로 입력해 주세요. 마지막 유효 수량 ' + item.quantity + '개로 되돌렸어요.';
+      } else {
+        budgetState.invalidQuantityIds.add(item.id);
+        input.setAttribute('aria-invalid','true');
+        budgetState.message = '수량을 확인해 주세요. 입력이 끝나기 전에는 합계를 표시하지 않아요.';
+      }
+      updateBudget(host);
+    }
+    host.oninput = event => {
+      if (event.target.hasAttribute('data-buy-quantity')) updateQuantity(event.target,false);
+    };
+    host.onfocusout = event => {
+      if (event.target.hasAttribute('data-buy-quantity')) updateQuantity(event.target,true);
+    };
+    host.onchange = event => {
+      const input = event.target;
+      if (input.hasAttribute('data-buy-quantity')) { updateQuantity(input,true); return; }
+      const id = input.getAttribute('data-buy-owned') || input.getAttribute('data-buy-included');
+      if (!id) return;
+      const item = rows.find(value => value.id === id); if (!item) return;
+      if (input.hasAttribute('data-buy-owned')) item.owned = input.checked;
+      else if (input.hasAttribute('data-buy-included')) item.included = input.checked;
+      budgetState.invalidQuantityIds.delete(item.id);
+      budgetState.message = item.offer.name + '의 예산을 다시 계산했어요.';
+      const article = input.closest('[data-buy-budget-row]');
+      const quantityInput = article.querySelector('[data-buy-quantity]');
+      quantityInput.value = String(item.quantity);
+      quantityInput.removeAttribute('aria-invalid');
+      quantityInput.disabled = item.owned || (item.optional && !item.included);
+      const include = article.querySelector('[data-buy-included]'); if (include) include.disabled = item.owned;
+      updateBudget(host);
+    };
+    host.onclick = event => {
+      const button = event.target.closest('button'); if (!button) return;
+      if (button.hasAttribute('data-buy-purpose')) {
+        budgetState.message = ''; const purpose = button.getAttribute('data-buy-purpose'); renderBudget(host,{purpose}); host.querySelector('#p-buy-purpose-' + purpose).focus();
+      } else if (button.hasAttribute('data-buy-catalog')) api.open('commerce',{stage:'list'});
+      else if (button.hasAttribute('data-buy-offer-from-budget')) { state.detailBack = 'budget'; api.open('commerce',{stage:'detail',offerId:button.getAttribute('data-buy-offer-from-budget')}); }
+    };
+  }
+  api.registerView('commerce',{title:'조건을 보고, 비용을 비교해요.',subtitle:'식물은 개체별로, 자재는 규격별로 살펴봐요.',nav:'commerce',render:renderCommerce});
+  api.registerView('budget',{title:'가진 것은 빼고, 필요한 만큼.',subtitle:'분갈이·작은 정원의 준비물 예산을 살펴봐요.',nav:'commerce',render:renderBudget});
+})();
+</script>

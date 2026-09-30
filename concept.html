@@ -9,7 +9,7 @@
 <style>:root{color-scheme:light;background:#e6eae3;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}html,body{margin:0}body{max-width:480px;margin:auto;background:#f8f9f5}.return-bar{height:48px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:13px;color:#35543c;border-bottom:1px solid #dae2d8}.return-bar a{color:inherit;text-decoration:none;min-height:44px;display:flex;align-items:center}.return-bar span{font-size:11px}iframe{display:block;width:100%;height:calc(100vh - 48px);height:calc(100dvh - 48px);margin:0 auto;border:0}</style>
 </head>
 <body>
-<div class="return-bar"><a href="index.html">← 사업기획서</a><a href="usability.html">사용성 검토 ↗</a></div>
+<div class="return-bar"><a href="index.html">← 사업기획서</a><a href="service-guide.html">서비스 안내</a><a href="usability.html">사용성 검토 ↗</a></div>
 <iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Plantory · 모바일 서비스 시안" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;ko&quot; data-visualize-standalone&gt;
 &lt;head&gt;
@@ -1085,14 +1085,42 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
     #plantory-concept #p-observation-help li{margin:8px 0}
     #plantory-concept #p-observation-help p{font-size:13px}
     #plantory-concept #p-observation-help small{display:block;font-size:11px;margin-top:10px}
+    #plantory-concept .p-chrome{padding:15px 18px}#plantory-concept .p-avatar{display:none}
+    #plantory-concept .p-columns,#plantory-concept .p-bottom,#plantory-concept .p-garden-grid,#plantory-concept .p-guidelist{grid-template-columns:1fr}
+    #plantory-concept .p-path{flex-direction:column;align-items:start;padding:12px;gap:7px}#plantory-concept .p-path small{display:none}#plantory-concept .p-path strong{font-size:13px}
+    #plantory-concept .p-intro&gt;.p-textbutton{display:none}#plantory-concept .p-navbutton{flex-direction:column;font-size:12px;gap:4px;padding:8px}
+    #plantory-concept h1{font-size:24px}#plantory-concept .p-bottom{margin-top:0}
+    #plantory-concept p,#plantory-concept h1,#plantory-concept h2,#plantory-concept h3,#plantory-concept dd,#plantory-concept button,#plantory-concept label{overflow-wrap:anywhere}
+    #plantory-concept .p-specimen&gt;div:last-child{min-width:0}#plantory-concept .p-textbutton{text-align:left;white-space:normal}
+    #plantory-concept textarea:focus-visible{outline:3px solid var(--p-accent);outline-offset:3px}
+    #plantory-concept button:disabled{opacity:.55;cursor:default}#plantory-concept .p-guide-link{display:inline-flex;align-items:center;min-height:44px;color:var(--p-accent);text-underline-offset:3px}#plantory-concept .p-guide-link:focus-visible{outline:3px solid var(--p-accent);outline-offset:3px}
+    #plantory-concept .p-stack{display:grid;gap:16px}#plantory-concept .p-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    #plantory-concept .p-actions&gt;*{flex:1;min-width:100px}#plantory-concept .p-block-title{font-size:18px;margin:24px 0 12px}
+    #plantory-concept .p-record[role=group]{margin:14px 0}#plantory-concept .p-record button[aria-pressed=true]{background:var(--p-soft);border-color:var(--p-accent);color:var(--p-accent)}
+    #plantory-concept .p-history{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    #plantory-concept .p-history-item{border-top:1px solid var(--p-line);padding-top:14px}#plantory-concept .p-history-item h3{font-size:15px;margin-bottom:6px}
+    #plantory-concept .p-history-item .p-small{margin-top:5px}#plantory-concept .p-history-item[data-cancelled=true]{border-left:3px solid var(--p-line);padding-left:12px}
+    #plantory-concept .p-form-label{display:block;margin-top:16px;font-size:14px}#plantory-concept #p-observation-help h3{font-size:15px;margin-bottom:8px}
+    #plantory-concept .p-context{padding:12px;background:var(--p-soft);border-radius:10px;margin-bottom:14px}
+    #plantory-concept .p-navbutton{padding:8px 3px;font-size:11px;white-space:nowrap}
+    #plantory-concept .p-bottomnav{gap:0;padding-left:8px;padding-right:8px}
+    #plantory-concept .p-journey-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+    #plantory-concept .p-journey-link{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;min-height:90px;padding:15px;border:1px solid var(--p-line);border-radius:12px;background:var(--p-panel);color:var(--p-ink)}
+    #plantory-concept .p-journey-link strong{font-size:15px}#plantory-concept .p-journey-link span{font-size:12px;color:var(--p-muted);line-height:1.5}
+    #plantory-concept .p-plant-tools{margin-top:14px;border-top:1px solid var(--p-line);padding-top:8px}#plantory-concept .p-plant-tools summary{min-height:44px;cursor:pointer;display:flex;align-items:center;font-size:13px;color:var(--p-accent)}
+    #plantory-concept .p-extension-view{min-width:0}#plantory-concept .p-extension-view [hidden]{display:none!important}
+    #plantory-concept .p-extension-view h2{font-size:20px;line-height:1.45}#plantory-concept .p-extension-view h3{line-height:1.5}
+    #plantory-concept .p-extension-view input,#plantory-concept .p-extension-view select,#plantory-concept .p-extension-view textarea{max-width:100%;font-size:16px}
+    #plantory-concept .p-extension-view button:focus-visible,#plantory-concept .p-journey-link:focus-visible{outline:3px solid var(--p-accent);outline-offset:3px}
+    #plantory-concept .p-request-next{display:grid;gap:8px;margin-top:16px}
   &lt;/style&gt;
   &lt;header class=&quot;p-chrome&quot;&gt;
     &lt;div class=&quot;p-logo&quot;&gt;&lt;i data-lucide=&quot;sprout&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;plantory &lt;span class=&quot;p-sample&quot;&gt;서비스 시안&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;p-avatar&quot;&gt;나의 작은 정원 &lt;span&gt;나&lt;/span&gt;&lt;/div&gt;
   &lt;/header&gt;
-  &lt;main class=&quot;p-content&quot;&gt;&lt;p class=&quot;p-mode-note&quot;&gt;체험용 시안 · 선택은 이 화면에서만 유지돼요.&lt;/p&gt;
-    &lt;div class=&quot;p-intro&quot;&gt;&lt;div&gt;&lt;p class=&quot;p-eyebrow&quot;&gt;GROW YOUR OWN WAY&lt;/p&gt;&lt;h1 id=&quot;p-page-title&quot; tabindex=&quot;-1&quot;&gt;내 식물의 다음 모습, 함께 찾아요.&lt;/h1&gt;&lt;p id=&quot;p-page-sub&quot;&gt;지금 가진 식물부터, 새로 만들 작은 정원까지.&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-action=&quot;garden&quot;&gt;&lt;i data-lucide=&quot;leaf&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 내 정원 보기&lt;/button&gt;&lt;/div&gt;
-    &lt;section id=&quot;p-match-view&quot;&gt;
+  &lt;main class=&quot;p-content&quot;&gt;&lt;p class=&quot;p-mode-note&quot;&gt;체험용 시안 · 등록과 기록은 이 창에서만 유지돼요. 새로고침하거나 창을 닫으면 사라져요.&lt;br&gt;&lt;span class=&quot;p-guide-link&quot;&gt;전체 이용 흐름은 화면 위 서비스 안내에서 볼 수 있어요.&lt;/span&gt;&lt;/p&gt;
+    &lt;div class=&quot;p-intro&quot;&gt;&lt;div&gt;&lt;h1 id=&quot;p-page-title&quot; tabindex=&quot;-1&quot;&gt;내 식물의 다음 모습, 함께 찾아요.&lt;/h1&gt;&lt;p id=&quot;p-page-sub&quot;&gt;지금 가진 식물부터, 새로 만들 작은 정원까지.&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-action=&quot;garden&quot;&gt;&lt;i data-lucide=&quot;leaf&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 내 정원 보기&lt;/button&gt;&lt;/div&gt;
+    &lt;section id=&quot;p-match-view&quot; hidden&gt;
       &lt;div class=&quot;p-paths&quot; aria-label=&quot;필요한 도움 선택&quot;&gt;
         &lt;button type=&quot;button&quot; class=&quot;p-path&quot; data-path=&quot;care&quot; aria-pressed=&quot;true&quot;&gt;&lt;i data-lucide=&quot;scissors&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;내 식물 가꾸기&lt;/strong&gt;&lt;small&gt;수형 · 분갈이 · 관리&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
         &lt;button type=&quot;button&quot; class=&quot;p-path&quot; data-path=&quot;space&quot; aria-pressed=&quot;false&quot;&gt;&lt;i data-lucide=&quot;armchair&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;우리집에 맞는 조합&lt;/strong&gt;&lt;small&gt;공간 · 식물 · 화분&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
@@ -1124,25 +1152,90 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
       &lt;/div&gt;
       &lt;section class=&quot;p-sheet&quot; id=&quot;p-request-sheet&quot; hidden aria-label=&quot;매칭 요청서 미리보기&quot;&gt;&lt;div class=&quot;p-sectionhead&quot;&gt;&lt;h2 id=&quot;p-request-title&quot; tabindex=&quot;-1&quot;&gt;이렇게 전달돼요&lt;/h2&gt;&lt;span class=&quot;p-sampletag&quot;&gt;요청서 예시&lt;/span&gt;&lt;/div&gt;&lt;dl class=&quot;p-summary&quot; id=&quot;p-summary&quot;&gt;&lt;/dl&gt;&lt;div class=&quot;p-goalnote&quot; id=&quot;p-share-note&quot;&gt;연락처와 집 사진은 공유할 항목을 선택한 뒤 전달하는 흐름입니다.&lt;/div&gt;&lt;div class=&quot;p-sheetactions&quot; style=&quot;margin-top:16px&quot;&gt;&lt;button class=&quot;p-secondary&quot; type=&quot;button&quot; id=&quot;p-close&quot;&gt;조건 다시 고르기&lt;/button&gt;&lt;button class=&quot;p-textbutton&quot; type=&quot;button&quot; id=&quot;p-analyze&quot;&gt;다음 단계 안내 &lt;i data-lucide=&quot;arrow-up-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;&lt;p id=&quot;p-analysis-feedback&quot; class=&quot;p-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/section&gt;
     &lt;/section&gt;
-    &lt;section id=&quot;p-garden-view&quot; hidden&gt;&lt;p class=&quot;p-goalnote&quot;&gt;샘플 3개를 둘러볼 수 있어요. 새 식물 등록·가족 기록·용기별 관리 화면은 아직 준비 전이에요.&lt;/p&gt;&lt;div class=&quot;p-garden-grid&quot;&gt;&lt;article class=&quot;p-garden-item&quot;&gt;&lt;i data-lucide=&quot;sprout&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;h3&gt;거실의 몬스테라&lt;/h3&gt;&lt;p class=&quot;p-small&quot;&gt;거실 창가 · 오늘 상태 확인&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-action=&quot;care&quot;&gt;수형 가꾸기 &lt;i data-lucide=&quot;arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/article&gt;&lt;article class=&quot;p-garden-item&quot;&gt;&lt;i data-lucide=&quot;leaf&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;h3&gt;책장의 스킨답서스&lt;/h3&gt;&lt;p class=&quot;p-small&quot;&gt;거실 책장 · 성장 사진 남기기&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-action=&quot;space&quot; data-source=&quot;책장의 스킨답서스&quot;&gt;공간 조합 찾기 &lt;i data-lucide=&quot;arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/article&gt;&lt;article class=&quot;p-garden-item&quot;&gt;&lt;i data-lucide=&quot;trees&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;h3&gt;책상 위 작은 숲&lt;/h3&gt;&lt;p class=&quot;p-small&quot;&gt;밀폐형 테라리움 · 용기별 관리 화면 준비 중&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-action=&quot;terrarium&quot;&gt;새 작품 제작 방법 보기 &lt;i data-lucide=&quot;arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/article&gt;&lt;/div&gt;&lt;/section&gt;
+    &lt;section id=&quot;p-garden-view&quot; hidden&gt;
+      &lt;button type=&quot;button&quot; class=&quot;p-primary&quot; id=&quot;p-add-plant&quot; data-open-register&gt;새 식물 등록하기&lt;/button&gt;
+      &lt;h2 class=&quot;p-block-title&quot;&gt;이번 체험에서 등록한 식물&lt;/h2&gt;
+      &lt;p class=&quot;p-small&quot; id=&quot;p-garden-empty&quot;&gt;아직 등록한 식물이 없어요. 이름을 몰라도 시작할 수 있어요.&lt;/p&gt;
+      &lt;div class=&quot;p-garden-grid&quot; id=&quot;p-session-plants&quot;&gt;&lt;/div&gt;
+      &lt;h2 class=&quot;p-block-title&quot; id=&quot;p-samples-title&quot; tabindex=&quot;-1&quot;&gt;둘러보기용 샘플 3개&lt;/h2&gt;
+      &lt;p class=&quot;p-small&quot; style=&quot;margin-bottom:12px&quot;&gt;직접 등록한 식물과 구분된 예시예요. 샘플에도 관찰을 남겨볼 수 있어요.&lt;/p&gt;
+      &lt;div class=&quot;p-garden-grid&quot; id=&quot;p-sample-plants&quot;&gt;&lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id=&quot;p-register-view&quot; hidden&gt;
+      &lt;form id=&quot;p-register-form&quot; class=&quot;p-box&quot;&gt;
+        &lt;p class=&quot;p-small&quot;&gt;이름과 놓인 곳을 모르면 비워두세요. 사진은 받지 않아요.&lt;/p&gt;
+        &lt;label class=&quot;p-form-label&quot; for=&quot;p-plant-name&quot;&gt;이름 또는 별명 &lt;span class=&quot;p-small&quot;&gt;· 선택&lt;/span&gt;&lt;/label&gt;
+        &lt;input id=&quot;p-plant-name&quot; class=&quot;p-input&quot; maxlength=&quot;80&quot; autocomplete=&quot;off&quot; placeholder=&quot;예: 선물 받은 초록이&quot; aria-describedby=&quot;p-name-note&quot;&gt;
+        &lt;p class=&quot;p-fieldnote&quot; id=&quot;p-name-note&quot;&gt;비워두면 ‘이름 모를 식물’로 등록해요. 최대 80자예요.&lt;/p&gt;
+        &lt;label class=&quot;p-form-label&quot; for=&quot;p-plant-location&quot;&gt;놓인 곳 &lt;span class=&quot;p-small&quot;&gt;· 선택&lt;/span&gt;&lt;/label&gt;
+        &lt;input id=&quot;p-plant-location&quot; class=&quot;p-input&quot; maxlength=&quot;100&quot; autocomplete=&quot;off&quot; placeholder=&quot;예: 거실 창가 · 모르면 비워두기&quot;&gt;
+        &lt;label class=&quot;p-form-label&quot; for=&quot;p-container-type&quot;&gt;어디에서 자라고 있나요?&lt;/label&gt;
+        &lt;select id=&quot;p-container-type&quot; class=&quot;p-input&quot; aria-describedby=&quot;p-container-note&quot;&gt;
+          &lt;option value=&quot;unknown&quot;&gt;아직 모르겠어요&lt;/option&gt;&lt;option value=&quot;soil&quot;&gt;일반 흙 화분&lt;/option&gt;&lt;option value=&quot;hydro&quot;&gt;수경재배&lt;/option&gt;&lt;option value=&quot;terrarium&quot;&gt;테라리움&lt;/option&gt;&lt;option value=&quot;paludarium&quot;&gt;팔루다리움&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;p class=&quot;p-fieldnote&quot; id=&quot;p-container-note&quot;&gt;용기에 맞는 관찰 항목을 보여드려요. 목록에 없거나 구분하기 어려우면 ‘아직 모르겠어요’를 골라요.&lt;/p&gt;
+        &lt;div class=&quot;p-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-primary&quot; id=&quot;p-create-plant&quot;&gt;등록하고 상태 살펴보기&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; id=&quot;p-cancel-register&quot;&gt;등록 취소&lt;/button&gt;&lt;/div&gt;
+        &lt;p class=&quot;p-under&quot;&gt;이 창에서만 체험해요. 실제 계정에 저장되지 않아요.&lt;/p&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
     &lt;section id=&quot;p-guide-view&quot; hidden&gt;&lt;div class=&quot;p-guidelist&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-guide&quot; data-action=&quot;care&quot;&gt;&lt;i data-lucide=&quot;scissors&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;원하는 수형으로 가꾸기&lt;/strong&gt;&lt;span class=&quot;p-small&quot;&gt;목표부터 작업 후 관찰까지&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-guide&quot; data-action=&quot;repot&quot;&gt;&lt;i data-lucide=&quot;shovel&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;분갈이 준비하기&lt;/strong&gt;&lt;span class=&quot;p-small&quot;&gt;화분 규격과 준비물 확인&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-guide&quot; data-action=&quot;space&quot;&gt;&lt;i data-lucide=&quot;sun&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;우리집 환경 살펴보기&lt;/strong&gt;&lt;span class=&quot;p-small&quot;&gt;생육 조건과 취향을 함께&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-guide&quot; data-action=&quot;terrarium&quot;&gt;&lt;i data-lucide=&quot;trees&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;span&gt;&lt;strong&gt;작은 정원 시작하기&lt;/strong&gt;&lt;span class=&quot;p-small&quot;&gt;직접 제작·클래스·완성품 선택&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/section&gt;
-    &lt;section class=&quot;p-bottom&quot; id=&quot;p-daily&quot;&gt;
-      &lt;article class=&quot;p-minibox&quot;&gt;&lt;h3&gt;&lt;i data-lucide=&quot;droplets&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 오늘의 작은 돌봄&lt;/h3&gt;&lt;div class=&quot;p-careline&quot;&gt;&lt;div&gt;&lt;p&gt;몬스테라의 흙 상태 확인&lt;/p&gt;&lt;p class=&quot;p-small&quot;&gt;물주기 전에 지금 상태를 살펴봐요.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;p-record&quot;&gt;&lt;button type=&quot;button&quot; data-record=&quot;아직 젖어 있음&quot;&gt;아직 젖어 있어요&lt;/button&gt;&lt;button type=&quot;button&quot; data-record=&quot;말라 있음&quot;&gt;말랐어요&lt;/button&gt;&lt;button type=&quot;button&quot; data-record=&quot;확인 방법 필요&quot;&gt;잘 모르겠어요&lt;/button&gt;&lt;/div&gt;&lt;p class=&quot;p-feedback&quot; id=&quot;p-record-feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;div id=&quot;p-observation-help&quot; class=&quot;p-goalnote&quot; hidden&gt;&lt;strong&gt;일반 흙 화분의 관찰 방법&lt;/strong&gt;&lt;ol&gt;&lt;li&gt;겉흙만 보지 말고 손가락을 조금 넣어 안쪽의 촉촉함도 확인해요.&lt;/li&gt;&lt;li&gt;안전하게 들 수 있는 작은 화분만 들어 평소보다 가벼운지 비교해요.&lt;/li&gt;&lt;li&gt;젖음·마름·모름을 구분해요. 이 확인만으로 물주기를 결정하지 않고 식물별 조건을 함께 살펴요.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;식물·용토·화분마다 달라요. 수경재배·밀폐 테라리움·팔루다리움에는 이 안내를 그대로 적용하지 않아요.&lt;/p&gt;&lt;small&gt;근거: 메릴랜드대학교·아이오와주립대학교 원예 안내. 링크는 사용성 검토 문서에 있어요.&lt;/small&gt;&lt;/div&gt;&lt;/article&gt;
-      &lt;article class=&quot;p-minibox&quot;&gt;&lt;h3&gt;&lt;i data-lucide=&quot;notebook-pen&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 가꾸고 나서도, 이어지는 기록&lt;/h3&gt;&lt;p class=&quot;p-small&quot;&gt;상담과 작업 이력이 내 식물의 이야기로 남아요.&lt;/p&gt;&lt;div class=&quot;p-timeline&quot; style=&quot;margin-top:15px&quot;&gt;&lt;span&gt;목표 수형&lt;/span&gt;&lt;span&gt;작업 기록&lt;/span&gt;&lt;span&gt;성장 비교&lt;/span&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-action=&quot;garden&quot; style=&quot;margin-top:8px&quot;&gt;내 정원에서 이어보기 &lt;i data-lucide=&quot;arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/article&gt;
+    &lt;section class=&quot;p-stack&quot; id=&quot;p-daily&quot;&gt;
+      &lt;article class=&quot;p-box&quot; id=&quot;p-first-start&quot;&gt;
+        &lt;p class=&quot;p-eyebrow&quot;&gt;처음 받은 식물도 괜찮아요&lt;/p&gt;&lt;h2&gt;이름을 몰라도 시작해요&lt;/h2&gt;
+        &lt;p class=&quot;p-small&quot; style=&quot;margin:10px 0 18px&quot;&gt;내 식물을 등록하고 지금 상태를 살펴본 뒤, 첫 관찰을 남겨보세요.&lt;/p&gt;
+        &lt;button type=&quot;button&quot; class=&quot;p-primary&quot; id=&quot;p-first-plant&quot; data-open-register&gt;첫 식물 등록하기&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; id=&quot;p-browse-samples&quot;&gt;샘플 정원 먼저 둘러보기 &lt;i data-lucide=&quot;arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;/article&gt;
+      &lt;p class=&quot;p-feedback&quot; id=&quot;p-daily-feedback&quot; role=&quot;status&quot;&gt;&lt;/p&gt;
+      &lt;div id=&quot;p-active-care&quot; class=&quot;p-stack&quot; hidden&gt;
+        &lt;article class=&quot;p-box&quot;&gt;
+          &lt;label for=&quot;p-selected-plant&quot; class=&quot;p-label&quot;&gt;지금 살펴볼 식물&lt;/label&gt;&lt;select id=&quot;p-selected-plant&quot; class=&quot;p-input&quot;&gt;&lt;/select&gt;
+          &lt;p class=&quot;p-small&quot; id=&quot;p-selected-detail&quot; style=&quot;margin-top:10px&quot;&gt;&lt;/p&gt;
+          &lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-open-register&gt;다른 식물 등록하기&lt;/button&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;p-box&quot; id=&quot;p-observation-card&quot;&gt;
+          &lt;p class=&quot;p-eyebrow&quot;&gt;01 · 지금 상태 살펴보기&lt;/p&gt;&lt;h2 id=&quot;p-observation-title&quot; tabindex=&quot;-1&quot;&gt;관찰 남기기&lt;/h2&gt;
+          &lt;p id=&quot;p-observation-context&quot; class=&quot;p-context p-small&quot; style=&quot;margin-top:12px&quot;&gt;&lt;/p&gt;
+          &lt;p class=&quot;p-small&quot; id=&quot;p-observation-question&quot;&gt;&lt;/p&gt;
+          &lt;div class=&quot;p-record&quot; id=&quot;p-observe-buttons&quot; role=&quot;group&quot; aria-label=&quot;관찰한 상태&quot;&gt;&lt;/div&gt;
+          &lt;div id=&quot;p-observation-help&quot; class=&quot;p-goalnote&quot; hidden&gt;&lt;/div&gt;
+          &lt;label class=&quot;p-form-label&quot; for=&quot;p-observation-note&quot;&gt;덧붙일 내용 &lt;span class=&quot;p-small&quot;&gt;· 선택&lt;/span&gt;&lt;/label&gt;
+          &lt;textarea class=&quot;p-input&quot; id=&quot;p-observation-note&quot; rows=&quot;2&quot; maxlength=&quot;300&quot; placeholder=&quot;예: 언제부터 달라졌는지 · 최대 300자&quot;&gt;&lt;/textarea&gt;
+          &lt;p class=&quot;p-fieldnote&quot;&gt;관찰을 남기는 기능이에요. 물을 주었다는 기록이나 급수 알림은 아니에요.&lt;/p&gt;
+          &lt;button type=&quot;button&quot; class=&quot;p-primary&quot; id=&quot;p-save-observation&quot; disabled&gt;관찰 남기기&lt;/button&gt;
+          &lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; id=&quot;p-cancel-edit&quot; hidden&gt;수정 취소&lt;/button&gt;
+          &lt;p class=&quot;p-feedback&quot; id=&quot;p-record-feedback&quot; role=&quot;status&quot;&gt;&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;p-box&quot; id=&quot;p-history-card&quot;&gt;
+          &lt;p class=&quot;p-eyebrow&quot;&gt;02 · 내 관찰 확인하기&lt;/p&gt;&lt;h2 id=&quot;p-history-title&quot; tabindex=&quot;-1&quot;&gt;관찰 기록&lt;/h2&gt;
+          &lt;p class=&quot;p-small&quot; id=&quot;p-history-context&quot; style=&quot;margin:10px 0 14px&quot;&gt;&lt;/p&gt;
+          &lt;p class=&quot;p-small&quot; id=&quot;p-history-empty&quot;&gt;아직 관찰이 없어요. 위에서 상태를 골라 첫 관찰을 남겨보세요.&lt;/p&gt;
+          &lt;ol class=&quot;p-history&quot; id=&quot;p-history-list&quot;&gt;&lt;/ol&gt;
+          &lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; id=&quot;p-plant-help&quot;&gt;이 식물의 관리 도움 찾기 &lt;i data-lucide=&quot;arrow-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+          &lt;p class=&quot;p-small&quot;&gt;지금은 ‘나’ 한 명의 체험이에요. 가족 초대·공동 기록·상담 전송은 제공하지 않아요.&lt;/p&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
     &lt;/section&gt;
   &lt;/main&gt;
-  &lt;nav class=&quot;p-bottomnav&quot; aria-label=&quot;주 메뉴&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;today&quot;&gt;&lt;i data-lucide=&quot;sun&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;오늘&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;garden&quot;&gt;&lt;i data-lucide=&quot;sprout&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;내 정원&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;match&quot; aria-current=&quot;page&quot;&gt;&lt;i data-lucide=&quot;scan-search&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;찾기·꾸미기&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;guide&quot;&gt;&lt;i data-lucide=&quot;book-open&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;가이드&lt;/button&gt;&lt;/nav&gt;
+  &lt;nav class=&quot;p-bottomnav&quot; aria-label=&quot;주 메뉴&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;today&quot; aria-current=&quot;page&quot;&gt;&lt;i data-lucide=&quot;sun&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;오늘&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;garden&quot;&gt;&lt;i data-lucide=&quot;sprout&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;내 정원&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;commerce&quot;&gt;&lt;i data-lucide=&quot;shopping-bag&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;구매 비교&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;match&quot;&gt;&lt;i data-lucide=&quot;messages-square&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;도움&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-navbutton&quot; data-nav=&quot;cases&quot;&gt;&lt;i data-lucide=&quot;book-open&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;사례&lt;/button&gt;&lt;/nav&gt;
   &lt;script&gt;
     (function(){
       const root=document.getElementById(&#x27;plantory-concept&#x27;);
       const q=s=&gt;root.querySelector(s),qa=s=&gt;Array.from(root.querySelectorAll(s));
-      const state={path:&#x27;care&#x27;,method:&#x27;advice&#x27;,goal:0,page:&#x27;match&#x27;};
+      const state={path:&#x27;care&#x27;,method:&#x27;advice&#x27;,goal:0,page:&#x27;today&#x27;,selectedPlantId:null,registerFrom:&#x27;today&#x27;};
+      const plants=[{id:&#x27;sample-monstera&#x27;,name:&#x27;거실의 몬스테라&#x27;,location:&#x27;거실 창가&#x27;,type:&#x27;soil&#x27;,sample:true},{id:&#x27;sample-scindapsus&#x27;,name:&#x27;책장의 스킨답서스&#x27;,location:&#x27;거실 책장&#x27;,type:&#x27;soil&#x27;,sample:true},{id:&#x27;sample-forest&#x27;,name:&#x27;책상 위 작은 숲&#x27;,location:&#x27;책상&#x27;,type:&#x27;terrarium&#x27;,sample:true}];
+      const records=[];let nextPlantId=1,nextRecordId=1;
+      const extensionViews=new Map(),plantContexts=new Map();
+      let observation={plantId:null,status:null,note:&#x27;&#x27;,editingId:null};
+      const containerLabels={soil:&#x27;일반 흙 화분&#x27;,hydro:&#x27;수경재배&#x27;,terrarium:&#x27;테라리움&#x27;,paludarium:&#x27;팔루다리움&#x27;,unknown:&#x27;재배 방식 모름&#x27;};
       const data={
-        care:{name:&#x27;거실의 몬스테라&#x27;,label:&#x27;내 정원에서 선택 · 예시&#x27;,info:&#x27;거실 창가 · 속화분 지름 20cm&#x27;,icon:&#x27;sprout&#x27;,question:&#x27;어떤 모습으로 가꾸고 싶나요?&#x27;,goals:[&#x27;퍼진 수형 정리&#x27;,&#x27;화분 바꾸기&#x27;,&#x27;건강하게 회복&#x27;],field1:&#x27;최근 변화&#x27;,options1:[&#x27;한쪽으로 많이 퍼졌어요&#x27;,&#x27;최근 분갈이를 했어요&#x27;,&#x27;특별한 변화는 없어요&#x27;],field2:&#x27;원하는 시기&#x27;,options2:[&#x27;방법부터 알아볼래요&#x27;,&#x27;이번 달 안에&#x27;,&#x27;상담 후 결정&#x27;],note:&#x27;작업 여부는 식물의 상태를 확인한 뒤 결정해요.&#x27;,photo:&#x27;정면·측면 사진 추가 흐름 보기&#x27;,titles:{self:&#x27;우리 식물에 맞는 방법 찾기&#x27;,advice:&#x27;자르기 전에, 방향부터 함께&#x27;,expert:&#x27;직접 하기 어렵다면 맡겨요&#x27;},copy:{self:&#x27;식물 상태와 목표를 확인하고 가이드·준비물을 골라요.&#x27;,advice:&#x27;지지대·유인·가지 정리 중 어떤 방법이 맞을지 상담해요.&#x27;,expert:&#x27;가능한 작업과 장소를 확인한 뒤 작업자를 연결해요.&#x27;},checks:{self:[&#x27;목표에 맞는 관리 가이드&#x27;,&#x27;보유 화분·지지대 활용 확인&#x27;,&#x27;작업 전후 사진과 경과 기록&#x27;],advice:[&#x27;전체 모습과 줄기 상태 확인&#x27;,&#x27;원하는 크기와 수형 상담&#x27;,&#x27;직접 할 일과 맡길 일 구분&#x27;],expert:[&#x27;작업 범위와 가능한 방법 확인&#x27;,&#x27;지역·운반 조건에 맞는 전문가&#x27;,&#x27;작업 후 관리법과 이력 연결&#x27;]}},
+        care:{name:&#x27;거실의 몬스테라&#x27;,label:&#x27;내 정원에서 선택 · 예시&#x27;,info:&#x27;거실 창가 · 속화분 지름 20cm&#x27;,icon:&#x27;sprout&#x27;,question:&#x27;어떤 모습으로 가꾸고 싶나요?&#x27;,goals:[&#x27;퍼진 수형 정리&#x27;,&#x27;화분 바꾸기&#x27;,&#x27;건강하게 회복&#x27;],field1:&#x27;최근 변화&#x27;,options1:[&#x27;아직 확인하지 않았어요&#x27;,&#x27;한쪽으로 많이 퍼졌어요&#x27;,&#x27;최근 분갈이를 했어요&#x27;,&#x27;특별한 변화는 없어요&#x27;],field2:&#x27;원하는 시기&#x27;,options2:[&#x27;방법부터 알아볼래요&#x27;,&#x27;이번 달 안에&#x27;,&#x27;상담 후 결정&#x27;],note:&#x27;작업 여부는 식물의 상태를 확인한 뒤 결정해요.&#x27;,photo:&#x27;정면·측면 사진 추가 흐름 보기&#x27;,titles:{self:&#x27;우리 식물에 맞는 방법 찾기&#x27;,advice:&#x27;자르기 전에, 방향부터 함께&#x27;,expert:&#x27;직접 하기 어렵다면 맡겨요&#x27;},copy:{self:&#x27;식물 상태와 목표를 확인하고 가이드·준비물을 골라요.&#x27;,advice:&#x27;지지대·유인·가지 정리 중 어떤 방법이 맞을지 상담해요.&#x27;,expert:&#x27;가능한 작업과 장소를 확인한 뒤 작업자를 연결해요.&#x27;},checks:{self:[&#x27;목표에 맞는 관리 가이드&#x27;,&#x27;보유 화분·지지대 활용 확인&#x27;,&#x27;작업 전후 사진과 경과 기록&#x27;],advice:[&#x27;전체 모습과 줄기 상태 확인&#x27;,&#x27;원하는 크기와 수형 상담&#x27;,&#x27;직접 할 일과 맡길 일 구분&#x27;],expert:[&#x27;작업 범위와 가능한 방법 확인&#x27;,&#x27;지역·운반 조건에 맞는 전문가&#x27;,&#x27;작업 후 관리법과 이력 연결&#x27;]}},
         space:{name:&#x27;거실 창가의 빈자리&#x27;,label:&#x27;꾸미고 싶은 공간 · 예시&#x27;,info:&#x27;밝은 우드 취향 · 선반 위 공간&#x27;,icon:&#x27;armchair&#x27;,question:&#x27;어떤 조합을 찾고 있나요?&#x27;,goals:[&#x27;식물·화분 함께&#x27;,&#x27;내 화분 활용&#x27;,&#x27;보유 식물 재배치&#x27;],field1:&#x27;빛 조건&#x27;,options1:[&#x27;아직 확인하지 않았어요&#x27;,&#x27;직사광이 들어와요&#x27;,&#x27;밝지만 직사광은 없어요&#x27;],field2:&#x27;전체 예산&#x27;,options2:[&#x27;5만 원 이내&#x27;,&#x27;5만–10만 원&#x27;,&#x27;10만–20만 원&#x27;],note:&#x27;사진의 밝기만으로 생육 적합성을 확정하지 않아요.&#x27;,photo:&#x27;공간 사진 추가 흐름 보기&#x27;,titles:{self:&#x27;우리집 조건부터 맞춰봐요&#x27;,advice:&#x27;공간과 취향을 함께 살펴요&#x27;,expert:&#x27;공간에 맞는 구성을 제안받아요&#x27;},copy:{self:&#x27;실제로 놓을 수 있는 크기와 환경을 먼저 확인해요.&#x27;,advice:&#x27;잘 자랄 환경인지, 내가 좋아하는 분위기인지 나누어 살펴요.&#x27;,expert:&#x27;공간 제안부터 상품·설치 조건까지 상담할 곳을 찾아요.&#x27;},checks:{self:[&#x27;공간 치수와 빛 조건 확인&#x27;,&#x27;속화분·겉화분 규격 비교&#x27;,&#x27;보유 물품을 우선한 구매 목록&#x27;],advice:[&#x27;공간 사진과 실제 치수 확인&#x27;,&#x27;식물·화분 조합 후보 비교&#x27;,&#x27;생육 조건과 스타일 각각 안내&#x27;],expert:[&#x27;예산에 맞는 구성 제안&#x27;,&#x27;판매·배송·설치 가능 조건 확인&#x27;,&#x27;구매 후 내 정원 관리로 연결&#x27;]}},
         terrarium:{name:&#x27;책상 위에 놓을 작은 숲&#x27;,label:&#x27;만들고 싶은 작품 · 예시&#x27;,info:&#x27;이끼 테라리움 · 20cm 용기&#x27;,icon:&#x27;trees&#x27;,question:&#x27;어떤 모습이 마음에 드나요?&#x27;,goals:[&#x27;이끼 가득 작은 숲&#x27;,&#x27;돌과 식물이 있는 정원&#x27;,&#x27;내 참고 사진으로&#x27;],field1:&#x27;제작 경험&#x27;,options1:[&#x27;처음 만들어봐요&#x27;,&#x27;한두 번 만들어봤어요&#x27;,&#x27;혼자 만들어본 적 있어요&#x27;],field2:&#x27;전체 예산&#x27;,options2:[&#x27;5만 원 이내&#x27;,&#x27;5만–10만 원&#x27;,&#x27;10만 원 이상&#x27;],note:&#x27;제작 방식에 따라 재료·공방·완성품으로 연결해요.&#x27;,photo:&#x27;원하는 작품 사진 추가 흐름 보기&#x27;,titles:{self:&#x27;필요한 재료부터 차근차근&#x27;,advice:&#x27;배우면서 나만의 작품 만들기&#x27;,expert:&#x27;원하는 분위기로 제작 의뢰&#x27;},copy:{self:&#x27;용기 크기와 원하는 구성을 기준으로 준비물을 정리해요.&#x27;,advice:&#x27;경험과 취향에 맞는 공방·클래스 상담으로 연결해요.&#x27;,expert:&#x27;참고 이미지와 예산을 전달하고 가능한 구성을 확인해요.&#x27;},checks:{self:[&#x27;구성 식물과 재료 목록&#x27;,&#x27;가지고 있는 용기 활용 확인&#x27;,&#x27;제작 순서와 이후 관리 안내&#x27;],advice:[&#x27;취향과 경험에 맞는 클래스&#x27;,&#x27;포함 재료·용기·일정 확인&#x27;,&#x27;작품 등록과 수업 후 관리&#x27;],expert:[&#x27;제작 가능한 구성과 규격&#x27;,&#x27;제작 기간·배송 조건·견적 확인&#x27;,&#x27;완성 후 용기 관리기록 연결&#x27;]}}
       };
-      const drafts = Object.fromEntries(Object.keys(data).map(key =&gt; [key, {goal:0,method:&#x27;advice&#x27;,fields:[data[key].options1[0],data[key].options2[0]],source:null}]));
+      function newDraft(path,plantId=null){return {goal:0,method:&#x27;advice&#x27;,fields:[data[path].options1[0],data[path].options2[0]],source:null,plantId};}
+      const drafts = Object.fromEntries(Object.keys(data).map(key =&gt; [key,newDraft(key,key===&#x27;care&#x27;?&#x27;sample-monstera&#x27;:null)]));
+      const plantDrafts = new Map();
       const labels = {
         care:{self:&#x27;직접 해볼래요&#x27;,advice:&#x27;사진 상담&#x27;,expert:&#x27;작업 맡기기&#x27;},
         space:{self:&#x27;직접 고르기&#x27;,advice:&#x27;조합 상담&#x27;,expert:&#x27;구성 맡기기&#x27;},
@@ -1154,7 +1247,7 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
           {titles:{self:&#x27;상태 변화부터 차근차근 확인&#x27;,advice:&#x27;관찰 기록을 모아 회복 방향 상담&#x27;,expert:&#x27;상태를 직접 확인할 도움 찾기&#x27;},copy:&#x27;변한 부위와 시작 시점, 최근 물주기·자리 이동을 정리해요. 사진만으로 원인을 확정하지 않아요.&#x27;,checks:[&#x27;전체·문제 부위·잎 뒷면 사진&#x27;,&#x27;증상 시작 시점과 최근 관리 변화&#x27;,&#x27;추가 확인과 경과 관찰 방법&#x27;]}
         ],
         space:[null,
-          {titles:{self:&#x27;내 화분의 규격부터 확인&#x27;,advice:&#x27;가진 화분에 맞는 식물 상담&#x27;,expert:&#x27;내 화분을 활용한 구성 제안&#x27;},copy:&#x27;겉화분의 안쪽 치수·배수 구조와 놓을 공간을 확인해요. 이 시안에는 규격 입력과 실제 상품 비교가 아직 없어요.&#x27;,checks:[&#x27;화분 내경·깊이와 배수구 유무&#x27;,&#x27;속화분이 들어가는 실제 규격&#x27;,&#x27;놓을 공간의 치수·빛 조건&#x27;]},
+          {titles:{self:&#x27;내 화분의 규격부터 확인&#x27;,advice:&#x27;가진 화분에 맞는 식물 상담&#x27;,expert:&#x27;내 화분을 활용한 구성 제안&#x27;},copy:&#x27;겉화분의 안쪽 치수·배수 구조와 놓을 공간을 확인해요. 구매 비교에서 예시 상품의 크기와 구성을 살펴볼 수 있어요.&#x27;,checks:[&#x27;화분 내경·깊이와 배수구 유무&#x27;,&#x27;속화분이 들어가는 실제 규격&#x27;,&#x27;놓을 공간의 치수·빛 조건&#x27;]},
           {titles:{self:&#x27;보유 식물의 자리 다시 살펴보기&#x27;,advice:&#x27;식물에 맞는 새 자리 상담&#x27;,expert:&#x27;보유 식물 재배치 도움 찾기&#x27;},copy:&#x27;기존 식물의 현재 위치와 옮길 공간을 함께 비교해요. 새 물건이 필요한지도 나누어 판단해요.&#x27;,checks:[&#x27;선택한 식물의 크기와 현재 위치&#x27;,&#x27;옮길 공간의 치수·빛 조건&#x27;,&#x27;보유 화분·받침 우선 활용&#x27;]}
         ],
         terrarium:[null,
@@ -1164,8 +1257,8 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
       };
       function icons(){if(globalThis.lucide)globalThis.lucide.createIcons({attrs:{width:18,height:18}});}
       function saveDraft(){const d=drafts[state.path];d.goal=state.goal;d.method=state.method;if(q(&#x27;#p-field-one&#x27;))d.fields=[q(&#x27;#p-field-one&#x27;).value,q(&#x27;#p-field-two&#x27;).value];}
-      function summaryValues(){const d=data[state.path];return [[&#x27;대상&#x27;,q(&#x27;#p-object-name&#x27;).textContent],[&#x27;목표&#x27;,d.goals[state.goal]],[&#x27;진행 방식&#x27;,labels[state.path][state.method]],[d.field1,q(&#x27;#p-field-one&#x27;).value],[d.field2,q(&#x27;#p-field-two&#x27;).value]];}
-      function renderSummary(){const summary=q(&#x27;#p-summary&#x27;);summary.replaceChildren();summaryValues().forEach(([key,value])=&gt;{const dt=document.createElement(&#x27;dt&#x27;),dd=document.createElement(&#x27;dd&#x27;);dt.textContent=key;dd.textContent=value;summary.append(dt,dd);});}
+      function summaryValues(){const d=data[state.path],plant=plants.find(item=&gt;item.id===drafts[state.path].plantId);const values=[[&#x27;대상&#x27;,q(&#x27;#p-object-name&#x27;).textContent]];if(plant){values.push([&#x27;놓인 곳&#x27;,plant.location],[&#x27;재배 방식&#x27;,containerLabels[plant.type]]);const latest=records.filter(record=&gt;record.plantId===plant.id&amp;&amp;!record.cancelled).at(-1);values.push([&#x27;최근 관찰&#x27;,latest?statusLabel(plant,latest.status)+&#x27; · 나 · &#x27;+timeLabel(latest.updatedAt||latest.createdAt):&#x27;아직 남긴 관찰이 없어요.&#x27;]);}return values.concat([[&#x27;목표&#x27;,d.goals[state.goal]],[&#x27;진행 방식&#x27;,labels[state.path][state.method]],[d.field1,q(&#x27;#p-field-one&#x27;).value],[d.field2,q(&#x27;#p-field-two&#x27;).value]]);}
+      function renderSummary(){qa(&#x27;[data-request-plant][data-open-view=&quot;followup&quot;]&#x27;).forEach(button=&gt;button.hidden=!drafts[state.path].plantId);const summary=q(&#x27;#p-summary&#x27;);summary.replaceChildren();const values=summaryValues(),context=plantContexts.get(drafts[state.path].plantId);if(context)Object.values(context).forEach(rows=&gt;values.push(...rows));values.forEach(([key,value])=&gt;{const dt=document.createElement(&#x27;dt&#x27;),dd=document.createElement(&#x27;dd&#x27;);dt.textContent=key;dd.textContent=value;summary.append(dt,dd);});}
       function renderResult(){
         const d=data[state.path],detail=goalContent[state.path][state.goal];
         q(&#x27;#p-result-title&#x27;).textContent=(detail?detail.titles:d.titles)[state.method];
@@ -1175,7 +1268,7 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
         q(&#x27;#p-partner&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;가이드 · 필요한 상품 연결&#x27;:state.method===&#x27;advice&#x27;?(state.path===&#x27;terrarium&#x27;?&#x27;공방 · 클래스 상담&#x27;:&#x27;사진 상담 · 전문가 연결&#x27;):&#x27;전문가 · 제작자 연결&#x27;;
         q(&#x27;#p-preview span&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;준비 내용 미리보기&#x27;:&#x27;매칭 요청서 미리보기&#x27;;
         q(&#x27;#p-request-title&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;준비 내용을 정리했어요&#x27;:&#x27;이렇게 전달돼요&#x27;;
-        q(&#x27;#p-share-note&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;필요한 정보와 준비물을 정리하는 예시예요. 실제 가이드·상품 추천은 아직 없어요.&#x27;:&#x27;정식 서비스에서는 공유할 항목을 선택해 전달해요. 이 시안에는 사진 선택·공유·전송 기능이 없어요.&#x27;;
+        q(&#x27;#p-share-note&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;필요한 정보와 준비물을 정리하는 예시예요. 준비물 예산과 사례 탐색으로 이어갈 수 있어요.&#x27;:&#x27;정식 서비스에서는 공유할 항목을 선택해 전달해요. 지금 보이는 요청서는 체험용 미리보기이며 사진이나 내용을 전송하지 않아요.&#x27;;
         q(&#x27;#p-pricing&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;구매 전 비용 확인&#x27;:&#x27;비용은 견적 확인 후 결정&#x27;;
         qa(&#x27;[data-method]&#x27;).forEach(button=&gt;{button.setAttribute(&#x27;aria-pressed&#x27;,String(button.dataset.method===state.method));button.querySelector(&#x27;span&#x27;).textContent=labels[state.path][button.dataset.method];});
         qa(&#x27;[data-goal]&#x27;).forEach(button=&gt;button.setAttribute(&#x27;aria-pressed&#x27;,String(Number(button.dataset.goal)===state.goal)));
@@ -1186,9 +1279,10 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
       function renderPath(){
         const d=data[state.path],draft=drafts[state.path];
         qa(&#x27;[data-path]&#x27;).forEach(button=&gt;button.setAttribute(&#x27;aria-pressed&#x27;,String(button.dataset.path===state.path)));
-        q(&#x27;#p-object-name&#x27;).textContent=draft.source||d.name;
-        q(&#x27;#p-object-label&#x27;).textContent=draft.source?&#x27;내 정원에서 이어서 · 예시&#x27;:d.label;
-        q(&#x27;#p-object-info&#x27;).textContent=draft.source===&#x27;책장의 스킨답서스&#x27;?&#x27;현재 거실 책장 · 옮길 자리 확인&#x27;:d.info;
+        const plant=plants.find(item=&gt;item.id===draft.plantId);
+        q(&#x27;#p-object-name&#x27;).textContent=plant?plant.name:draft.source||d.name;
+        q(&#x27;#p-object-label&#x27;).textContent=plant?(plant.sample?&#x27;샘플 정원에서 선택&#x27;:&#x27;이번 체험에서 등록한 식물&#x27;):draft.source?&#x27;내 정원에서 이어서 · 예시&#x27;:d.label;
+        q(&#x27;#p-object-info&#x27;).textContent=plant?plant.location+&#x27; · &#x27;+containerLabels[plant.type]:draft.source===&#x27;책장의 스킨답서스&#x27;?&#x27;현재 거실 책장 · 옮길 자리 확인&#x27;:d.info;
         q(&#x27;#p-art&#x27;).innerHTML=&#x27;&lt;i data-lucide=&quot;&#x27;+d.icon+&#x27;&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&#x27;;
         q(&#x27;#p-question&#x27;).textContent=d.question;
         q(&#x27;#p-goals&#x27;).replaceChildren();d.goals.forEach((goal,index)=&gt;{const button=document.createElement(&#x27;button&#x27;);button.type=&#x27;button&#x27;;button.className=&#x27;p-chip&#x27;;button.dataset.goal=String(index);button.textContent=goal;q(&#x27;#p-goals&#x27;).append(button);});
@@ -1196,31 +1290,782 @@ lucide.createIcons({icons});\``);if(typeof c&gt;&quot;u&quot;)throw new Error(&q
         [[d.field1,d.options1,&#x27;p-field-one&#x27;],[d.field2,d.options2,&#x27;p-field-two&#x27;]].forEach(([title,values,id],index)=&gt;{const label=document.createElement(&#x27;label&#x27;),select=document.createElement(&#x27;select&#x27;);label.textContent=title;select.className=&#x27;p-input&#x27;;select.id=id;values.forEach(value=&gt;{const option=document.createElement(&#x27;option&#x27;);option.textContent=value;select.append(option);});select.value=draft.fields[index];label.append(select);q(&#x27;#p-fields&#x27;).append(label);});
         q(&#x27;#p-fieldnote&#x27;).textContent=d.note;q(&#x27;#p-photo-feedback&#x27;).textContent=&#x27;&#x27;;renderResult();
       }
-      function switchPath(path,goal,source){saveDraft();state.path=path;const draft=drafts[path];if(goal!==undefined)draft.goal=goal;if(source!==undefined)draft.source=source;state.goal=draft.goal;state.method=draft.method;q(&#x27;#p-request-sheet&#x27;).hidden=true;renderPath();}
-      function navigate(page){
-        saveDraft();state.page=page;q(&#x27;#p-match-view&#x27;).hidden=page!==&#x27;match&#x27;;q(&#x27;#p-garden-view&#x27;).hidden=page!==&#x27;garden&#x27;;q(&#x27;#p-guide-view&#x27;).hidden=page!==&#x27;guide&#x27;;q(&#x27;#p-daily&#x27;).hidden=page!==&#x27;today&#x27;;
-        const titles={match:[&#x27;내 식물의 다음 모습, 함께 찾아요.&#x27;,&#x27;지금 가진 식물부터, 새로 만들 작은 정원까지.&#x27;],garden:[&#x27;우리집의 작은 정원&#x27;,&#x27;샘플 정원 · 실제 식물과 기록은 저장되지 않아요.&#x27;],today:[&#x27;오늘은 상태부터 살펴봐요.&#x27;,&#x27;밀린 물주기 대신, 지금 필요한 확인부터.&#x27;],guide:[&#x27;가꾸는 방법을 찾아보세요.&#x27;,&#x27;직접 해보기부터 전문가의 도움까지.&#x27;]};
-        q(&#x27;#p-page-title&#x27;).textContent=titles[page][0];q(&#x27;#p-page-sub&#x27;).textContent=titles[page][1];
-        qa(&#x27;[data-nav]&#x27;).forEach(button=&gt;{if(button.dataset.nav===page)button.setAttribute(&#x27;aria-current&#x27;,&#x27;page&#x27;);else button.removeAttribute(&#x27;aria-current&#x27;);});
-        window.scrollTo({top:0,behavior:&#x27;instant&#x27;});q(&#x27;#p-page-title&#x27;).focus({preventScroll:true});
+      function switchPath(path,goal,source,plantId){saveDraft();state.path=path;let draft=drafts[path];if(plantId!==undefined){const key=path+&#x27;:&#x27;+plantId;if(!plantDrafts.has(key))plantDrafts.set(key,newDraft(path,plantId));draft=plantDrafts.get(key);drafts[path]=draft;}if(goal!==undefined)draft.goal=goal;if(source!==undefined)draft.source=source;state.goal=draft.goal;state.method=draft.method;q(&#x27;#p-request-sheet&#x27;).hidden=true;renderPath();}
+      const observationsByType={
+        soil:{question:&#x27;물주기 전에 흙 상태를 살펴봐요.&#x27;,choices:[[&#x27;wet&#x27;,&#x27;아직 젖어 있어요&#x27;],[&#x27;dry&#x27;,&#x27;말라 있어요&#x27;],[&#x27;unknown&#x27;,&#x27;잘 모르겠어요&#x27;]]},
+        hydro:{question:&#x27;평소와 비교해 물의 높이나 모습이 달라 보이나요?&#x27;,choices:[[&#x27;changed&#x27;,&#x27;변화가 보여요&#x27;],[&#x27;stable&#x27;,&#x27;비슷해 보여요&#x27;],[&#x27;unknown&#x27;,&#x27;잘 모르겠어요&#x27;]]},
+        terrarium:{question:&#x27;용기 안쪽의 결로가 어떻게 보이나요?&#x27;,choices:[[&#x27;condensation&#x27;,&#x27;결로가 보여요&#x27;],[&#x27;clear&#x27;,&#x27;결로가 안 보여요&#x27;],[&#x27;unknown&#x27;,&#x27;잘 모르겠어요&#x27;]]},
+        paludarium:{question:&#x27;평소와 비교해 수위가 달라 보이나요?&#x27;,choices:[[&#x27;changed&#x27;,&#x27;수위가 달라요&#x27;],[&#x27;stable&#x27;,&#x27;비슷해 보여요&#x27;],[&#x27;unknown&#x27;,&#x27;잘 모르겠어요&#x27;]]},
+        unknown:{question:&#x27;재배 방식을 모르면 겉으로 보이는 변화부터 살펴봐요.&#x27;,choices:[[&#x27;changed&#x27;,&#x27;변화가 보여요&#x27;],[&#x27;stable&#x27;,&#x27;큰 변화는 없어요&#x27;],[&#x27;unknown&#x27;,&#x27;잘 모르겠어요&#x27;]]}
+      };
+      function el(tag,className,text){const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;}
+      function selectedPlant(){return plants.find(plant=&gt;plant.id===state.selectedPlantId);}
+      function statusLabel(plant,status){const choice=observationsByType[plant.type].choices.find(item=&gt;item[0]===status);return choice?choice[1]:status;}
+      function timeLabel(value){return new Intl.DateTimeFormat(&#x27;ko-KR&#x27;,{month:&#x27;long&#x27;,day:&#x27;numeric&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;,second:&#x27;2-digit&#x27;,hour12:false}).format(value);}
+      function actionButton(label,attribute,id){const button=el(&#x27;button&#x27;,&#x27;p-secondary&#x27;,label);button.type=&#x27;button&#x27;;button.setAttribute(attribute,id);return button;}
+      function renderGarden(){
+        q(&#x27;#p-session-plants&#x27;).replaceChildren();q(&#x27;#p-sample-plants&#x27;).replaceChildren();
+        q(&#x27;#p-garden-empty&#x27;).hidden=plants.some(plant=&gt;!plant.sample);
+        plants.forEach(plant=&gt;{
+          const card=el(&#x27;article&#x27;,&#x27;p-garden-item&#x27;);card.append(el(&#x27;p&#x27;,&#x27;p-sampletag&#x27;,plant.sample?&#x27;둘러보기 샘플&#x27;:&#x27;이번 체험에서 등록&#x27;),el(&#x27;h3&#x27;,&#x27;&#x27;,plant.name),el(&#x27;p&#x27;,&#x27;p-small&#x27;,plant.location+&#x27; · &#x27;+containerLabels[plant.type]));
+          const actions=el(&#x27;div&#x27;,&#x27;p-actions&#x27;);actions.append(actionButton(&#x27;상태 살펴보기&#x27;,&#x27;data-select-plant&#x27;,plant.id));
+          if(plant.sample){const path=plant.id===&#x27;sample-forest&#x27;?&#x27;terrarium&#x27;:plant.id===&#x27;sample-scindapsus&#x27;?&#x27;space&#x27;:&#x27;care&#x27;;const button=actionButton(path===&#x27;terrarium&#x27;?&#x27;새 작품 제작 방법 보기&#x27;:path===&#x27;space&#x27;?&#x27;공간 조합 찾기&#x27;:&#x27;수형 가꾸기&#x27;,&#x27;data-action&#x27;,path);button.dataset.plantId=plant.id;if(path===&#x27;space&#x27;)button.dataset.source=plant.name;actions.append(button);}
+          card.append(actions);const more=el(&#x27;details&#x27;,&#x27;p-plant-tools&#x27;);more.append(el(&#x27;summary&#x27;,&#x27;&#x27;,&#x27;입양·경과·분양 기록&#x27;));const tools=el(&#x27;div&#x27;,&#x27;p-actions&#x27;);[[&#x27;arrival&#x27;,&#x27;입양 체크&#x27;],[&#x27;followup&#x27;,&#x27;경과 관리&#x27;],[&#x27;transfer&#x27;,&#x27;판매·분양 카드&#x27;]].forEach(([view,label])=&gt;{const button=actionButton(label,&#x27;data-open-view&#x27;,view);button.dataset.plantId=plant.id;tools.append(button);});more.append(tools);card.append(more);(plant.sample?q(&#x27;#p-sample-plants&#x27;):q(&#x27;#p-session-plants&#x27;)).append(card);
+        });
       }
-      root.addEventListener(&#x27;change&#x27;,event=&gt;{if(event.target.matches(&#x27;#p-field-one,#p-field-two&#x27;)){saveDraft();if(!q(&#x27;#p-request-sheet&#x27;).hidden){renderSummary();q(&#x27;#p-analysis-feedback&#x27;).textContent=&#x27;변경한 조건을 요청서에 반영했어요.&#x27;;}}});
+      function renderObservationHelp(plant){
+        const help=q(&#x27;#p-observation-help&#x27;);help.replaceChildren();help.hidden=observation.status!==&#x27;unknown&#x27;;
+        if(help.hidden)return;
+        const guides={
+          soil:[&#x27;일반 흙 화분의 관찰 방법&#x27;,[&#x27;겉흙만 보지 말고 손가락을 조금 넣어 안쪽의 촉촉함도 확인해요.&#x27;,&#x27;안전하게 들 수 있는 작은 화분만 들어 평소보다 가벼운지 비교해요.&#x27;,&#x27;확실하지 않으면 모름으로 남겨요. 이 관찰만으로 물주기를 결정하지 않아요.&#x27;],&#x27;식물·용토·화분마다 달라요. 수경재배·테라리움·팔루다리움에는 이 방법을 적용하지 않아요.&#x27;],
+          hydro:[&#x27;수경재배는 물과 용기를 살펴봐요&#x27;,[&#x27;용기 바깥에서 물의 높이와 눈에 보이는 변화를 살펴봐요.&#x27;,&#x27;평소와 달라진 점을 메모하고, 기준을 모르면 모름으로 남겨요.&#x27;,&#x27;이 관찰만으로 물 교체나 영양제 추가를 결정하지 않아요.&#x27;],&#x27;식물과 재배 방식별 관리 방법은 아직 제공하지 않아요. 흙을 만지는 관찰법은 적용하지 않아요.&#x27;],
+          terrarium:[&#x27;테라리움은 용기 바깥에서 살펴봐요&#x27;,[&#x27;관찰한 시간과 유리 안쪽의 결로가 보이는 위치를 살펴봐요.&#x27;,&#x27;뚜껑 유무와 눈에 보이는 변화를 메모해요.&#x27;,&#x27;모르면 그대로 남겨요. 결로만으로 물 추가나 환기를 결정하지 않아요.&#x27;],&#x27;용기 형태와 구성 식물에 따른 관리 방법은 아직 제공하지 않아요. 일반 흙 화분 관찰법은 적용하지 않아요.&#x27;],
+          paludarium:[&#x27;팔루다리움은 수위와 장비를 살펴봐요&#x27;,[&#x27;용기 바깥에서 평소 수위와 달라진 점을 살펴봐요.&#x27;,&#x27;장비의 켜짐 표시 등 눈에 보이는 상태만 메모해요.&#x27;,&#x27;평소 기준을 모르면 모름으로 남겨요. 수위 조절이나 장비 조작을 안내하지 않아요.&#x27;],&#x27;용기 구성과 생물·장비별 관리 방법은 아직 제공하지 않아요. 일반 흙 화분 관찰법은 적용하지 않아요.&#x27;],
+          unknown:[&#x27;모르는 상태로도 관찰을 남길 수 있어요&#x27;,[&#x27;용기 바깥에서 흙·물·뚜껑이 보이는지 살펴봐요.&#x27;,&#x27;잎과 용기에서 눈에 띄는 변화가 있으면 메모해요.&#x27;,&#x27;구분이 안 되면 모름으로 남겨요. 확인 없이 물을 추가하지 않아요.&#x27;],&#x27;재배 방식이 확인되기 전에는 일반 흙 화분 관찰법을 보여드리지 않아요.&#x27;]
+        };
+        const [title,steps,note]=guides[plant.type];help.append(el(&#x27;h3&#x27;,&#x27;&#x27;,title));const list=el(&#x27;ol&#x27;);steps.forEach(text=&gt;list.append(el(&#x27;li&#x27;,&#x27;&#x27;,text)));help.append(list,el(&#x27;p&#x27;,&#x27;&#x27;,note));
+        if(plant.type===&#x27;soil&#x27;)help.append(el(&#x27;small&#x27;,&#x27;&#x27;,&#x27;근거: 메릴랜드대학교·아이오와주립대학교 원예 안내. 출처와 적용 범위는 사용성 검토 문서에 있어요.&#x27;));
+      }
+      function renderObservation(){
+        const plant=selectedPlant();if(!plant)return;
+        q(&#x27;#p-observation-title&#x27;).textContent=observation.editingId?&#x27;관찰 수정하기&#x27;:&#x27;관찰 남기기&#x27;;
+        q(&#x27;#p-observation-context&#x27;).textContent=plant.name+&#x27; · &#x27;+plant.location+&#x27; · &#x27;+containerLabels[plant.type];
+        q(&#x27;#p-observation-question&#x27;).textContent=observationsByType[plant.type].question;
+        const buttons=q(&#x27;#p-observe-buttons&#x27;);buttons.replaceChildren();observationsByType[plant.type].choices.forEach(([value,label])=&gt;{const button=actionButton(label,&#x27;data-observation&#x27;,value);button.setAttribute(&#x27;aria-pressed&#x27;,String(observation.status===value));buttons.append(button);});
+        q(&#x27;#p-observation-note&#x27;).value=observation.note;
+        q(&#x27;#p-save-observation&#x27;).textContent=observation.editingId?&#x27;수정 내용 반영&#x27;:&#x27;관찰 남기기&#x27;;q(&#x27;#p-save-observation&#x27;).disabled=!observation.status;
+        q(&#x27;#p-cancel-edit&#x27;).hidden=!observation.editingId;renderObservationHelp(plant);
+      }
+      function renderHistory(){
+        const plant=selectedPlant();if(!plant)return;
+        const ownRecords=records.filter(record=&gt;record.plantId===plant.id);q(&#x27;#p-history-context&#x27;).textContent=plant.name+&#x27; · 유효한 관찰 &#x27;+ownRecords.filter(record=&gt;!record.cancelled).length+&#x27;개 · 작성자 나&#x27;;
+        q(&#x27;#p-history-empty&#x27;).hidden=ownRecords.length&gt;0;const list=q(&#x27;#p-history-list&#x27;);list.replaceChildren();
+        ownRecords.slice().reverse().forEach(record=&gt;{
+          const item=el(&#x27;li&#x27;,&#x27;p-history-item&#x27;);item.dataset.recordId=record.id;item.dataset.cancelled=String(record.cancelled);
+          item.append(el(&#x27;h3&#x27;,&#x27;&#x27;,(record.cancelled?&#x27;취소된 관찰 · &#x27;:&#x27;관찰 · &#x27;)+statusLabel(plant,record.status)),el(&#x27;p&#x27;,&#x27;p-small&#x27;,&#x27;대상: &#x27;+plant.name),el(&#x27;p&#x27;,&#x27;p-small&#x27;,&#x27;나 · &#x27;+timeLabel(record.createdAt)));
+          if(record.note)item.append(el(&#x27;p&#x27;,&#x27;p-small&#x27;,record.note));
+          if(record.updatedAt)item.append(el(&#x27;p&#x27;,&#x27;p-small&#x27;,&#x27;수정: &#x27;+timeLabel(record.updatedAt)));
+          if(record.cancelledAt)item.append(el(&#x27;p&#x27;,&#x27;p-small&#x27;,&#x27;취소: &#x27;+timeLabel(record.cancelledAt)));
+          if(record.restoredAt)item.append(el(&#x27;p&#x27;,&#x27;p-small&#x27;,&#x27;취소 되돌림: &#x27;+timeLabel(record.restoredAt)));
+          const actions=el(&#x27;div&#x27;,&#x27;p-actions&#x27;);if(record.cancelled)actions.append(actionButton(&#x27;취소 되돌리기&#x27;,&#x27;data-restore-record&#x27;,record.id));else actions.append(actionButton(&#x27;수정&#x27;,&#x27;data-edit-record&#x27;,record.id),actionButton(&#x27;관찰 취소&#x27;,&#x27;data-cancel-record&#x27;,record.id));item.append(actions);list.append(item);
+        });
+      }
+      function renderDaily(){
+        const plant=selectedPlant();q(&#x27;#p-first-start&#x27;).hidden=!!plant;q(&#x27;#p-active-care&#x27;).hidden=!plant;if(!plant)return;
+        const select=q(&#x27;#p-selected-plant&#x27;);select.replaceChildren();
+        [[false,&#x27;이번 체험에서 등록&#x27;],[true,&#x27;둘러보기 샘플&#x27;]].forEach(([sample,label])=&gt;{const group=el(&#x27;optgroup&#x27;);group.label=label;plants.filter(item=&gt;item.sample===sample).forEach(item=&gt;{const option=el(&#x27;option&#x27;,&#x27;&#x27;,item.name+&#x27; · &#x27;+item.location+&#x27; · &#x27;+containerLabels[item.type]);option.value=item.id;group.append(option);});if(group.children.length)select.append(group);});
+        select.value=plant.id;q(&#x27;#p-selected-detail&#x27;).textContent=(plant.sample?&#x27;샘플 식물&#x27;:&#x27;이번 체험에서 등록한 식물&#x27;)+&#x27; · &#x27;+containerLabels[plant.type];renderObservation();renderHistory();
+      }
+      function selectPlant(id){const plant=plants.find(item=&gt;item.id===id);if(!plant)return;state.selectedPlantId=id;observation={plantId:id,status:null,note:&#x27;&#x27;,editingId:null};q(&#x27;#p-record-feedback&#x27;).textContent=&#x27;&#x27;;q(&#x27;#p-daily-feedback&#x27;).textContent=&#x27;&#x27;;renderDaily();}
+      function navigate(page){
+        if(extensionViews.has(page)){openView(page,page===&#x27;cases&#x27;?{plantId:state.selectedPlantId}:undefined);return;}
+        if(![&#x27;today&#x27;,&#x27;garden&#x27;,&#x27;match&#x27;,&#x27;guide&#x27;,&#x27;register&#x27;].includes(page))return;
+        saveDraft();if(state.page===&#x27;register&#x27;&amp;&amp;page!==&#x27;register&#x27;)q(&#x27;#p-register-form&#x27;).reset();state.page=page;
+        extensionViews.forEach(view=&gt;{view.host.hidden=true;});
+        q(&#x27;#p-match-view&#x27;).hidden=page!==&#x27;match&#x27;;q(&#x27;#p-garden-view&#x27;).hidden=page!==&#x27;garden&#x27;;q(&#x27;#p-guide-view&#x27;).hidden=page!==&#x27;guide&#x27;;q(&#x27;#p-daily&#x27;).hidden=page!==&#x27;today&#x27;;q(&#x27;#p-register-view&#x27;).hidden=page!==&#x27;register&#x27;;
+        const titles={match:[&#x27;내 식물의 다음 모습, 함께 찾아요.&#x27;,&#x27;지금 가진 식물부터, 새로 만들 작은 정원까지.&#x27;],garden:[&#x27;우리집의 작은 정원&#x27;,&#x27;등록한 식물과 둘러보기 샘플을 확인해요.&#x27;],today:[&#x27;오늘은 상태부터 살펴봐요.&#x27;,&#x27;관찰을 남기고, 방금 기록을 확인해요.&#x27;],guide:[&#x27;가꾸는 방법을 찾아보세요.&#x27;,&#x27;직접 해보기부터 전문가의 도움까지.&#x27;],register:[&#x27;새 식물 등록하기&#x27;,&#x27;이름을 몰라도, 놓인 곳을 몰라도 괜찮아요.&#x27;]};
+        q(&#x27;#p-page-title&#x27;).textContent=titles[page][0];q(&#x27;#p-page-sub&#x27;).textContent=titles[page][1];
+        qa(&#x27;[data-nav]&#x27;).forEach(button=&gt;{if(button.dataset.nav===(page===&#x27;guide&#x27;?&#x27;match&#x27;:page===&#x27;register&#x27;?&#x27;garden&#x27;:page))button.setAttribute(&#x27;aria-current&#x27;,&#x27;page&#x27;);else button.removeAttribute(&#x27;aria-current&#x27;);});
+        if(page===&#x27;garden&#x27;)renderGarden();if(page===&#x27;today&#x27;)renderDaily();if(page===&#x27;match&#x27;&amp;&amp;!q(&#x27;#p-request-sheet&#x27;).hidden)renderSummary();window.scrollTo({top:0,behavior:&#x27;instant&#x27;});q(&#x27;#p-page-title&#x27;).focus({preventScroll:true});
+      }
+      function focusHistory(){q(&#x27;#p-history-card&#x27;).scrollIntoView({block:&#x27;start&#x27;,behavior:&#x27;instant&#x27;});q(&#x27;#p-history-title&#x27;).focus({preventScroll:true});}
+      root.addEventListener(&#x27;input&#x27;,event=&gt;{if(event.target.id===&#x27;p-observation-note&#x27;)observation.note=event.target.value;});
+      root.addEventListener(&#x27;change&#x27;,event=&gt;{
+        if(event.target.matches(&#x27;#p-field-one,#p-field-two&#x27;)){saveDraft();if(!q(&#x27;#p-request-sheet&#x27;).hidden){renderSummary();q(&#x27;#p-analysis-feedback&#x27;).textContent=&#x27;변경한 조건을 요청서에 반영했어요.&#x27;;}}
+        if(event.target.id===&#x27;p-selected-plant&#x27;)selectPlant(event.target.value);
+      });
       root.addEventListener(&#x27;click&#x27;,event=&gt;{
         const button=event.target.closest(&#x27;button&#x27;);if(!button||!root.contains(button))return;
         if(button.dataset.path)switchPath(button.dataset.path);
         if(button.dataset.method){state.method=button.dataset.method;saveDraft();renderResult();}
         if(button.dataset.goal!==undefined){state.goal=Number(button.dataset.goal);q(&#x27;#p-photo-feedback&#x27;).textContent=&#x27;&#x27;;saveDraft();renderResult();}
         if(button.dataset.nav)navigate(button.dataset.nav);
-        if(button.dataset.action){if(button.dataset.action===&#x27;garden&#x27;)navigate(&#x27;garden&#x27;);else{const path=button.dataset.action===&#x27;repot&#x27;?&#x27;care&#x27;:button.dataset.action;const goal=button.dataset.action===&#x27;repot&#x27;?1:button.dataset.action===&#x27;care&#x27;?0:button.dataset.source?2:undefined;switchPath(path,goal,button.dataset.source);navigate(&#x27;match&#x27;);}}
-        if(button.dataset.record){q(&#x27;#p-observation-help&#x27;).hidden=button.dataset.record!==&#x27;확인 방법 필요&#x27;;q(&#x27;#p-record-feedback&#x27;).textContent=button.dataset.record===&#x27;확인 방법 필요&#x27;?&#x27;아래의 관찰 방법을 살펴보세요. 확실하지 않으면 모름으로 남겨도 돼요.&#x27;:&#x27;예시 선택: &#x27;+button.dataset.record+&#x27; · 실제 물주기나 저장된 기록은 아니에요.&#x27;;}
+        if(button.dataset.openView){const plantId=button.dataset.plantId||(button.hasAttribute(&#x27;data-request-plant&#x27;)?drafts[state.path].plantId:button.hasAttribute(&#x27;data-current-plant&#x27;)?state.selectedPlantId:undefined);openView(button.dataset.openView,{...(plantId!==undefined?{plantId}:{}),...(button.dataset.openView===&#x27;budget&#x27;?{purpose:state.path===&#x27;terrarium&#x27;?&#x27;terrarium&#x27;:&#x27;repot&#x27;}:{})});}
+        if(button.hasAttribute(&#x27;data-open-register&#x27;)){state.registerFrom=state.page;q(&#x27;#p-register-form&#x27;).reset();navigate(&#x27;register&#x27;);}
+        if(button.dataset.action){if(button.dataset.action===&#x27;garden&#x27;)navigate(&#x27;garden&#x27;);else{const path=button.dataset.action===&#x27;repot&#x27;?&#x27;care&#x27;:button.dataset.action;const goal=button.dataset.action===&#x27;repot&#x27;?1:button.dataset.action===&#x27;care&#x27;?0:button.dataset.source?2:undefined;switchPath(path,goal,button.dataset.source,button.dataset.plantId);navigate(&#x27;match&#x27;);}}
+        if(button.dataset.selectPlant){selectPlant(button.dataset.selectPlant);navigate(&#x27;today&#x27;);}
+        if(button.dataset.observation){observation.status=button.dataset.observation;q(&#x27;#p-record-feedback&#x27;).textContent=observation.status===&#x27;unknown&#x27;?&#x27;아래 확인 방법을 읽어보세요. 모르는 상태로 남겨도 괜찮아요.&#x27;:&#x27;&#x27;;renderObservation();q(&#x27;[data-observation=&quot;&#x27;+observation.status+&#x27;&quot;]&#x27;).focus({preventScroll:true});}
+        if(button.dataset.editRecord){const record=records.find(item=&gt;item.id===button.dataset.editRecord&amp;&amp;!item.cancelled);if(record){observation={plantId:record.plantId,status:record.status,note:record.note,editingId:record.id};renderObservation();q(&#x27;#p-record-feedback&#x27;).textContent=&#x27;수정 내용을 반영하기 전까지 기존 관찰은 유지돼요.&#x27;;q(&#x27;#p-observation-card&#x27;).scrollIntoView({block:&#x27;start&#x27;,behavior:&#x27;instant&#x27;});q(&#x27;#p-observation-title&#x27;).focus({preventScroll:true});}}
+        if((button.dataset.cancelRecord||button.dataset.restoreRecord)&amp;&amp;event.detail&lt;2){const record=records.find(item=&gt;item.id===(button.dataset.cancelRecord||button.dataset.restoreRecord));if(record){record.cancelled=!!button.dataset.cancelRecord;if(record.cancelled)record.cancelledAt=new Date();else record.restoredAt=new Date();if(observation.editingId===record.id){observation={plantId:record.plantId,status:null,note:&#x27;&#x27;,editingId:null};renderObservation();}renderHistory();q(&#x27;#p-record-feedback&#x27;).textContent=record.cancelled?&#x27;관찰을 취소했어요. 기록에서 취소를 되돌릴 수 있어요.&#x27;:&#x27;취소한 관찰을 다시 살렸어요.&#x27;;focusHistory();}}
       });
+      function addPlant(input={}){const plant={id:&#x27;plant-&#x27;+nextPlantId++,name:String(input.name||&#x27;&#x27;).trim().slice(0,80)||&#x27;이름 모를 식물&#x27;,location:String(input.location||&#x27;&#x27;).trim().slice(0,100)||&#x27;놓인 곳 모름&#x27;,type:Object.hasOwn(containerLabels,input.type)?input.type:&#x27;unknown&#x27;,sample:false,origin:input.origin?structuredClone(input.origin):null};plants.push(plant);renderGarden();return structuredClone(plant);}
+      function createPlant(){if(state.page!==&#x27;register&#x27;)return;const plant=addPlant({name:q(&#x27;#p-plant-name&#x27;).value,type:q(&#x27;#p-container-type&#x27;).value,location:q(&#x27;#p-plant-location&#x27;).value});selectPlant(plant.id);navigate(&#x27;today&#x27;);q(&#x27;#p-daily-feedback&#x27;).textContent=plant.name+&#x27; 등록했어요. 지금 상태를 골라 첫 관찰을 남겨보세요.&#x27;;}
+      q(&#x27;#p-create-plant&#x27;).addEventListener(&#x27;click&#x27;,createPlant);
+      q(&#x27;#p-register-form&#x27;).addEventListener(&#x27;keydown&#x27;,event=&gt;{if(event.key===&#x27;Enter&#x27;&amp;&amp;event.target.matches(&#x27;input&#x27;)){event.preventDefault();createPlant();}});
+      q(&#x27;#p-register-form&#x27;).addEventListener(&#x27;submit&#x27;,event=&gt;event.preventDefault());
+      q(&#x27;#p-cancel-register&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;navigate(state.registerFrom));
+      q(&#x27;#p-browse-samples&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{navigate(&#x27;garden&#x27;);q(&#x27;#p-samples-title&#x27;).scrollIntoView({block:&#x27;start&#x27;,behavior:&#x27;instant&#x27;});q(&#x27;#p-samples-title&#x27;).focus({preventScroll:true});});
+      q(&#x27;#p-save-observation&#x27;).addEventListener(&#x27;click&#x27;,event=&gt;{
+        if(!observation.status||event.detail&gt;1)return;const plant=selectedPlant();if(!plant||observation.plantId!==plant.id)return;
+        if(observation.editingId){const record=records.find(item=&gt;item.id===observation.editingId&amp;&amp;!item.cancelled);if(!record)return;record.status=observation.status;record.note=observation.note.trim();record.updatedAt=new Date();q(&#x27;#p-record-feedback&#x27;).textContent=&#x27;관찰을 수정했어요. 아래 기록에서 확인하세요.&#x27;;}
+        else{records.push({id:&#x27;record-&#x27;+nextRecordId++,plantId:plant.id,status:observation.status,note:observation.note.trim(),createdAt:new Date(),cancelled:false});q(&#x27;#p-record-feedback&#x27;).textContent=&#x27;관찰을 남겼어요. 물주기를 기록한 것은 아니에요.&#x27;;}
+        observation={plantId:plant.id,status:null,note:&#x27;&#x27;,editingId:null};renderObservation();renderHistory();focusHistory();
+      });
+      q(&#x27;#p-cancel-edit&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{observation={plantId:state.selectedPlantId,status:null,note:&#x27;&#x27;,editingId:null};renderObservation();q(&#x27;#p-record-feedback&#x27;).textContent=&#x27;수정을 취소했어요. 기존 관찰은 그대로예요.&#x27;;focusHistory();});
+      q(&#x27;#p-plant-help&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{const plant=selectedPlant();if(!plant)return;switchPath(&#x27;care&#x27;,2,plant.name,plant.id);navigate(&#x27;match&#x27;);});
       q(&#x27;#p-photo-button&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#p-photo-feedback&#x27;).textContent=state.path===&#x27;care&#x27;?(state.goal===2?&#x27;전체·변한 부위·잎 뒷면 사진과 변화가 시작된 시점을 준비해요.&#x27;:&#x27;정면·측면 사진과 최근 작업 이력을 준비해요.&#x27;):state.path===&#x27;space&#x27;?&#x27;공간 사진과 놓을 위치의 실제 치수를 준비해요.&#x27;:&#x27;참고 사진에서 원하는 부분과 제작 조건을 정리해요.&#x27;;q(&#x27;#p-photo-feedback&#x27;).textContent+=&#x27; 이 시안은 사진을 선택하거나 전송하지 않아요.&#x27;;});
       q(&#x27;#p-preview&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{saveDraft();renderSummary();q(&#x27;#p-request-sheet&#x27;).hidden=false;q(&#x27;#p-analysis-feedback&#x27;).textContent=&#x27;&#x27;;q(&#x27;#p-request-sheet&#x27;).scrollIntoView({block:&#x27;start&#x27;,behavior:&#x27;instant&#x27;});q(&#x27;#p-request-title&#x27;).focus({preventScroll:true});});
       q(&#x27;#p-close&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#p-request-sheet&#x27;).hidden=true;q(&#x27;#p-field-one&#x27;).focus();});
-      q(&#x27;#p-analyze&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#p-analysis-feedback&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;정식 서비스에서는 조건에 맞는 가이드와 준비물 후보를 비교하는 단계로 이어져요. 이 시안에는 실제 가이드·상품 목록이 없어요.&#x27;:&#x27;정식 서비스에서는 공유할 사진·정보를 고른 뒤 제공 범위·총액·일정을 확인하고 수락해요. 이 시안은 요청을 전송하거나 예약하지 않아요.&#x27;;});
-      renderPath();q(&#x27;#p-daily&#x27;).hidden=true;
+      q(&#x27;#p-analyze&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{q(&#x27;#p-analysis-feedback&#x27;).textContent=state.method===&#x27;self&#x27;?&#x27;아래에서 준비물 총예산과 비슷한 환경의 사례를 살펴볼 수 있어요. 상품·가격·사례는 체험용 예시예요.&#x27;:&#x27;정식 서비스에서는 공유할 정보와 상담 범위·총액·응답 시간을 확인하고 수락해요. 지금은 요청서와 경과 계획을 체험하며 상담을 접수하지 않아요.&#x27;;});
+      function openView(id,context){const view=extensionViews.get(id);if(!view)return false;saveDraft();if(state.page===&#x27;register&#x27;)q(&#x27;#p-register-form&#x27;).reset();state.page=id;[&#x27;#p-match-view&#x27;,&#x27;#p-garden-view&#x27;,&#x27;#p-guide-view&#x27;,&#x27;#p-daily&#x27;,&#x27;#p-register-view&#x27;].forEach(selector=&gt;{q(selector).hidden=true;});extensionViews.forEach(item=&gt;{item.host.hidden=true;});if(context!==undefined)view.context=structuredClone(context);else if(id===&#x27;budget&#x27;)view.context={};view.host.hidden=false;q(&#x27;#p-page-title&#x27;).textContent=view.title;q(&#x27;#p-page-sub&#x27;).textContent=view.subtitle||&#x27;&#x27;;qa(&#x27;[data-nav]&#x27;).forEach(button=&gt;{if(button.dataset.nav===view.nav)button.setAttribute(&#x27;aria-current&#x27;,&#x27;page&#x27;);else button.removeAttribute(&#x27;aria-current&#x27;);});view.render(view.host,view.context||{});icons();window.scrollTo({top:0,behavior:&#x27;instant&#x27;});q(&#x27;#p-page-title&#x27;).focus({preventScroll:true});return true;}
+      window.PlantoryPrototype={
+        registerView(id,definition){if(extensionViews.has(id)||typeof definition.render!==&#x27;function&#x27;)throw new Error(&#x27;Invalid prototype view: &#x27;+id);const host=el(&#x27;section&#x27;,&#x27;p-extension-view&#x27;);host.id=&#x27;p-&#x27;+id+&#x27;-view&#x27;;host.hidden=true;host.setAttribute(&#x27;aria-label&#x27;,definition.title);q(&#x27;.p-content&#x27;).append(host);extensionViews.set(id,{...definition,host,context:{}});},
+        open:openView,navigate,selectPlant,
+        getPlants:()=&gt;structuredClone(plants),getPlant:id=&gt;structuredClone(plants.find(plant=&gt;plant.id===id)),getSelectedPlant:()=&gt;structuredClone(selectedPlant()),
+        createPlant:addPlant,getObservations:id=&gt;structuredClone(records.filter(record=&gt;record.plantId===id)),
+        openHelp(id,goal=2){if(!plants.some(plant=&gt;plant.id===id))return false;selectPlant(id);switchPath(&#x27;care&#x27;,goal,selectedPlant().name,id);navigate(&#x27;match&#x27;);return true;},
+        setContext(id,key,rows){if(!plants.some(plant=&gt;plant.id===id)||![&#x27;arrival&#x27;,&#x27;followup&#x27;].includes(key)||!Array.isArray(rows))return;const context=plantContexts.get(id)||{};context[key]=rows.slice(0,8).filter(row=&gt;Array.isArray(row)&amp;&amp;row.length===2).map(([label,value])=&gt;[String(label).slice(0,60),String(value).slice(0,500)]);plantContexts.set(id,context);}
+      };
+      function addJourneyLink(container,view,title,description,attrs={}){const button=actionButton(title,&#x27;data-open-view&#x27;,view);button.className=&#x27;p-journey-link&#x27;;button.replaceChildren(el(&#x27;strong&#x27;,&#x27;&#x27;,title),el(&#x27;span&#x27;,&#x27;&#x27;,description));Object.entries(attrs).forEach(([key,value])=&gt;button.setAttribute(key,value));container.append(button);}
+      const firstLinks=el(&#x27;div&#x27;,&#x27;p-journey-links&#x27;);addJourneyLink(firstLinks,&#x27;commerce&#x27;,&#x27;들일 식물 비교&#x27;,&#x27;크기·상태·배송비부터&#x27;);addJourneyLink(firstLinks,&#x27;arrival&#x27;,&#x27;새 식물 입양 체크&#x27;,&#x27;구입·선물·분양으로 왔다면&#x27;);q(&#x27;#p-first-start&#x27;).append(firstLinks);
+      const dailyLinks=el(&#x27;div&#x27;,&#x27;p-journey-links&#x27;);addJourneyLink(dailyLinks,&#x27;followup&#x27;,&#x27;이 식물 경과 관리&#x27;,&#x27;한 일과 다음 확인을 정리&#x27;,{&#x27;data-current-plant&#x27;:&#x27;&#x27;});addJourneyLink(dailyLinks,&#x27;cases&#x27;,&#x27;비슷한 사례 찾기&#x27;,&#x27;환경·시도·결과 함께 보기&#x27;,{&#x27;data-current-plant&#x27;:&#x27;&#x27;});q(&#x27;#p-active-care&#x27;).append(dailyLinks);
+      const matchLinks=el(&#x27;div&#x27;,&#x27;p-journey-links&#x27;);addJourneyLink(matchLinks,&#x27;budget&#x27;,&#x27;준비물 총예산&#x27;,&#x27;가진 물품을 빼고 계산&#x27;);addJourneyLink(matchLinks,&#x27;cases&#x27;,&#x27;관련 사례 살펴보기&#x27;,&#x27;조건과 경과를 함께 확인&#x27;,{&#x27;data-request-plant&#x27;:&#x27;&#x27;});q(&#x27;#p-match-view&#x27;).prepend(matchLinks);
+      const afterRequest=el(&#x27;div&#x27;,&#x27;p-request-next&#x27;);[[&#x27;budget&#x27;,&#x27;준비물 총예산 보기&#x27;],[&#x27;followup&#x27;,&#x27;이 식물 경과 계획 만들기&#x27;],[&#x27;cases&#x27;,&#x27;비슷한 관리 사례 보기&#x27;]].forEach(([view,label])=&gt;{const button=actionButton(label,&#x27;data-open-view&#x27;,view);button.setAttribute(&#x27;data-request-plant&#x27;,&#x27;&#x27;);afterRequest.append(button);});q(&#x27;#p-request-sheet&#x27;).append(afterRequest);
+      renderPath();renderGarden();navigate(&#x27;today&#x27;);
     })();
   &lt;/script&gt;
+  &lt;style&gt;
+#plantory-concept .p-buy-wrap{display:grid;gap:16px;min-width:0}
+#plantory-concept .p-buy-wrap h2{font-size:19px;line-height:1.4}
+#plantory-concept .p-buy-wrap h3{font-size:17px;line-height:1.4}
+#plantory-concept .p-buy-wrap p+p{margin-top:8px}
+#plantory-concept .p-buy-note{background:var(--p-soft);border-radius:12px;padding:13px 15px;font-size:13px;color:var(--p-muted)}
+#plantory-concept .p-buy-topline{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:8px;font-size:12px;color:var(--p-muted)}
+#plantory-concept .p-buy-tag{display:inline-block;background:var(--p-soft);color:var(--p-accent);border-radius:6px;padding:3px 7px}
+#plantory-concept .p-buy-filters{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+#plantory-concept .p-buy-filters label{min-width:0;font-size:13px}
+#plantory-concept .p-buy-facts{display:grid;grid-template-columns:76px minmax(0,1fr);gap:7px 10px;font-size:13px;margin:14px 0}
+#plantory-concept .p-buy-facts dt{color:var(--p-muted)}
+#plantory-concept .p-buy-facts dd{margin:0;min-width:0}
+#plantory-concept .p-buy-price{font-size:20px;line-height:1.4;margin-top:10px!important;letter-spacing:-.4px}
+#plantory-concept .p-buy-status{font-size:13px;color:var(--p-accent);min-height:20px}
+#plantory-concept .p-buy-picked{display:grid;gap:8px;margin:12px 0}
+#plantory-concept .p-buy-picked-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--p-line);padding-bottom:7px;font-size:13px}
+#plantory-concept .p-buy-picked-row&gt;span{min-width:0}
+#plantory-concept .p-buy-picked-row button{flex:0 0 auto;min-height:44px}
+#plantory-concept .p-buy-empty{padding:25px 16px;text-align:center;border:1px dashed var(--p-line);border-radius:12px}
+#plantory-concept .p-buy-choice{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;margin-top:9px}
+#plantory-concept .p-buy-choice input{width:20px;height:20px;accent-color:var(--p-accent);flex:0 0 auto}
+#plantory-concept .p-buy-quantity{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;font-size:14px}
+#plantory-concept .p-buy-quantity .p-input{width:94px;flex:0 0 94px;margin:0}
+#plantory-concept .p-buy-included{border-color:var(--p-accent)}
+#plantory-concept .p-buy-summary{background:var(--p-soft);border:1px solid var(--p-line);border-radius:14px;padding:18px}
+#plantory-concept .p-buy-summary ul{padding-left:19px;margin:10px 0;font-size:13px}
+#plantory-concept .p-buy-summary li{margin:5px 0}
+#plantory-concept .p-buy-wrap button[aria-pressed=true]{border-color:var(--p-accent);background:var(--p-soft);color:var(--p-accent)}
+#plantory-concept .p-buy-wrap .p-actions{margin-top:12px}
+#plantory-concept .p-buy-wrap .p-actions&gt;*{min-width:110px}
+#plantory-concept .p-buy-wrap input:focus-visible{outline:3px solid var(--p-accent);outline-offset:3px}
+&lt;/style&gt;
+&lt;script&gt;
+// source below
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === &#x27;object&#x27; &amp;&amp; module.exports) module.exports = api;
+  else root.PlantoryCommerceModel = api;
+})(typeof globalThis !== &#x27;undefined&#x27; ? globalThis : this, function () {
+  &#x27;use strict&#x27;;
+  function money(value) { return typeof value === &#x27;number&#x27; &amp;&amp; Number.isFinite(value) &amp;&amp; value &gt;= 0; }
+  function quantityOf(value) {
+    if (!Number.isInteger(value) || value &lt; 1 || value &gt; 99) throw new RangeError(&#x27;수량은 1~99 사이의 정수여야 합니다.&#x27;);
+    return value;
+  }
+  function offerTotal(offer, quantity = 1) {
+    quantityOf(quantity);
+    const unknownCosts = [];
+    if (!money(offer.price)) unknownCosts.push(&#x27;상품 가격 미확인&#x27;);
+    if (!money(offer.optionCost)) unknownCosts.push(&#x27;필수옵션 비용 미확인&#x27;);
+    const shipping = offer.method === &#x27;pickup&#x27; ? 0 : money(offer.shipping) ? offer.shipping : null;
+    if (shipping === null) unknownCosts.push(&#x27;배송비 미확인&#x27;);
+    if (offer.availability &amp;&amp; offer.availability !== &#x27;available&#x27;) unknownCosts.push(&#x27;구매 가능 여부 미확인&#x27;);
+    const itemSubtotal = ((money(offer.price) ? offer.price : 0) + (money(offer.optionCost) ? offer.optionCost : 0)) * quantity;
+    const knownTotal = itemSubtotal + (shipping || 0);
+    return { quantity, itemSubtotal, shipping, knownTotal, total: unknownCosts.length ? null : knownTotal, unknownCosts };
+  }
+  function comparison(offers) {
+    if (offers.length &lt; 2) return { mode: &#x27;insufficient&#x27;, canRank: false };
+    if (offers.every(offer =&gt; offer.kind === &#x27;plant&#x27;)) return { mode: &#x27;plant-conditions&#x27;, canRank: false };
+    const sameSpec = offers.every(offer =&gt; offer.kind === &#x27;material&#x27; &amp;&amp; offer.specKey &amp;&amp; offer.specKey === offers[0].specKey &amp;&amp; offer.conditionGroup === offers[0].conditionGroup);
+    return { mode: sameSpec ? &#x27;same-spec&#x27; : &#x27;different-conditions&#x27;, canRank: sameSpec &amp;&amp; offers.every(offer =&gt; offerTotal(offer).total !== null) };
+  }
+  function budgetTotal(rows) {
+    const lines = [], groups = new Map(), unknownCosts = [];
+    let itemSubtotal = 0, excludedOwned = 0;
+    rows.forEach(row =&gt; {
+      if (row.owned) { excludedOwned += 1; return; }
+      if (row.optional &amp;&amp; !row.included) return;
+      const offer = row.offer;
+      const cost = offerTotal(offer, row.quantity);
+      lines.push({ id: row.id, offerId: offer.id, quantity: row.quantity, itemSubtotal: cost.itemSubtotal });
+      itemSubtotal += cost.itemSubtotal;
+      cost.unknownCosts.filter(label =&gt; !label.includes(&#x27;배송&#x27;)).forEach(label =&gt; unknownCosts.push(offer.name + &#x27;: &#x27; + label));
+      // These samples explicitly use a single flat shipment per seller and delivery method.
+      const key = (offer.sellerId || offer.id) + &#x27;|&#x27; + offer.method;
+      if (!groups.has(key)) groups.set(key, { key, seller: offer.seller, method: offer.method, shipping: 0, unknown: false });
+      const group = groups.get(key);
+      if (cost.shipping === null) group.unknown = true;
+      else group.shipping = Math.max(group.shipping, cost.shipping);
+    });
+    let shippingTotal = 0;
+    const shippingGroups = Array.from(groups.values()).map(group =&gt; {
+      if (group.unknown) { unknownCosts.push(group.seller + &#x27;: 배송비 미확인&#x27;); return { ...group, shipping: null }; }
+      shippingTotal += group.shipping;
+      return { ...group };
+    });
+    const knownTotal = itemSubtotal + shippingTotal;
+    return { lines, itemSubtotal, shippingTotal, shippingGroups, knownTotal, total: unknownCosts.length ? null : knownTotal, unknownCosts, excludedOwned };
+  }
+  const shared = { type: &#x27;soil&#x27;, availability: &#x27;available&#x27;, optionCost: 0, sourceLabel: &#x27;체험용 가상 매물&#x27;, checkedAt: &#x27;2026-09-30 고정 예시&#x27;, priceNote: &#x27;할인 조건 없는 가상 판매 호가&#x27; };
+  const offers = [
+    { ...shared, id: &#x27;plant-shop&#x27;, kind: &#x27;plant&#x27;, market: &#x27;new&#x27;, name: &#x27;몬스테라 작은 화분&#x27;, price: 18000, shipping: 3000, optionCost: 1000, optionLabel: &#x27;필수 포장&#x27;, sellerId: &#x27;green&#x27;, seller: &#x27;가상 초록상점&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 도서산간 추가비 미포함&#x27;, size: &#x27;식물 높이 약 30cm · 속화분 12cm&#x27;, condition: &#x27;발근 완료 · 잎 4장 · 새잎 유무 미확인&#x27;, rooting: &#x27;발근 완료&#x27;, photoType: &#x27;대표 사진&#x27;, components: &#x27;식물 + 속화분 · 받침 없음&#x27;, availability: &#x27;available&#x27;, unit: &#x27;1개체&#x27;, question: &#x27;사진이 실제 보내는 개체인가요? 잎 상태와 화분 포함 범위를 확인하고 싶어요.&#x27; },
+    { ...shared, id: &#x27;plant-neighbor&#x27;, kind: &#x27;plant&#x27;, market: &#x27;sharing&#x27;, name: &#x27;몬스테라 개인 분양&#x27;, price: 11000, shipping: null, sellerId: &#x27;neighbor&#x27;, seller: &#x27;가상 이웃 봄&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 가능 여부·배송비 확인 필요&#x27;, size: &#x27;식물 높이 약 25cm · 속화분 10cm&#x27;, condition: &#x27;발근 완료 · 잎 3장 · 한 잎에 흠집&#x27;, rooting: &#x27;발근 완료&#x27;, photoType: &#x27;판매 개체 사진&#x27;, components: &#x27;식물 + 속화분 · 장식 화분 없음&#x27;, unit: &#x27;1개체&#x27;, question: &#x27;최근 실제 개체 사진과 흠집 확대 사진, 배송비와 포장 방법을 알려주실 수 있나요?&#x27; },
+    { ...shared, id: &#x27;plant-cutting&#x27;, kind: &#x27;plant&#x27;, market: &#x27;sharing&#x27;, name: &#x27;스킨답서스 삽수&#x27;, price: 2500, shipping: 0, sellerId: &#x27;cutting&#x27;, seller: &#x27;가상 동네 초록&#x27;, method: &#x27;pickup&#x27;, region: &#x27;서울 성북구 · 수령 장소 협의&#x27;, size: &#x27;삽수 길이 약 12cm&#x27;, condition: &#x27;미발근 · 화분 없음&#x27;, rooting: &#x27;미발근&#x27;, photoType: &#x27;모주 사진&#x27;, components: &#x27;삽수 1개 · 화분과 흙 없음&#x27;, availability: &#x27;soldout&#x27;, unit: &#x27;1개&#x27;, question: &#x27;모주가 아닌 받을 삽수 사진과 발근 상태를 확인할 수 있나요?&#x27; },
+    { ...shared, id: &#x27;soil-green&#x27;, kind: &#x27;material&#x27;, market: &#x27;new&#x27;, name: &#x27;샘플 배양토 1L&#x27;, price: 2500, shipping: 3000, sellerId: &#x27;green&#x27;, seller: &#x27;가상 초록상점&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 묶음배송 예시&#x27;, size: &#x27;1L · 최소 주문 1봉&#x27;, condition: &#x27;새 상품 · 미개봉&#x27;, conditionGroup: &#x27;new&#x27;, photoType: &#x27;대표 사진&#x27;, components: &#x27;배양토 1L × 1봉&#x27;, unit: &#x27;1L/봉&#x27;, specKey: &#x27;sample-soil-1L-unopened&#x27;, question: &#x27;같은 제품·용량이 맞나요? 필수옵션과 최종 배송비가 더 있나요?&#x27; },
+    { ...shared, id: &#x27;soil-workshop&#x27;, kind: &#x27;material&#x27;, market: &#x27;new&#x27;, name: &#x27;샘플 배양토 1L&#x27;, price: 2200, shipping: 3500, sellerId: &#x27;workshop&#x27;, seller: &#x27;가상 작은공방&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 묶음배송 예시&#x27;, size: &#x27;1L · 최소 주문 1봉&#x27;, condition: &#x27;새 상품 · 미개봉&#x27;, conditionGroup: &#x27;new&#x27;, photoType: &#x27;대표 사진&#x27;, components: &#x27;배양토 1L × 1봉&#x27;, unit: &#x27;1L/봉&#x27;, specKey: &#x27;sample-soil-1L-unopened&#x27;, question: &#x27;표시 가격으로 1봉 구매 가능한가요? 배송비를 포함한 결제 금액을 확인하고 싶어요.&#x27; },
+    { ...shared, id: &#x27;perlite-green&#x27;, kind: &#x27;material&#x27;, market: &#x27;new&#x27;, name: &#x27;펄라이트 소포장 0.5L&#x27;, price: 1500, shipping: 3000, sellerId: &#x27;green&#x27;, seller: &#x27;가상 초록상점&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 묶음배송 예시&#x27;, size: &#x27;0.5L · 최소 주문 1봉&#x27;, condition: &#x27;새 상품 · 미개봉&#x27;, conditionGroup: &#x27;new&#x27;, photoType: &#x27;대표 사진&#x27;, components: &#x27;펄라이트 0.5L × 1봉&#x27;, unit: &#x27;0.5L/봉&#x27;, specKey: &#x27;sample-perlite-0.5L&#x27;, question: &#x27;입자 크기와 총 용량이 어떻게 되나요? 다른 자재와 배송비를 합칠 수 있나요?&#x27; },
+    { ...shared, id: &#x27;pot-used&#x27;, kind: &#x27;material&#x27;, market: &#x27;used&#x27;, name: &#x27;토분 12cm · 중고&#x27;, price: 3000, shipping: 0, sellerId: &#x27;pot-neighbor&#x27;, seller: &#x27;가상 이웃 잎&#x27;, method: &#x27;pickup&#x27;, region: &#x27;서울 마포구 · 직거래만&#x27;, size: &#x27;윗지름 12cm · 높이 11cm&#x27;, condition: &#x27;사용 흔적·백화 있음 · 금 간 곳 미확인&#x27;, conditionGroup: &#x27;used&#x27;, photoType: &#x27;판매 물품 사진&#x27;, components: &#x27;토분 1개 · 받침 없음&#x27;, unit: &#x27;1개&#x27;, specKey: &#x27;sample-pot-12cm-used&#x27;, question: &#x27;깨짐·금·배수구 상태와 세척 여부를 확인할 수 있나요? 수령 장소와 시간을 알려주세요.&#x27; },
+    { ...shared, id: &#x27;jar-workshop&#x27;, kind: &#x27;material&#x27;, market: &#x27;new&#x27;, name: &#x27;테라리움 유리 용기 1L&#x27;, price: 7000, shipping: 3500, sellerId: &#x27;workshop&#x27;, seller: &#x27;가상 작은공방&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 묶음배송 예시&#x27;, size: &#x27;1L · 입구 지름 9cm&#x27;, condition: &#x27;새 상품 · 뚜껑 포함&#x27;, conditionGroup: &#x27;new&#x27;, photoType: &#x27;대표 사진&#x27;, components: &#x27;유리 용기 + 뚜껑 · 식물과 자재 없음&#x27;, unit: &#x27;1개&#x27;, specKey: &#x27;sample-jar-1L&#x27;, question: &#x27;입구 안쪽 지름과 포함 구성품, 파손 시 확인 절차는 어떻게 되나요?&#x27; }
+  ];
+  offers.push(
+    { ...shared, id: &#x27;material-small-unopened&#x27;, kind: &#x27;material&#x27;, market: &#x27;personal&#x27;, name: &#x27;배양토 소포장 1L · 개인 판매&#x27;, price: 1000, shipping: 2500, sellerId: &#x27;small-owner&#x27;, seller: &#x27;가상 이웃 새싹&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 최소 수량 1봉&#x27;, size: &#x27;1L 소포장 1봉&#x27;, condition: &#x27;원포장 미개봉 · 유통·보관 상태 확인 필요&#x27;, conditionGroup: &#x27;personal-unopened&#x27;, photoType: &#x27;판매 물품 사진&#x27;, components: &#x27;미개봉 배양토 1L × 1봉&#x27;, remaining: &#x27;표시 용량 1L · 실제 잔량 확인 필요&#x27;, opened: &#x27;미개봉이라고 표시한 예시&#x27;, storage: &#x27;실내 보관 · 기간·습도 미확인&#x27;, unit: &#x27;1L/봉&#x27;, specKey: &#x27;personal-soil-1L&#x27;, question: &#x27;밀봉 상태와 제조·구입 시점, 보관 기간을 확인할 수 있나요? 배송비 외 추가 비용이 있나요?&#x27; },
+    { ...shared, id: &#x27;material-soil-remainder&#x27;, kind: &#x27;material&#x27;, market: &#x27;personal&#x27;, name: &#x27;분갈이 후 남은 흙 · 개인 판매&#x27;, price: 1500, shipping: 0, sellerId: &#x27;soil-owner&#x27;, seller: &#x27;가상 이웃 화분&#x27;, method: &#x27;pickup&#x27;, region: &#x27;서울 은평구 · 직거래만 / 일정 협의&#x27;, size: &#x27;남은 양 약 2L · 재측정 필요&#x27;, condition: &#x27;개봉 잔량 · 오염·습기 상태 미확인&#x27;, conditionGroup: &#x27;opened&#x27;, photoType: &#x27;현재 잔량 사진&#x27;, components: &#x27;남은 흙과 보관 봉투 · 원포장 없음&#x27;, remaining: &#x27;약 2L라고 표시 · 실측 아님&#x27;, opened: &#x27;개봉 후 남은 자재&#x27;, storage: &#x27;베란다 보관 4개월 · 밀봉 여부 미확인&#x27;, unit: &#x27;약 2L/묶음&#x27;, specKey: &#x27;opened-soil-remainder&#x27;, question: &#x27;어떤 흙이고 개봉 후 어떻게 보관했나요? 곰팡이·벌레·젖은 흔적과 실제 잔량을 확인할 수 있나요? 사용 가능 여부는 추가 확인이 필요해요.&#x27; },
+    { ...shared, id: &#x27;material-free-perlite&#x27;, kind: &#x27;material&#x27;, market: &#x27;free&#x27;, name: &#x27;남은 펄라이트 · 무료 나눔&#x27;, price: 0, shipping: null, sellerId: &#x27;free-owner&#x27;, seller: &#x27;가상 이웃 초록손&#x27;, method: &#x27;delivery&#x27;, region: &#x27;발송 가능 여부·배송비 협의 필요&#x27;, size: &#x27;잔량 약 0.5L · 재측정 필요&#x27;, condition: &#x27;개봉 잔량 · 세척·오염 상태 미확인&#x27;, conditionGroup: &#x27;opened&#x27;, photoType: &#x27;현재 잔량 사진&#x27;, components: &#x27;남은 펄라이트 · 용기 제외&#x27;, remaining: &#x27;약 0.5L라고 표시 · 실측 아님&#x27;, opened: &#x27;개봉 후 남은 자재&#x27;, storage: &#x27;실내 보관 · 개봉 시점·밀봉 여부 미확인&#x27;, unit: &#x27;약 0.5L/묶음&#x27;, specKey: &#x27;free-perlite-remainder&#x27;, question: &#x27;실제 잔량과 보관 상태, 포장 방법을 확인할 수 있나요? 무료 나눔이라도 발송비와 수령 조건을 알려주세요.&#x27; },
+    { ...shared, id: &#x27;plant-outlet&#x27;, kind: &#x27;plant&#x27;, market: &#x27;outlet&#x27;, name: &#x27;몬스테라 · 상태 공개 예시&#x27;, price: 8500, shipping: 3000, sellerId: &#x27;outlet-example&#x27;, seller: &#x27;가상 상태공개 상점&#x27;, method: &#x27;delivery&#x27;, region: &#x27;택배 · 추가 관리 지원은 미확인&#x27;, size: &#x27;식물 높이 약 28cm · 속화분 12cm&#x27;, condition: &#x27;잎 찢어짐·처짐 표시 · 회복 필요 여부·원인 미확인&#x27;, rooting: &#x27;뿌리 상태 미확인&#x27;, photoType: &#x27;현재 판매 개체 사진 · 가상 표시&#x27;, components: &#x27;식물 + 속화분 · 추가 상담·보증 미확인&#x27;, unit: &#x27;1개체&#x27;, question: &#x27;최근 전체·잎·뿌리 사진과 달라진 시점을 볼 수 있나요? 확인된 손상과 모르는 상태, 추가 관리·지원 조건을 구분해 알려주세요.&#x27; }
+  );
+  return { offerTotal, comparison, budgetTotal, offers };
+});
+
+&lt;/script&gt;
+&lt;script&gt;
+(function () {
+  &#x27;use strict&#x27;;
+  const api = window.PlantoryPrototype;
+  const model = window.PlantoryCommerceModel;
+  if (!api || !model) return;
+  const offers = model.offers;
+  const offerById = id =&gt; offers.find(offer =&gt; offer.id === id);
+  const money = value =&gt; new Intl.NumberFormat(&#x27;ko-KR&#x27;).format(value) + &#x27;원&#x27;;
+  const esc = value =&gt; String(value == null ? &#x27;&#x27; : value).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, char =&gt; ({ &#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;, &#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;, &#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;, &#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;, &quot;&#x27;&quot;:&#x27;&amp;#39;&#x27; }[char]));
+  const state = { query: &#x27;&#x27;, kind: &#x27;all&#x27;, market: &#x27;all&#x27;, selected: [], stage: &#x27;list&#x27;, detailId: null, detailBack: &#x27;list&#x27;, message: &#x27;&#x27; };
+  const marketLabel = { new: &#x27;신품&#x27;, sharing: &#x27;개인 분양&#x27;, used: &#x27;중고 자재&#x27;, personal: &#x27;개인 소량 판매&#x27;, free: &#x27;무료 나눔&#x27;, outlet: &#x27;상태 공개 식물&#x27; };
+  const notice = &#x27;&lt;p class=&quot;p-buy-note&quot;&gt;모든 상품·가격·판매처는 체험용 가상 예시예요. 실제 매물 검색·실시간 가격·판매처 연결·결제는 없어요. 선택은 이 창에서만 유지돼요.&lt;/p&gt;&#x27;;
+  function totalLabel(cost, method) { return cost.total === null ? &#x27;확인된 금액 &#x27; + money(cost.knownTotal) + &#x27; + 미확인 비용&#x27; : &#x27;구매 총액 &#x27; + money(cost.total) + (method === &#x27;delivery&#x27; ? &#x27; · 일반 배송 기준&#x27; : method === &#x27;pickup&#x27; ? &#x27; · 직거래 기준&#x27; : &#x27; · 예시 수령 조건 기준&#x27;); }
+  function facts(rows) { return &#x27;&lt;dl class=&quot;p-buy-facts&quot;&gt;&#x27; + rows.map(([key,value]) =&gt; &#x27;&lt;dt&gt;&#x27; + esc(key) + &#x27;&lt;/dt&gt;&lt;dd&gt;&#x27; + esc(value) + &#x27;&lt;/dd&gt;&#x27;).join(&#x27;&#x27;) + &#x27;&lt;/dl&gt;&#x27;; }
+  function costFacts(offer) {
+    return facts([
+      [&#x27;판매 호가&#x27;, money(offer.price)],
+      [&#x27;필수옵션&#x27;, offer.optionCost ? money(offer.optionCost) + &#x27; · &#x27; + offer.optionLabel : &#x27;추가 비용 없음 · 예시 조건&#x27;],
+      [&#x27;배송·수령&#x27;, offer.method === &#x27;pickup&#x27; ? &#x27;직거래 · 배송비 없음 / 이동비 별도&#x27; : offer.shipping === null ? &#x27;배송비 미확인&#x27; : money(offer.shipping)],
+      [&#x27;지역·방법&#x27;, offer.region]
+    ]);
+  }
+  function details(offer) {
+    const rows = [[&#x27;규격&#x27;,offer.size],[&#x27;상태&#x27;,offer.condition],[&#x27;사진 표시&#x27;,offer.photoType + &#x27; · 실제 사진은 없는 텍스트 예시&#x27;],[&#x27;포함 구성&#x27;,offer.components]];
+    if (offer.kind === &#x27;plant&#x27;) rows.splice(2,0,[&#x27;발근&#x27;,offer.rooting]);
+    if (offer.remaining) rows.push([&#x27;잔량&#x27;,offer.remaining],[&#x27;개봉 여부&#x27;,offer.opened],[&#x27;보관&#x27;,offer.storage]);
+    return facts(rows);
+  }
+  function card(offer, expanded) {
+    const selected = state.selected.includes(offer.id), soldout = offer.availability !== &#x27;available&#x27;;
+    const cost = model.offerTotal(offer);
+    return &#x27;&lt;article class=&quot;p-box&#x27; + (selected ? &#x27; p-buy-included&#x27; : &#x27;&#x27;) + &#x27;&quot; data-buy-card=&quot;&#x27; + esc(offer.id) + &#x27;&quot;&gt;&#x27; +
+      &#x27;&lt;div class=&quot;p-buy-topline&quot;&gt;&lt;span class=&quot;p-buy-tag&quot;&gt;&#x27; + marketLabel[offer.market] + &#x27;&lt;/span&gt;&lt;span&gt;&#x27; + esc(offer.seller) + &#x27;&lt;/span&gt;&lt;span&gt;&#x27; + (soldout ? &#x27;품절 예시&#x27; : &#x27;판매 중 예시&#x27;) + &#x27;&lt;/span&gt;&lt;/div&gt;&#x27; +
+      &#x27;&lt;h3&gt;&#x27; + esc(offer.name) + &#x27;&lt;/h3&gt;&#x27; + details(offer) +
+      (expanded ? costFacts(offer) : &#x27;&lt;p class=&quot;p-small&quot;&gt;판매 호가 &#x27; + money(offer.price) + &#x27; · &#x27; + (offer.method === &#x27;pickup&#x27; ? &#x27;지역 직거래&#x27; : offer.shipping === null ? &#x27;배송비 미확인&#x27; : &#x27;배송 &#x27; + money(offer.shipping)) + (offer.optionCost ? &#x27; · 필수옵션 &#x27; + money(offer.optionCost) : &#x27;&#x27;) + &#x27;&lt;/p&gt;&#x27;) +
+      &#x27;&lt;p class=&quot;p-buy-price&quot;&gt;&#x27; + totalLabel(cost,offer.method) + &#x27;&lt;/p&gt;&#x27; +
+      (cost.total === null ? &#x27;&lt;p class=&quot;p-small&quot;&gt;&#x27; + esc(cost.unknownCosts.join(&#x27; · &#x27;)) + &#x27; · 총액 미확정&lt;/p&gt;&#x27; : &#x27;&#x27;) +
+      &#x27;&lt;div class=&quot;p-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-select=&quot;&#x27; + esc(offer.id) + &#x27;&quot; aria-pressed=&quot;&#x27; + selected + &#x27;&quot; aria-label=&quot;&#x27; + esc(offer.name) + &#x27; &#x27; + esc(offer.seller) + &#x27; 비교 &#x27; + (selected ? &#x27;해제&#x27; : &#x27;선택&#x27;) + &#x27;&quot;&#x27; + (soldout ? &#x27; disabled&#x27; : &#x27;&#x27;) + &#x27;&gt;&#x27; + (soldout ? &#x27;품절 · 선택 불가&#x27; : selected ? &#x27;비교에서 빼기&#x27; : &#x27;비교에 담기&#x27;) + &#x27;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-detail=&quot;&#x27; + esc(offer.id) + &#x27;&quot;&gt;조건·확인 질문&lt;/button&gt;&lt;/div&gt;&lt;/article&gt;&#x27;;
+  }
+  function selectionHTML() {
+    return &#x27;&lt;h2 id=&quot;p-buy-selection-title&quot; tabindex=&quot;-1&quot;&gt;비교에 담은 항목 &lt;span class=&quot;p-small&quot;&gt;&#x27; + state.selected.length + &#x27;/3&lt;/span&gt;&lt;/h2&gt;&lt;div class=&quot;p-buy-picked&quot;&gt;&#x27; +
+      (state.selected.length ? state.selected.map(id =&gt; { const offer = offerById(id); return &#x27;&lt;div class=&quot;p-buy-picked-row&quot;&gt;&lt;span&gt;&#x27; + esc(offer.name) + &#x27;&lt;br&gt;&lt;small&gt;&#x27; + esc(offer.seller) + &#x27;&lt;/small&gt;&lt;/span&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-remove=&quot;&#x27; + esc(id) + &#x27;&quot; aria-label=&quot;&#x27; + esc(offer.name + &#x27; &#x27; + offer.seller) + &#x27; 비교에서 빼기&quot;&gt;빼기&lt;/button&gt;&lt;/div&gt;&#x27;; }).join(&#x27;&#x27;) : &#x27;&lt;p class=&quot;p-small&quot;&gt;마음에 드는 항목을 2~3개 담아 보세요. 검색 조건을 바꿔도 선택은 유지돼요.&lt;/p&gt;&#x27;) +
+      &#x27;&lt;/div&gt;&lt;button type=&quot;button&quot; id=&quot;p-buy-compare&quot; class=&quot;p-primary&quot; data-buy-compare&#x27; + (state.selected.length &lt; 2 ? &#x27; disabled&#x27; : &#x27;&#x27;) + &#x27;&gt;선택한 &#x27; + state.selected.length + &#x27;개 비교하기&lt;/button&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:8px&quot;&gt;&#x27; + (state.selected.length &lt; 2 ? &#x27;비교하려면 최소 2개가 필요해요.&#x27; : &#x27;최대 3개까지 비교할 수 있어요.&#x27;) + &#x27;&lt;/p&gt;&#x27;;
+  }
+  function filteredOffers() {
+    const query = state.query.trim().toLocaleLowerCase();
+    return offers.filter(offer =&gt; (state.kind === &#x27;all&#x27; || offer.kind === state.kind) &amp;&amp; (state.market === &#x27;all&#x27; || offer.market === state.market) &amp;&amp; (!query || (offer.name + &#x27; &#x27; + offer.size + &#x27; &#x27; + offer.condition + &#x27; &#x27; + offer.seller).toLocaleLowerCase().includes(query)));
+  }
+  function updateCatalog(host) {
+    const results = filteredOffers();
+    host.querySelector(&#x27;#p-buy-count&#x27;).textContent = results.length + &#x27;개 가상 예시 · 품절 항목은 비교에 담을 수 없어요.&#x27;;
+    host.querySelector(&#x27;#p-buy-results&#x27;).innerHTML = results.length ? results.map(offer =&gt; card(offer,false)).join(&#x27;&#x27;) : &#x27;&lt;p class=&quot;p-buy-empty&quot;&gt;맞는 예시가 없어요.&lt;br&gt;검색어 또는 조건을 바꿔 보세요.&lt;/p&gt;&#x27;;
+    host.querySelector(&#x27;#p-buy-selection&#x27;).innerHTML = selectionHTML();
+    host.querySelector(&#x27;#p-buy-message&#x27;).textContent = state.message;
+  }
+  function comparisonHTML() {
+    const selected = state.selected.map(offerById), result = model.comparison(selected);
+    const texts = {
+      &#x27;insufficient&#x27;: [&#x27;비교할 항목을 더 담아 주세요&#x27;,&#x27;2개 이상 담으면 조건과 구매 총액을 함께 볼 수 있어요.&#x27;],
+      &#x27;plant-conditions&#x27;: [&#x27;식물은 개체 조건을 비교해요&#x27;,&#x27;이름이 같아도 크기·발근·잎 상태·구성이 달라요. 동일 상품의 최저가 순위를 만들지 않아요.&#x27;],
+      &#x27;same-spec&#x27;: [&#x27;같은 규격 자재의 구매 총액&#x27;,&#x27;같은 제품·용량·상태를 1개씩 비교해요. 다른 양이나 품목은 아래 준비물 예산에서 계산해 보세요.&#x27;],
+      &#x27;different-conditions&#x27;: [&#x27;서로 다른 조건을 살펴봐요&#x27;,&#x27;품목·규격·상태가 달라 동일 상품 가격 순위를 만들지 않아요. L·kg·개 단위는 임의로 환산하지 않아요.&#x27;]
+    };
+    return &#x27;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-list&gt;← 예시 목록으로&lt;/button&gt;&lt;section class=&quot;p-box&quot;&gt;&lt;h2&gt;&#x27; + texts[result.mode][0] + &#x27;&lt;/h2&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:8px&quot;&gt;&#x27; + texts[result.mode][1] + &#x27;&lt;/p&gt;&#x27; + (!result.canRank ? &#x27;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:8px&quot;&gt;배송비가 미확인이면 확인된 금액만 표시해요.&lt;/p&gt;&#x27; : &#x27;&#x27;) + &#x27;&lt;/section&gt;&#x27; + selected.map(offer =&gt; card(offer,true)).join(&#x27;&#x27;) + &#x27;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-budget&gt;보유품을 빼고 준비물 예산 보기&lt;/button&gt;&#x27;;
+  }
+  function confirmationHTML(offer) {
+    const cost = model.offerTotal(offer), available = offer.availability === &#x27;available&#x27;;
+    return &#x27;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-back&gt;← &#x27; + (state.detailBack === &#x27;compare&#x27; ? &#x27;비교로 돌아가기&#x27; : state.detailBack === &#x27;budget&#x27; ? &#x27;준비물 예산으로&#x27; : &#x27;예시 목록으로&#x27;) + &#x27;&lt;/button&gt;&lt;article class=&quot;p-box&quot;&gt;&lt;div class=&quot;p-buy-topline&quot;&gt;&lt;span class=&quot;p-buy-tag&quot;&gt;판매처 확인 예시&lt;/span&gt;&lt;span&gt;&#x27; + (available ? &#x27;판매 중&#x27; : &#x27;품절&#x27;) + &#x27;&lt;/span&gt;&lt;/div&gt;&lt;h2&gt;&#x27; + esc(offer.name) + &#x27;&lt;/h2&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:8px&quot;&gt;&#x27; + esc(offer.seller) + &#x27; · &#x27; + marketLabel[offer.market] + &#x27;&lt;/p&gt;&#x27; + details(offer) + costFacts(offer) + &#x27;&lt;p class=&quot;p-buy-price&quot;&gt;&#x27; + totalLabel(cost,offer.method) + &#x27;&lt;/p&gt;&lt;p class=&quot;p-small&quot;&gt;출처: &#x27; + esc(offer.sourceLabel) + &#x27;&lt;br&gt;확인 시점: &#x27; + esc(offer.checkedAt) + &#x27;&lt;br&gt;판매 호가 예시이며 실제 거래 완료 가격이 아니에요.&lt;/p&gt;&lt;/article&gt;&#x27; +
+      &#x27;&lt;section class=&quot;p-box&quot;&gt;&lt;h2&gt;판매자에게 확인할 질문&lt;/h2&gt;&lt;p style=&quot;margin-top:12px&quot;&gt;&#x27; + esc(offer.question) + &#x27;&lt;/p&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:12px&quot;&gt;회원·첫 구매·카드·쿠폰 할인은 일반 가격과 따로 확인하고, 적립금은 결제 금액에서 빼지 않아요. 예약·품절 여부와 수령 조건도 다시 확인해요.&lt;/p&gt;&lt;/section&gt;&#x27; +
+      &#x27;&lt;section class=&quot;p-buy-summary&quot;&gt;&lt;h2&gt;다음 흐름도 체험해 보세요&lt;/h2&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:8px&quot;&gt;실제 판매처를 열거나 구매를 접수하지 않아요.&lt;/p&gt;&lt;div class=&quot;p-actions&quot;&gt;&#x27; + (offer.kind === &#x27;plant&#x27; ? &#x27;&lt;button type=&quot;button&quot; class=&quot;p-primary&quot; data-buy-arrival=&quot;&#x27; + esc(offer.id) + &#x27;&quot;&#x27; + (available ? &#x27;&#x27; : &#x27; disabled&#x27;) + &#x27;&gt;&#x27; + (available ? &#x27;이 식물을 받았다고 가정하기&#x27; : &#x27;품절 예시 · 수령 체험 불가&#x27;) + &#x27;&lt;/button&gt;&#x27; : &#x27;&lt;button type=&quot;button&quot; class=&quot;p-primary&quot; data-buy-budget=&quot;&#x27; + esc(offer.id) + &#x27;&quot;&gt;이 자재로 준비물 예산 보기&lt;/button&gt;&#x27;) + &#x27;&lt;/div&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:10px&quot;&gt;&#x27; + (offer.kind === &#x27;plant&#x27; ? &#x27;새 식물 입양 체크로 이어져요. 실제 구매 기록은 아니에요.&#x27; : &#x27;자재는 식물로 등록하지 않아요.&#x27;) + &#x27;&lt;/p&gt;&lt;/section&gt;&#x27;;
+  }
+  function renderCommerce(host, context) {
+    context = context || {};
+    if (context.stage) state.stage = context.stage;
+    else state.stage = &#x27;list&#x27;;
+    if (context.offerId &amp;&amp; offerById(context.offerId)) state.detailId = context.offerId;
+    let body;
+    if (state.stage === &#x27;detail&#x27; &amp;&amp; offerById(state.detailId)) body = confirmationHTML(offerById(state.detailId));
+    else if (state.stage === &#x27;compare&#x27;) body = comparisonHTML();
+    else {
+      state.stage = &#x27;list&#x27;;
+      body = &#x27;&lt;section class=&quot;p-box&quot;&gt;&lt;h2&gt;어떤 물건을 찾고 있나요?&lt;/h2&gt;&lt;label class=&quot;p-label&quot; for=&quot;p-buy-search&quot; style=&quot;margin-top:14px&quot;&gt;가상 예시에서 검색&lt;/label&gt;&lt;input class=&quot;p-input&quot; id=&quot;p-buy-search&quot; type=&quot;search&quot; maxlength=&quot;80&quot; placeholder=&quot;몬스테라, 배양토, 화분…&quot; value=&quot;&#x27; + esc(state.query) + &#x27;&quot;&gt;&lt;div class=&quot;p-buy-filters&quot;&gt;&lt;label for=&quot;p-buy-kind&quot;&gt;품목&lt;select class=&quot;p-input&quot; id=&quot;p-buy-kind&quot;&gt;&lt;option value=&quot;all&quot;&gt;식물·자재 전체&lt;/option&gt;&lt;option value=&quot;plant&quot;&gt;식물&lt;/option&gt;&lt;option value=&quot;material&quot;&gt;자재·화분&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;&lt;label for=&quot;p-buy-market&quot;&gt;판매 유형&lt;select class=&quot;p-input&quot; id=&quot;p-buy-market&quot;&gt;&lt;option value=&quot;all&quot;&gt;전체 유형&lt;/option&gt;&lt;option value=&quot;new&quot;&gt;신품&lt;/option&gt;&lt;option value=&quot;sharing&quot;&gt;개인 분양&lt;/option&gt;&lt;option value=&quot;used&quot;&gt;중고 자재&lt;/option&gt;&lt;option value=&quot;personal&quot;&gt;개인 소량 판매&lt;/option&gt;&lt;option value=&quot;free&quot;&gt;무료 나눔&lt;/option&gt;&lt;option value=&quot;outlet&quot;&gt;상태 공개 식물&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;&lt;/div&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:12px&quot;&gt;식물은 개체 조건, 같은 규격의 자재는 구매 총액을 비교해요.&lt;/p&gt;&lt;/section&gt;&lt;section class=&quot;p-box&quot; id=&quot;p-buy-selection&quot; aria-label=&quot;비교 선택 목록&quot;&gt;&lt;/section&gt;&lt;p class=&quot;p-small&quot; id=&quot;p-buy-count&quot; role=&quot;status&quot;&gt;&lt;/p&gt;&lt;div class=&quot;p-stack&quot; id=&quot;p-buy-results&quot;&gt;&lt;/div&gt;&#x27;;
+    }
+    host.innerHTML = &#x27;&lt;div class=&quot;p-buy-wrap&quot;&gt;&#x27; + notice + &#x27;&lt;div class=&quot;p-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-list aria-pressed=&quot;true&quot;&gt;구매 비교&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-budget&gt;준비물 총예산&lt;/button&gt;&lt;/div&gt;&lt;p class=&quot;p-buy-status&quot; id=&quot;p-buy-message&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&#x27; + esc(state.message) + &#x27;&lt;/p&gt;&#x27; + body + &#x27;&lt;section class=&quot;p-buy-note&quot;&gt;&lt;p&gt;개인 소량 판매·무료 나눔과 상태 공개 식물도 가상 예시로 살펴볼 수 있어요. 개봉 자재의 재사용 가능 여부나 식물의 회복을 확정하지 않아요.&lt;/p&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-transfer style=&quot;margin-top:12px&quot;&gt;남는 자재 판매·나눔 글 체험&lt;/button&gt;&lt;/section&gt;&lt;/div&gt;&#x27;;
+    if (state.stage === &#x27;list&#x27;) {
+      host.querySelector(&#x27;#p-buy-kind&#x27;).value = state.kind;
+      host.querySelector(&#x27;#p-buy-market&#x27;).value = state.market;
+      updateCatalog(host);
+    }
+    host.oninput = event =&gt; {
+      if (event.target.id !== &#x27;p-buy-search&#x27;) return;
+      state.query = event.target.value; state.message = &#x27;&#x27;; updateCatalog(host);
+    };
+    host.onchange = event =&gt; {
+      if (event.target.id === &#x27;p-buy-kind&#x27;) state.kind = event.target.value;
+      else if (event.target.id === &#x27;p-buy-market&#x27;) state.market = event.target.value;
+      else return;
+      state.message = &#x27;&#x27;; updateCatalog(host);
+    };
+    host.onclick = event =&gt; {
+      const button = event.target.closest(&#x27;button&#x27;);
+      if (!button || button.disabled) return;
+      if (button.hasAttribute(&#x27;data-buy-select&#x27;) || button.hasAttribute(&#x27;data-buy-remove&#x27;)) {
+        const id = button.getAttribute(&#x27;data-buy-select&#x27;) || button.getAttribute(&#x27;data-buy-remove&#x27;);
+        const offer = offerById(id); if (!offer || offer.availability !== &#x27;available&#x27;) return;
+        if (state.selected.includes(id)) { state.selected = state.selected.filter(value =&gt; value !== id); state.message = offer.name + &#x27;을 비교에서 뺐어요.&#x27;; }
+        else if (state.selected.length &gt;= 3) { state.message = &#x27;최대 3개까지 비교할 수 있어요. 담은 항목을 먼저 빼 주세요.&#x27;; }
+        else { state.selected.push(id); state.message = offer.name + &#x27;을 비교에 담았어요.&#x27;; }
+        const selector = button.hasAttribute(&#x27;data-buy-select&#x27;) ? &#x27;[data-buy-select=&quot;&#x27; + id + &#x27;&quot;]&#x27; : &#x27;#p-buy-compare&#x27;;
+        if (state.stage === &#x27;list&#x27;) updateCatalog(host);
+        else renderCommerce(host,{stage:state.stage});
+        const preferredFocus = host.querySelector(selector);
+        const focus = preferredFocus &amp;&amp; !preferredFocus.disabled ? preferredFocus : host.querySelector(&#x27;#p-buy-selection-title&#x27;) || host.querySelector(&#x27;[data-buy-list]&#x27;);
+        if (focus) focus.focus();
+      } else if (button.hasAttribute(&#x27;data-buy-compare&#x27;)) {
+        if (state.selected.length &gt;= 2) api.open(&#x27;commerce&#x27;,{stage:&#x27;compare&#x27;});
+      } else if (button.hasAttribute(&#x27;data-buy-detail&#x27;)) {
+        state.detailBack = state.stage; state.message = &#x27;&#x27;; api.open(&#x27;commerce&#x27;,{stage:&#x27;detail&#x27;,offerId:button.getAttribute(&#x27;data-buy-detail&#x27;)});
+      } else if (button.hasAttribute(&#x27;data-buy-arrival&#x27;)) {
+        const offer = offerById(button.getAttribute(&#x27;data-buy-arrival&#x27;));
+        if (offer &amp;&amp; offer.kind === &#x27;plant&#x27; &amp;&amp; offer.availability === &#x27;available&#x27;) api.open(&#x27;arrival&#x27;,{offer:{...offer}});
+      } else if (button.hasAttribute(&#x27;data-buy-budget&#x27;)) {
+        api.open(&#x27;budget&#x27;,{offerId:button.getAttribute(&#x27;data-buy-budget&#x27;) || undefined});
+      } else if (button.hasAttribute(&#x27;data-buy-transfer&#x27;)) {
+        api.open(&#x27;transfer&#x27;,{kind:&#x27;material&#x27;});
+      } else if (button.hasAttribute(&#x27;data-buy-back&#x27;)) {
+        state.message = &#x27;&#x27;; if (state.detailBack === &#x27;budget&#x27;) api.open(&#x27;budget&#x27;); else api.open(&#x27;commerce&#x27;,{stage:state.detailBack});
+      } else if (button.hasAttribute(&#x27;data-buy-list&#x27;)) {
+        state.message = &#x27;&#x27;; api.open(&#x27;commerce&#x27;,{stage:&#x27;list&#x27;});
+      }
+    };
+  }
+  const unknownPlant = { id:&#x27;terrarium-plant-tbd&#x27;,kind:&#x27;plant&#x27;,name:&#x27;환경에 맞는 테라리움 식물&#x27;,sellerId:&#x27;tbd&#x27;,seller:&#x27;판매처 미정&#x27;,price:null,optionCost:0,shipping:null,method:&#x27;delivery&#x27;,availability:&#x27;available&#x27; };
+  function row(id, offerId, quantity, optional, included) { return {id,offer:offerById(offerId),quantity,optional:!!optional,included:included !== false,owned:false}; }
+  const plans = {
+    repot: [row(&#x27;repot-soil&#x27;,&#x27;soil-green&#x27;,2),row(&#x27;repot-pot&#x27;,&#x27;pot-used&#x27;,1),row(&#x27;repot-perlite&#x27;,&#x27;perlite-green&#x27;,1,true,false)],
+    terrarium: [row(&#x27;terrarium-jar&#x27;,&#x27;jar-workshop&#x27;,1),row(&#x27;terrarium-soil&#x27;,&#x27;soil-workshop&#x27;,1),row(&#x27;terrarium-perlite&#x27;,&#x27;perlite-green&#x27;,1,true,false),{id:&#x27;terrarium-plant&#x27;,offer:unknownPlant,quantity:1,optional:false,included:true,owned:false}]
+  };
+  const budgetState = { purpose:&#x27;repot&#x27;, message:&#x27;&#x27;, invalidQuantityIds:new Set() };
+  function budgetRowsHTML(rows) {
+    return rows.map(item =&gt; &#x27;&lt;article class=&quot;p-box&quot; data-buy-budget-row=&quot;&#x27; + esc(item.id) + &#x27;&quot;&gt;&lt;div class=&quot;p-buy-topline&quot;&gt;&lt;span class=&quot;p-buy-tag&quot;&gt;&#x27; + (item.optional ? &#x27;선택 품목&#x27; : &#x27;이 예산 예시의 필수 품목&#x27;) + &#x27;&lt;/span&gt;&lt;span&gt;&#x27; + esc(item.offer.seller) + &#x27;&lt;/span&gt;&lt;/div&gt;&lt;h3&gt;&#x27; + esc(item.offer.name) + &#x27;&lt;/h3&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:8px&quot;&gt;&#x27; + esc(item.offer.components || &#x27;식물 종류·가격·배송비를 더 확인해야 해요.&#x27;) + &#x27;&lt;/p&gt;&lt;p class=&quot;p-small&quot;&gt;&#x27; + (item.offer.price === null ? &#x27;상품 가격 미확인&#x27; : &#x27;1개 &#x27; + money(item.offer.price)) + (item.offer.method === &#x27;pickup&#x27; ? &#x27; · 지역 직거래 / 이동비 별도&#x27; : &#x27; · 판매처별 배송비는 아래에서 합산&#x27;) + &#x27;&lt;/p&gt;&#x27; +
+      &#x27;&lt;label class=&quot;p-buy-choice&quot;&gt;&lt;input type=&quot;checkbox&quot; data-buy-owned=&quot;&#x27; + esc(item.id) + &#x27;&quot;&#x27; + (item.owned ? &#x27; checked&#x27; : &#x27;&#x27;) + &#x27;&gt;가지고 있어요 · 구매비에서 제외&lt;/label&gt;&#x27; +
+      (item.optional ? &#x27;&lt;label class=&quot;p-buy-choice&quot;&gt;&lt;input type=&quot;checkbox&quot; data-buy-included=&quot;&#x27; + esc(item.id) + &#x27;&quot;&#x27; + (item.included ? &#x27; checked&#x27; : &#x27;&#x27;) + (item.owned ? &#x27; disabled&#x27; : &#x27;&#x27;) + &#x27;&gt;이번 준비물에 포함하기&lt;/label&gt;&#x27; : &#x27;&#x27;) +
+      &#x27;&lt;label class=&quot;p-buy-quantity&quot; for=&quot;p-buy-qty-&#x27; + esc(item.id) + &#x27;&quot;&gt;구매 수량&lt;input class=&quot;p-input&quot; id=&quot;p-buy-qty-&#x27; + esc(item.id) + &#x27;&quot; data-buy-quantity=&quot;&#x27; + esc(item.id) + &#x27;&quot; type=&quot;number&quot; min=&quot;1&quot; max=&quot;99&quot; step=&quot;1&quot; inputmode=&quot;numeric&quot; value=&quot;&#x27; + item.quantity + &#x27;&quot;&#x27; + (item.owned || (item.optional &amp;&amp; !item.included) ? &#x27; disabled&#x27; : &#x27;&#x27;) + &#x27;&gt;&lt;/label&gt;&#x27; +
+      (offerById(item.offer.id) ? &#x27;&lt;button type=&quot;button&quot; class=&quot;p-textbutton&quot; data-buy-offer-from-budget=&quot;&#x27; + esc(item.offer.id) + &#x27;&quot;&gt;규격·수령 조건 확인&lt;/button&gt;&#x27; : &#x27;&#x27;) + &#x27;&lt;/article&gt;&#x27;).join(&#x27;&#x27;);
+  }
+  function budgetSummaryHTML(rows) {
+    if (rows.some(item =&gt; budgetState.invalidQuantityIds.has(item.id) &amp;&amp; !item.owned &amp;&amp; (!item.optional || item.included))) {
+      return &#x27;&lt;h2&gt;구매 수량을 확인해 주세요&lt;/h2&gt;&lt;p class=&quot;p-small&quot;&gt;수량을 1~99 사이 정수로 입력하면 준비물 합계를 보여드려요. 입력 중인 수량의 비용은 아직 계산하지 않았어요.&lt;/p&gt;&#x27;;
+    }
+    const cost = model.budgetTotal(rows);
+    return &#x27;&lt;h2&gt;보유품을 뺀 준비물 예산&lt;/h2&gt;&lt;p class=&quot;p-buy-price&quot;&gt;&#x27; + totalLabel(cost) + &#x27;&lt;/p&gt;&#x27; +
+      facts([[&#x27;상품·옵션&#x27;,money(cost.itemSubtotal)],[&#x27;확인된 배송&#x27;,money(cost.shippingTotal)],[&#x27;보유품 제외&#x27;,cost.excludedOwned + &#x27;개 품목&#x27;]]) +
+      &#x27;&lt;h3&gt;판매처별 수령 비용&lt;/h3&gt;&lt;ul&gt;&#x27; + (cost.shippingGroups.length ? cost.shippingGroups.map(group =&gt; &#x27;&lt;li&gt;&#x27; + esc(group.seller) + &#x27;: &#x27; + (group.method === &#x27;pickup&#x27; ? &#x27;직거래 · 이동비 별도&#x27; : group.shipping === null ? &#x27;배송비 미확인&#x27; : money(group.shipping) + &#x27; · 한 번 합산&#x27;) + &#x27;&lt;/li&gt;&#x27;).join(&#x27;&#x27;) : &#x27;&lt;li&gt;구매할 품목이 없어요.&lt;/li&gt;&#x27;) + &#x27;&lt;/ul&gt;&#x27; +
+      (cost.unknownCosts.length ? &#x27;&lt;h3&gt;더 확인할 비용&lt;/h3&gt;&lt;ul&gt;&#x27; + cost.unknownCosts.map(item =&gt; &#x27;&lt;li&gt;&#x27; + esc(item) + &#x27;&lt;/li&gt;&#x27;).join(&#x27;&#x27;) + &#x27;&lt;/ul&gt;&lt;p class=&quot;p-small&quot;&gt;미확인 금액을 0원으로 보지 않아요. 확인 전에는 총액을 확정하지 않아요.&lt;/p&gt;&#x27; : &#x27;&lt;p class=&quot;p-small&quot;&gt;선택한 가상 예시 조건에서의 합계예요. 실제 견적이나 최저가가 아니에요.&lt;/p&gt;&#x27;) +
+      &#x27;&lt;p class=&quot;p-small&quot;&gt;이 예시는 같은 판매처의 택배를 한 묶음으로 보내는 조건이에요. 도서산간 추가비와 직거래 이동비는 포함하지 않아요.&lt;/p&gt;&#x27;;
+  }
+  function updateBudget(host) {
+    host.querySelector(&#x27;#p-buy-budget-total&#x27;).innerHTML = budgetSummaryHTML(plans[budgetState.purpose]);
+    host.querySelector(&#x27;#p-buy-budget-message&#x27;).textContent = budgetState.message;
+  }
+  function renderBudget(host, context) {
+    context = context || {};
+    if (budgetState.invalidQuantityIds.size) {
+      budgetState.invalidQuantityIds.clear();
+      budgetState.message = &#x27;입력 중이던 수량을 마지막 유효 수량으로 되돌렸어요.&#x27;;
+    }
+    if (context.purpose &amp;&amp; plans[context.purpose]) budgetState.purpose = context.purpose;
+    const rows = plans[budgetState.purpose], added = offerById(context.offerId);
+    if (added &amp;&amp; added.kind === &#x27;material&#x27; &amp;&amp; !rows.some(item =&gt; item.offer.id === added.id)) {
+      rows.push({id:budgetState.purpose + &#x27;-extra-&#x27; + added.id,offer:added,quantity:1,optional:true,included:true,owned:false});
+      budgetState.message = added.name + &#x27;을 선택 품목에 더했어요. 이미 담은 비슷한 자재와 중복인지 확인해 주세요.&#x27;;
+    }
+    host.innerHTML = &#x27;&lt;div class=&quot;p-buy-wrap&quot;&gt;&#x27; + notice + &#x27;&lt;div class=&quot;p-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-catalog&gt;구매 비교&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; aria-pressed=&quot;true&quot;&gt;준비물 총예산&lt;/button&gt;&lt;/div&gt;&lt;section class=&quot;p-box&quot;&gt;&lt;h2&gt;무엇을 준비하나요?&lt;/h2&gt;&lt;div class=&quot;p-actions&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;p-buy-purpose-repot&quot; class=&quot;p-secondary&quot; data-buy-purpose=&quot;repot&quot; aria-pressed=&quot;&#x27; + (budgetState.purpose === &#x27;repot&#x27;) + &#x27;&quot;&gt;분갈이 예산&lt;/button&gt;&lt;button type=&quot;button&quot; id=&quot;p-buy-purpose-terrarium&quot; class=&quot;p-secondary&quot; data-buy-purpose=&quot;terrarium&quot; aria-pressed=&quot;&#x27; + (budgetState.purpose === &#x27;terrarium&#x27;) + &#x27;&quot;&gt;테라리움 예산&lt;/button&gt;&lt;/div&gt;&lt;p class=&quot;p-small&quot; style=&quot;margin-top:12px&quot;&gt;수량과 비용을 계산하는 체험용 준비물이에요. 특정 식물에 맞는 재료·배합·분갈이 시기를 추천하는 목록은 아니에요.&lt;/p&gt;&lt;/section&gt;&lt;p id=&quot;p-buy-budget-message&quot; class=&quot;p-buy-status&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&#x27; + esc(budgetState.message) + &#x27;&lt;/p&gt;&lt;div class=&quot;p-stack&quot; id=&quot;p-buy-budget-lines&quot;&gt;&#x27; + budgetRowsHTML(rows) + &#x27;&lt;/div&gt;&lt;section class=&quot;p-buy-summary&quot; id=&quot;p-buy-budget-total&quot; aria-label=&quot;준비물 비용 합계&quot; aria-live=&quot;polite&quot;&gt;&#x27; + budgetSummaryHTML(rows) + &#x27;&lt;/section&gt;&lt;button type=&quot;button&quot; class=&quot;p-secondary&quot; data-buy-catalog&gt;소포장·다른 자재 비교하기&lt;/button&gt;&lt;/div&gt;&#x27;;
+    function updateQuantity(input, commit) {
+      const item = rows.find(value =&gt; value.id === input.getAttribute(&#x27;data-buy-quantity&#x27;));
+      if (!item || input.disabled) return;
+      const quantity = Number(input.value);
+      const valid = input.value.trim() !== &#x27;&#x27; &amp;&amp; !input.validity.badInput &amp;&amp; Number.isInteger(quantity) &amp;&amp; quantity &gt;= 1 &amp;&amp; quantity &lt;= 99;
+      if (valid) {
+        item.quantity = quantity;
+        budgetState.invalidQuantityIds.delete(item.id);
+        input.removeAttribute(&#x27;aria-invalid&#x27;);
+        budgetState.message = item.offer.name + &#x27;의 예산을 다시 계산했어요.&#x27;;
+      } else if (commit) {
+        input.value = String(item.quantity);
+        budgetState.invalidQuantityIds.delete(item.id);
+        input.removeAttribute(&#x27;aria-invalid&#x27;);
+        budgetState.message = &#x27;수량은 1~99 사이 정수로 입력해 주세요. 마지막 유효 수량 &#x27; + item.quantity + &#x27;개로 되돌렸어요.&#x27;;
+      } else {
+        budgetState.invalidQuantityIds.add(item.id);
+        input.setAttribute(&#x27;aria-invalid&#x27;,&#x27;true&#x27;);
+        budgetState.message = &#x27;수량을 확인해 주세요. 입력이 끝나기 전에는 합계를 표시하지 않아요.&#x27;;
+      }
+      updateBudget(host);
+    }
+    host.oninput = event =&gt; {
+      if (event.target.hasAttribute(&#x27;data-buy-quantity&#x27;)) updateQuantity(event.target,false);
+    };
+    host.onfocusout = event =&gt; {
+      if (event.target.hasAttribute(&#x27;data-buy-quantity&#x27;)) updateQuantity(event.target,true);
+    };
+    host.onchange = event =&gt; {
+      const input = event.target;
+      if (input.hasAttribute(&#x27;data-buy-quantity&#x27;)) { updateQuantity(input,true); return; }
+      const id = input.getAttribute(&#x27;data-buy-owned&#x27;) || input.getAttribute(&#x27;data-buy-included&#x27;);
+      if (!id) return;
+      const item = rows.find(value =&gt; value.id === id); if (!item) return;
+      if (input.hasAttribute(&#x27;data-buy-owned&#x27;)) item.owned = input.checked;
+      else if (input.hasAttribute(&#x27;data-buy-included&#x27;)) item.included = input.checked;
+      budgetState.invalidQuantityIds.delete(item.id);
+      budgetState.message = item.offer.name + &#x27;의 예산을 다시 계산했어요.&#x27;;
+      const article = input.closest(&#x27;[data-buy-budget-row]&#x27;);
+      const quantityInput = article.querySelector(&#x27;[data-buy-quantity]&#x27;);
+      quantityInput.value = String(item.quantity);
+      quantityInput.removeAttribute(&#x27;aria-invalid&#x27;);
+      quantityInput.disabled = item.owned || (item.optional &amp;&amp; !item.included);
+      const include = article.querySelector(&#x27;[data-buy-included]&#x27;); if (include) include.disabled = item.owned;
+      updateBudget(host);
+    };
+    host.onclick = event =&gt; {
+      const button = event.target.closest(&#x27;button&#x27;); if (!button) return;
+      if (button.hasAttribute(&#x27;data-buy-purpose&#x27;)) {
+        budgetState.message = &#x27;&#x27;; const purpose = button.getAttribute(&#x27;data-buy-purpose&#x27;); renderBudget(host,{purpose}); host.querySelector(&#x27;#p-buy-purpose-&#x27; + purpose).focus();
+      } else if (button.hasAttribute(&#x27;data-buy-catalog&#x27;)) api.open(&#x27;commerce&#x27;,{stage:&#x27;list&#x27;});
+      else if (button.hasAttribute(&#x27;data-buy-offer-from-budget&#x27;)) { state.detailBack = &#x27;budget&#x27;; api.open(&#x27;commerce&#x27;,{stage:&#x27;detail&#x27;,offerId:button.getAttribute(&#x27;data-buy-offer-from-budget&#x27;)}); }
+    };
+  }
+  api.registerView(&#x27;commerce&#x27;,{title:&#x27;조건을 보고, 비용을 비교해요.&#x27;,subtitle:&#x27;식물은 개체별로, 자재는 규격별로 살펴봐요.&#x27;,nav:&#x27;commerce&#x27;,render:renderCommerce});
+  api.registerView(&#x27;budget&#x27;,{title:&#x27;가진 것은 빼고, 필요한 만큼.&#x27;,subtitle:&#x27;분갈이·작은 정원의 준비물 예산을 살펴봐요.&#x27;,nav:&#x27;commerce&#x27;,render:renderBudget});
+})();
+&lt;/script&gt;
+
+  &lt;style&gt;
+  #plantory-concept .p-careflow{display:grid;gap:16px}
+  #plantory-concept .p-careflow h2{font-size:19px;line-height:1.45}
+  #plantory-concept .p-careflow h3{font-size:16px;line-height:1.5}
+  #plantory-concept .p-careflow p{margin-top:8px}
+  #plantory-concept .p-careflow .p-careflow-field{display:block;margin-top:16px;font-size:14px}
+  #plantory-concept .p-careflow .p-careflow-field:first-child{margin-top:0}
+  #plantory-concept .p-careflow textarea{resize:vertical;min-height:84px}
+  #plantory-concept .p-careflow select,#plantory-concept .p-careflow input{min-width:0;max-width:100%}
+  #plantory-concept .p-careflow-check{display:flex;align-items:center;gap:10px;min-height:48px;font-size:14px;padding:8px 0}
+  #plantory-concept .p-careflow-check input{width:22px;height:22px;flex-shrink:0;accent-color:var(--p-accent)}
+  #plantory-concept .p-careflow-dl{display:grid;grid-template-columns:90px minmax(0,1fr);gap:10px 12px;margin:18px 0 0;font-size:14px}
+  #plantory-concept .p-careflow-dl dt{color:var(--p-muted)}
+  #plantory-concept .p-careflow-dl dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+  #plantory-concept .p-careflow-message{font-size:14px;color:var(--p-accent);margin-top:12px;white-space:pre-wrap}
+  #plantory-concept .p-careflow-warning{border-left:3px solid var(--p-gold);padding:10px 12px;background:var(--p-soft);font-size:13px;color:var(--p-muted)}
+  #plantory-concept .p-careflow-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  #plantory-concept .p-careflow-entry{padding:16px 0;border-top:1px solid var(--p-line)}
+  #plantory-concept .p-careflow-entry[data-cancelled=true]{border-left:3px solid var(--p-line);padding-left:12px}
+  #plantory-concept .p-careflow .p-actions{align-items:stretch}
+  #plantory-concept .p-careflow .p-actions button{white-space:normal;overflow-wrap:anywhere}
+  #plantory-concept .p-careflow .p-careflow-tag{display:inline-block;font-size:12px;color:var(--p-gold);padding:4px 0}
+  #plantory-concept .p-careflow .p-careflow-filters{border-bottom:1px solid var(--p-line);padding-bottom:18px}
+  #plantory-concept .p-careflow .p-careflow-outcome{margin-top:14px;padding:12px;background:var(--p-soft);border-radius:10px}
+  #plantory-concept .p-careflow :is(h2,h3)[tabindex]:focus{outline:2px solid var(--p-accent);outline-offset:5px}
+  @media(max-width:360px){#plantory-concept .p-careflow-dl{grid-template-columns:78px minmax(0,1fr);gap:8px}}
+&lt;/style&gt;
+&lt;script&gt;
+(() =&gt; {
+  &#x27;use strict&#x27;;
+  const api=window.PlantoryPrototype;
+  if(!api)return;
+  const types={soil:&#x27;일반 흙 화분&#x27;,hydro:&#x27;수경재배&#x27;,terrarium:&#x27;테라리움&#x27;,paludarium:&#x27;팔루다리움&#x27;,unknown:&#x27;재배 방식 모름&#x27;};
+  const origins={purchase:&#x27;구입&#x27;,gift:&#x27;선물&#x27;,transfer:&#x27;개인 분양·나눔&#x27;};
+  const arrivalStates={same:&#x27;설명과 비슷해요&#x27;,different:&#x27;다른 점이 있어요&#x27;,unknown:&#x27;아직 모르겠어요&#x27;};
+  const progressLabels={better:&#x27;나아져 보여요&#x27;,similar:&#x27;비슷해 보여요&#x27;,worse:&#x27;더 걱정돼요&#x27;,unknown:&#x27;아직 모르겠어요&#x27;};
+  const workLabels={consultation:&#x27;상담 내용을 직접 정리&#x27;,repot:&#x27;분갈이&#x27;,move:&#x27;자리 이동&#x27;,other:&#x27;그 밖의 일·관찰 계획&#x27;};
+  const photoLabels={none:&#x27;사진 없음&#x27;,individual:&#x27;판매·분양할 실제 개체 사진&#x27;,representative:&#x27;대표 이미지&#x27;,parent:&#x27;모주 사진&#x27;};
+  const rootedLabels={unknown:&#x27;모름&#x27;,rooted:&#x27;뿌리가 있음&#x27;,cutting:&#x27;삽수·뿌리 확인 전&#x27;};
+  const potLabels={unknown:&#x27;모름&#x27;,yes:&#x27;화분 포함&#x27;,no:&#x27;화분 미포함&#x27;};
+  const methodLabels={unknown:&#x27;아직 정하지 않음&#x27;,shipping:&#x27;배송&#x27;,meet:&#x27;지역 직거래&#x27;,either:&#x27;배송·지역 직거래 모두 검토&#x27;};
+  const arrivals=new Map(),followups=new Map(),transfers=new Map(),materialTransfers=new Map();
+  let fieldId=0,planId=0;
+  const node=(tag,cls,text)=&gt;{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=String(text);return n;};
+  const copy=value=&gt;JSON.parse(JSON.stringify(value));
+  const clean=value=&gt;String(value||&#x27;&#x27;).trim();
+  const validType=value=&gt;Object.hasOwn(types,value)?value:&#x27;unknown&#x27;;
+  const plantTitle=p=&gt;p.name+&#x27; · &#x27;+p.location+&#x27; · &#x27;+(types[p.type]||types.unknown);
+  const selectedId=context=&gt;context&amp;&amp;Object.hasOwn(context,&#x27;plantId&#x27;)?(context.plantId||null):(api.getSelectedPlant()?.id||null);
+  function text(parent,value,cls=&#x27;p-small&#x27;){parent.append(node(&#x27;p&#x27;,cls,value));}
+  function title(parent,value,level=&#x27;h2&#x27;){const h=node(level,&#x27;&#x27;,value);h.tabIndex=-1;parent.append(h);return h;}
+  function box(host,heading){const b=node(&#x27;article&#x27;,&#x27;p-box&#x27;);if(heading)title(b,heading);host.append(b);return b;}
+  function start(host){host.classList.add(&#x27;p-stack&#x27;,&#x27;p-careflow&#x27;);host.replaceChildren();}
+  function button(label,fn,primary=false){const b=node(&#x27;button&#x27;,primary?&#x27;p-primary&#x27;:&#x27;p-secondary&#x27;,label);b.type=&#x27;button&#x27;;b.addEventListener(&#x27;click&#x27;,fn);return b;}
+  function actions(parent,...buttons){const wrap=node(&#x27;div&#x27;,&#x27;p-actions&#x27;);wrap.append(...buttons);parent.append(wrap);return wrap;}
+  function details(parent,rows){const dl=node(&#x27;dl&#x27;,&#x27;p-careflow-dl&#x27;);rows.forEach(([label,value])=&gt;dl.append(node(&#x27;dt&#x27;,&#x27;&#x27;,label),node(&#x27;dd&#x27;,&#x27;&#x27;,value===undefined||value===&#x27;&#x27;?&#x27;미확인&#x27;:value)));parent.append(dl);return dl;}
+  function field(parent,label,kind,value,change,options={}){
+    const wrap=node(&#x27;label&#x27;,&#x27;p-careflow-field&#x27;,label),input=node(kind===&#x27;textarea&#x27;?&#x27;textarea&#x27;:kind===&#x27;select&#x27;?&#x27;select&#x27;:&#x27;input&#x27;,&#x27;p-input&#x27;);
+    input.id=&#x27;p-careflow-field-&#x27;+(++fieldId);wrap.htmlFor=input.id;
+    if(kind===&#x27;select&#x27;)Object.entries(options.values||{}).forEach(([key,labelText])=&gt;{const option=node(&#x27;option&#x27;,&#x27;&#x27;,labelText);option.value=key;input.append(option);});
+    else if(kind!==&#x27;textarea&#x27;)input.type=kind;
+    if(kind===&#x27;textarea&#x27;)input.rows=3;
+    if(options.max)input.maxLength=options.max;
+    if(options.placeholder)input.placeholder=options.placeholder;
+    if(kind===&#x27;text&#x27;)input.autocomplete=&#x27;off&#x27;;
+    input.value=value||&#x27;&#x27;;input.addEventListener(kind===&#x27;select&#x27;?&#x27;change&#x27;:&#x27;input&#x27;,()=&gt;change(input.value));wrap.append(input);parent.append(wrap);
+    if(options.note){const hint=node(&#x27;p&#x27;,&#x27;p-fieldnote&#x27;,options.note);hint.id=input.id+&#x27;-note&#x27;;input.setAttribute(&#x27;aria-describedby&#x27;,hint.id);parent.append(hint);}
+    return input;
+  }
+  function check(parent,label,value,change,disabled=false){const wrap=node(&#x27;label&#x27;,&#x27;p-careflow-check&#x27;),input=node(&#x27;input&#x27;);input.type=&#x27;checkbox&#x27;;input.checked=value;input.disabled=disabled;input.addEventListener(&#x27;change&#x27;,()=&gt;change(input.checked));wrap.append(input,node(&#x27;span&#x27;,&#x27;&#x27;,label));parent.append(wrap);return input;}
+  function feedback(parent,value=&#x27;&#x27;){const p=node(&#x27;p&#x27;,&#x27;p-careflow-message&#x27;,value);p.setAttribute(&#x27;role&#x27;,&#x27;status&#x27;);parent.append(p);return p;}
+  function focus(nodeToFocus){if(!nodeToFocus)return;nodeToFocus.scrollIntoView({block:&#x27;start&#x27;,behavior:&#x27;instant&#x27;});nodeToFocus.focus({preventScroll:true});}
+  function timestamp(value){const date=new Date(value);return Number.isNaN(date.valueOf())?&#x27;시각 미확인&#x27;:new Intl.DateTimeFormat(&#x27;ko-KR&#x27;,{month:&#x27;long&#x27;,day:&#x27;numeric&#x27;,hour:&#x27;2-digit&#x27;,minute:&#x27;2-digit&#x27;,hour12:false}).format(date);}
+  function observationText(record,type){
+    const labels={wet:&#x27;아직 젖어 있음&#x27;,dry:&#x27;말라 있음&#x27;,unknown:&#x27;모름&#x27;,condensation:&#x27;결로가 보임&#x27;,clear:&#x27;결로가 안 보임&#x27;,changed:type===&#x27;paludarium&#x27;?&#x27;수위가 달라 보임&#x27;:&#x27;변화가 보임&#x27;,stable:type===&#x27;hydro&#x27;||type===&#x27;paludarium&#x27;?&#x27;평소와 비슷해 보임&#x27;:&#x27;큰 변화는 없음&#x27;};
+    return labels[record.status]||record.status||&#x27;상태 미확인&#x27;;
+  }
+  function observations(id){return api.getObservations(id).filter(record=&gt;!record.cancelled);}
+  function currentObservation(parent,plant){const record=observations(plant.id).at(-1);text(parent,record?&#x27;최근 유효 관찰: &#x27;+observationText(record,plant.type)+&#x27; · &#x27;+timestamp(record.createdAt):&#x27;아직 유효한 관찰이 없어요. 계획을 정리한 뒤 현재 상태를 남겨도 돼요.&#x27;);}
+  function contextRows(id,key,rows){if(typeof api.setContext===&#x27;function&#x27;)api.setContext(id,key,rows);}
+  const won=value=&gt;Number(value).toLocaleString(&#x27;ko-KR&#x27;)+&#x27;원&#x27;;
+  function offerCosts(purpose,price,shipping,method){
+    const item=purpose===&#x27;free&#x27;?0:purpose===&#x27;paid&#x27;&amp;&amp;price!==&#x27;&#x27;?Number(price):null;
+    const delivery=shipping!==&#x27;&#x27;?Number(shipping):null;
+    let total=&#x27;물품 금액과 수령 비용을 확인해야 해요.&#x27;;
+    if(method===&#x27;meet&#x27;)total=item===null?&#x27;물품 금액 미확인 · 이동 비용은 별도&#x27;:won(item)+&#x27; · 물품만, 직거래 이동 비용 별도&#x27;;
+    else if(method===&#x27;shipping&#x27;&amp;&amp;item!==null&amp;&amp;delivery!==null)total=won(item+delivery)+&#x27; · 입력한 물품값과 배송비 기준&#x27;;
+    else if(method===&#x27;shipping&#x27;&amp;&amp;item!==null)total=won(item)+&#x27; + 배송비 미확인&#x27;;
+    else if(item!==null)total=won(item)+&#x27; + 수령 방식·비용 확인 필요&#x27;;
+    return [[&#x27;물품 희망 금액&#x27;,item===null?&#x27;미확인&#x27;:purpose===&#x27;free&#x27;?&#x27;0원 · 무료 나눔&#x27;:won(item)+&#x27; · 판매 호가&#x27;],[&#x27;배송비&#x27;,method===&#x27;meet&#x27;?&#x27;직거래 · 배송 대상 아님&#x27;:delivery===null?&#x27;미확인&#x27;:won(delivery)+(method===&#x27;shipping&#x27;?&#x27;&#x27;:&#x27; · 배송 선택 시&#x27;)],[&#x27;비교용 합계&#x27;,total]];
+  }
+  function moneyInput(parent,label,value,change,note){const input=field(parent,label,&#x27;number&#x27;,value,change,{placeholder:&#x27;미확인이면 비워두기&#x27;,note});input.min=&#x27;0&#x27;;input.step=&#x27;1&#x27;;return input;}
+  function validMoney(input,value){return !input.validity.badInput&amp;&amp;(value===&#x27;&#x27;||(Number.isFinite(Number(value))&amp;&amp;Number(value)&gt;=0&amp;&amp;Number.isInteger(Number(value))));}
+  function plantPicker(parent,plantId,change,label=&#x27;대상 식물&#x27;){
+    const values={&#x27;&#x27;:&#x27;식물을 골라 주세요&#x27;};api.getPlants().forEach(p=&gt;{values[p.id]=(p.sample?&#x27;샘플 · &#x27;:&#x27;&#x27;)+plantTitle(p);});
+    const select=field(parent,label,&#x27;select&#x27;,plantId||&#x27;&#x27;,change,{values});if(plantId)select.querySelector(&#x27;option[value=&quot;&quot;]&#x27;).disabled=true;return select;
+  }
+  function noPlant(host,id){const b=box(host,&#x27;먼저 대상 식물을 골라 주세요&#x27;);text(b,&#x27;직접 등록한 식물이나 샘플을 골라 이 흐름을 체험할 수 있어요.&#x27;);plantPicker(b,&#x27;&#x27;,plantId=&gt;{if(plantId){api.selectPlant(plantId);api.open(id,{plantId});}});actions(b,button(&#x27;내 정원으로&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));}
+  function openObservation(id){api.selectPlant(id);api.navigate(&#x27;today&#x27;);}
+  function originKey(context){return context.offer?.id?&#x27;offer:&#x27;+context.offer.id:context.plantId?&#x27;plant:&#x27;+context.plantId:&#x27;direct&#x27;;}
+  function newArrival(context){
+    const plant=context.plantId?api.getPlant(context.plantId):null,offer=context.offer?.kind===&#x27;plant&#x27;?copy(context.offer):null;
+    return {plantId:plant?.id||null,offer,saved:null,editing:false,form:{origin:offer?&#x27;purchase&#x27;:&#x27;gift&#x27;,name:plant?.name||offer?.name||&#x27;&#x27;,location:plant?.location||&#x27;&#x27;,type:validType(plant?.type||offer?.type),description:offer?[offer.size,offer.condition,offer.components].filter(Boolean).join(&#x27; · &#x27;):&#x27;&#x27;,condition:&#x27;unknown&#x27;,question:&#x27;&#x27;}};
+  }
+  function arrivalSummary(d){const p=api.getPlant(d.plantId),s=d.saved;return [[&#x27;대상&#x27;,p?plantTitle(p):s.name||&#x27;이름 모를 식물&#x27;],[&#x27;들인 경로&#x27;,origins[s.origin]],[&#x27;당시 설명&#x27;,s.description||&#x27;확인한 설명 없음&#x27;],[&#x27;수령 상태&#x27;,arrivalStates[s.condition]],[&#x27;확인할 점&#x27;,s.question||&#x27;아직 정하지 않음&#x27;]];}
+  function renderArrival(host,context={}){
+    start(host);const key=originKey(context);if(!arrivals.has(key))arrivals.set(key,newArrival(context));const d=arrivals.get(key);
+    if(context.plantId&amp;&amp;!api.getPlant(context.plantId)){noPlant(host,&#x27;arrival&#x27;);return;}
+    const redraw=()=&gt;renderArrival(host,context);
+    const intro=box(host,&#x27;들인 날의 설명과 상태를 남겨요&#x27;);text(intro,&#x27;구입·선물·개인 분양 모두 살펴볼 수 있어요. 사진을 선택하거나 건강을 판정하는 기능은 없어요.&#x27;);
+    if(d.offer){text(intro,&#x27;체험용 가상 매물에서 이어졌어요. 실제 구입이나 거래가 이루어진 것은 아니에요.&#x27;,&#x27;p-careflow-warning&#x27;);details(intro,[[&#x27;후보&#x27;,d.offer.name],[&#x27;판매처 예시&#x27;,d.offer.seller||&#x27;판매처 미확인&#x27;],[&#x27;당시 조건&#x27;,[d.offer.size,d.offer.condition,d.offer.components].filter(Boolean).join(&#x27; · &#x27;)||&#x27;미확인&#x27;]]);}
+    if(d.saved&amp;&amp;!d.editing){
+      const result=box(host,&#x27;입양 확인을 정리했어요&#x27;);result.dataset.careflowResult=&#x27;arrival&#x27;;details(result,arrivalSummary(d));text(result,&#x27;이 확인과 연결한 식물은 현재 창에서만 유지돼요. 실제 검수·판매자 연락·영구 저장은 하지 않아요.&#x27;);
+      actions(result,button(&#x27;이 식물 상태 살펴보기&#x27;,()=&gt;openObservation(d.plantId),true),button(&#x27;입양 내용 수정&#x27;,()=&gt;{d.form=copy(d.saved);d.editing=true;redraw();focus(host.querySelector(&#x27;[data-careflow-form] h2&#x27;));}));
+      actions(result,button(&#x27;입양 확인 취소&#x27;,()=&gt;{d.saved=null;d.editing=false;contextRows(d.plantId,&#x27;arrival&#x27;,[]);redraw();feedback(host,&#x27;입양 확인만 취소했어요. 이미 등록한 식물과 관찰은 그대로예요.&#x27;);}),button(&#x27;내 정원으로&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));
+      if(key===&#x27;direct&#x27;)actions(result,button(&#x27;다른 식물 입양 확인&#x27;,()=&gt;{arrivals.delete(&#x27;direct&#x27;);redraw();focus(host.querySelector(&#x27;h2&#x27;));}));return;
+    }
+    const form=box(host,d.plantId?&#x27;이 식물의 입양 확인&#x27;:&#x27;새 식물 입양 확인&#x27;);form.dataset.careflowForm=&#x27;arrival&#x27;;
+    const existing=d.plantId?api.getPlant(d.plantId):null;
+    if(existing)text(form,plantTitle(existing),&#x27;p-context p-small&#x27;);
+    field(form,&#x27;들인 경로&#x27;,&#x27;select&#x27;,d.form.origin,v=&gt;d.form.origin=v,{values:origins});
+    if(!existing){field(form,&#x27;이름 또는 별명 · 선택&#x27;,&#x27;text&#x27;,d.form.name,v=&gt;d.form.name=v,{max:80,placeholder:&#x27;모르면 비워두기&#x27;});field(form,&#x27;놓인 곳 · 선택&#x27;,&#x27;text&#x27;,d.form.location,v=&gt;d.form.location=v,{max:100,placeholder:&#x27;예: 거실 창가 · 주소는 쓰지 마세요&#x27;});field(form,&#x27;재배 방식&#x27;,&#x27;select&#x27;,d.form.type,v=&gt;d.form.type=v,{values:types});}
+    field(form,&#x27;당시 들은 설명 · 선택&#x27;,&#x27;textarea&#x27;,d.form.description,v=&gt;d.form.description=v,{max:500,placeholder:&#x27;예: 화분 포함, 뿌리 상태는 모름&#x27;});
+    field(form,&#x27;설명과 지금 상태를 비교하면&#x27;,&#x27;select&#x27;,d.form.condition,v=&gt;d.form.condition=v,{values:arrivalStates});
+    field(form,&#x27;다른 점이나 확인하고 싶은 점 · 선택&#x27;,&#x27;textarea&#x27;,d.form.question,v=&gt;d.form.question=v,{max:500,placeholder:&#x27;눈에 보이는 점과 아직 모르는 점을 적어 주세요&#x27;});
+    text(form,&#x27;다른 점이 보여도 원인이나 판매자 책임을 확정하지 않아요. 판매자에게 물을 내용을 정리하는 체험이에요.&#x27;,&#x27;p-careflow-warning&#x27;);
+    const message=feedback(form);
+    actions(form,button(existing?&#x27;입양 확인 반영&#x27;:&#x27;입양 확인하고 내 식물에 추가&#x27;,()=&gt;{
+      if(!d.plantId){const p=api.createPlant({name:clean(d.form.name)||&#x27;이름 모를 식물&#x27;,location:clean(d.form.location)||&#x27;놓인 곳 모름&#x27;,type:validType(d.form.type),origin:d.form.origin});if(!p?.id){message.textContent=&#x27;식물을 연결하지 못했어요. 입력을 확인한 뒤 다시 눌러 주세요.&#x27;;return;}d.plantId=p.id;}
+      d.saved=copy(d.form);d.editing=false;arrivals.set(&#x27;plant:&#x27;+d.plantId,d);api.selectPlant(d.plantId);contextRows(d.plantId,&#x27;arrival&#x27;,arrivalSummary(d));redraw();focus(host.querySelector(&#x27;[data-careflow-result] h2&#x27;));
+    },true),button(d.saved?&#x27;수정 취소&#x27;:&#x27;입양 입력 취소&#x27;,()=&gt;{
+      if(d.saved){d.form=copy(d.saved);d.editing=false;redraw();return;}
+      arrivals.delete(key);api.navigate(&#x27;garden&#x27;);
+    }));
+  }
+  function blankPlan(){return {work:&#x27;other&#x27;,action:&#x27;&#x27;,next:&#x27;&#x27;,date:&#x27;&#x27;,progress:&#x27;unknown&#x27;};}
+  function followupRows(record){return [[&#x27;정리한 일&#x27;,workLabels[record.work]],[&#x27;한 일·상담 메모&#x27;,record.action||&#x27;아직 적지 않음&#x27;],[&#x27;다음 확인&#x27;,record.next],[&#x27;다시 볼 날짜&#x27;,record.date||&#x27;아직 정하지 않음&#x27;],[&#x27;내가 본 경과&#x27;,progressLabels[record.progress]]];}
+  function syncFollowup(plantId,d){const latest=d.records.filter(r=&gt;!r.cancelled).at(-1);contextRows(plantId,&#x27;followup&#x27;,latest?followupRows(latest):[]);}
+  function renderFollowup(host,context={}){
+    start(host);const id=selectedId(context),plant=id?api.getPlant(id):null;if(!plant){noPlant(host,&#x27;followup&#x27;);return;}
+    if(!followups.has(id))followups.set(id,{form:blankPlan(),editingId:null,records:[],notice:&#x27;&#x27;,inquiryId:null});const d=followups.get(id),redraw=()=&gt;renderFollowup(host,{plantId:id});
+    const intro=box(host,&#x27;다음에 확인할 일을 정해요&#x27;);plantPicker(intro,id,newId=&gt;{if(newId){api.selectPlant(newId);api.open(&#x27;followup&#x27;,{plantId:newId});}});currentObservation(intro,plant);text(intro,&#x27;내가 한 일이나 들은 상담 내용을 직접 정리하는 시안이에요. 전문가 답변을 제공하거나 관리 주기를 정해주지는 않아요.&#x27;);
+    const form=box(host,d.editingId?&#x27;경과 기록 수정&#x27;:&#x27;내 계획과 경과 남기기&#x27;);form.dataset.careflowForm=&#x27;followup&#x27;;
+    field(form,&#x27;어떤 일을 정리하나요?&#x27;,&#x27;select&#x27;,d.form.work,v=&gt;d.form.work=v,{values:workLabels});
+    field(form,&#x27;실제로 한 일·직접 정리한 상담 내용 · 선택&#x27;,&#x27;textarea&#x27;,d.form.action,v=&gt;d.form.action=v,{max:500,placeholder:&#x27;아직 실행하지 않았다면 계획이라고 적어 주세요&#x27;});
+    const next=field(form,&#x27;다음에 확인할 것&#x27;,&#x27;textarea&#x27;,d.form.next,v=&gt;d.form.next=v,{max:300,placeholder:&#x27;예: 같은 시간에 잎의 모습을 다시 살펴보기&#x27;});
+    field(form,&#x27;내가 다시 볼 날짜 · 선택&#x27;,&#x27;date&#x27;,d.form.date,v=&gt;d.form.date=v,{note:&#x27;날짜를 정하지 않고 남겨도 돼요. 알림 발송이나 급수 권고는 하지 않아요.&#x27;});
+    field(form,&#x27;내가 본 경과&#x27;,&#x27;select&#x27;,d.form.progress,v=&gt;d.form.progress=v,{values:progressLabels});const message=feedback(form,d.notice);
+    actions(form,button(d.editingId?&#x27;수정 내용 반영&#x27;:&#x27;경과 기록 남기기&#x27;,()=&gt;{
+      if(!clean(d.form.next)){message.textContent=&#x27;다음에 확인할 것을 적어 주세요. 모르면 “확인 방법을 더 알아보기”로 남겨도 돼요.&#x27;;next.focus();return;}
+      const value=copy(d.form);value.next=clean(value.next);value.action=clean(value.action);
+      if(d.editingId){const record=d.records.find(r=&gt;r.id===d.editingId&amp;&amp;!r.cancelled);if(!record){d.notice=&#x27;수정할 기록을 다시 골라 주세요.&#x27;;d.editingId=null;redraw();return;}Object.assign(record,value,{updatedAt:Date.now()});d.notice=&#x27;같은 경과 기록을 수정했어요.&#x27;;}
+      else{d.records.push({...value,id:&#x27;care-plan-&#x27;+(++planId),createdAt:Date.now(),cancelled:false});d.notice=&#x27;경과 기록을 남겼어요. 다음 행동과 날짜는 내가 정한 계획이에요.&#x27;;}
+      d.editingId=null;d.form=blankPlan();syncFollowup(id,d);redraw();focus(host.querySelector(&#x27;[data-careflow-history] h2&#x27;));
+    },true));
+    if(d.editingId)actions(form,button(&#x27;수정 취소&#x27;,()=&gt;{d.editingId=null;d.form=blankPlan();d.notice=&#x27;수정을 취소했어요. 기존 경과는 그대로예요.&#x27;;redraw();focus(host.querySelector(&#x27;[data-careflow-history] h2&#x27;));}));
+    const history=box(host,&#x27;이 식물의 경과 기록&#x27;);history.dataset.careflowHistory=&#x27;followup&#x27;;
+    if(!d.records.length)text(history,&#x27;아직 남긴 경과가 없어요. 위에서 다음 확인 한 가지부터 정리해 보세요.&#x27;);
+    const list=node(&#x27;ol&#x27;,&#x27;p-careflow-list&#x27;);history.append(list);
+    d.records.slice().reverse().forEach(record=&gt;{
+      const item=node(&#x27;li&#x27;,&#x27;p-careflow-entry&#x27;);item.dataset.cancelled=String(record.cancelled);title(item,(record.cancelled?&#x27;취소됨 · &#x27;:&#x27;&#x27;)+workLabels[record.work],&#x27;h3&#x27;);text(item,&#x27;내가 정리 · &#x27;+timestamp(record.createdAt)+(record.updatedAt?&#x27; · 수정 &#x27;+timestamp(record.updatedAt):&#x27;&#x27;));details(item,followupRows(record));
+      const changeState=cancelled=&gt;{record.cancelled=cancelled;if(d.editingId===record.id){d.editingId=null;d.form=blankPlan();}if(cancelled&amp;&amp;d.inquiryId===record.id)d.inquiryId=null;syncFollowup(id,d);d.notice=cancelled?&#x27;경과 기록을 취소했어요. 도움 요청 요약에도 반영했어요.&#x27;:&#x27;같은 경과 기록을 되살렸어요.&#x27;;redraw();focus(host.querySelector(&#x27;[data-careflow-history] h2&#x27;));};
+      if(record.cancelled)actions(item,button(&#x27;취소 되돌리기&#x27;,()=&gt;changeState(false)));
+      else{
+        actions(item,button(&#x27;이 경과 수정&#x27;,()=&gt;{d.form={work:record.work,action:record.action,next:record.next,date:record.date,progress:record.progress};d.editingId=record.id;d.notice=&#x27;반영하기 전까지 기존 경과는 유지돼요.&#x27;;redraw();focus(host.querySelector(&#x27;[data-careflow-form] h2&#x27;));}),button(&#x27;경과 취소&#x27;,()=&gt;changeState(true)));
+        if(record.progress===&#x27;worse&#x27;||record.progress===&#x27;unknown&#x27;)actions(item,button(&#x27;이 경과로 도움 준비&#x27;,()=&gt;{d.inquiryId=record.id;redraw();focus(host.querySelector(&#x27;[data-careflow-inquiry] h2&#x27;));}));
+      }
+      list.append(item);
+    });
+    const inquiry=d.records.find(r=&gt;r.id===d.inquiryId&amp;&amp;!r.cancelled);
+    if(inquiry){const b=box(host,&#x27;다시 물어볼 내용&#x27;);b.dataset.careflowInquiry=&#x27;followup&#x27;;text(b,plantTitle(plant),&#x27;p-context p-small&#x27;);details(b,followupRows(inquiry));text(b,&#x27;원인·회복 여부를 확정한 내용이 아니에요. 선택한 경과를 같은 식물의 도움 요청 예시에 연결할 수 있어요.&#x27;);actions(b,button(&#x27;이 내용으로 도움 방식 보기&#x27;,()=&gt;{contextRows(id,&#x27;followup&#x27;,followupRows(inquiry));api.openHelp(id,2);},true),button(&#x27;현재 상태 관찰하기&#x27;,()=&gt;openObservation(id)));}
+    actions(history,button(&#x27;이 식물 관찰 남기기&#x27;,()=&gt;openObservation(id)),button(&#x27;내 정원으로&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));
+  }
+  const caseData=[
+    {id:&#x27;case-soil&#x27;,name:&#x27;몬스테라&#x27;,type:&#x27;soil&#x27;,light:&#x27;bright&#x27;,situation:&#x27;move&#x27;,title:&#x27;자리를 옮긴 뒤 잎이 달라 보였어요&#x27;,facts:&#x27;가상의 몬스테라를 창가에서 책장으로 옮긴 뒤 잎 한 장이 전보다 처져 보였어요.&#x27;,attempt:&#x27;같은 시간의 모습을 비교하고 자리 이동 날짜를 적었어요. 원인을 정하지 않았어요.&#x27;,result:&#x27;후속 관찰은 아직 남기지 않았어요.&#x27;,unknown:&#x27;흙 안쪽 상태, 이전 관리, 새 위치의 실제 빛은 미확인이에요.&#x27;,difference:&#x27;위치 변경 하나만으로 잎 변화의 원인을 정할 수 없어요.&#x27;},
+    {id:&#x27;case-hydro&#x27;,name:&#x27;스킨답서스&#x27;,type:&#x27;hydro&#x27;,light:&#x27;bright&#x27;,situation:&#x27;water&#x27;,title:&#x27;물의 높이가 달라 보여 기준을 남겼어요&#x27;,facts:&#x27;가상의 수경 용기에서 물 높이가 이전 기억과 달라 보였어요.&#x27;,attempt:&#x27;현재 높이와 관찰 시각을 메모했어요. 물이나 영양제를 바꾸지는 않았어요.&#x27;,result:&#x27;다음 기록에도 높이가 달라 보인다고 적었지만, 같은 조건에서 측정한 것은 아니에요.&#x27;,unknown:&#x27;뿌리 상태와 평소 수위, 관찰 사이의 환경 변화는 미확인이에요.&#x27;,difference:&#x27;용기·구성·평소 기준이 다르면 이 기록을 그대로 적용할 수 없어요.&#x27;},
+    {id:&#x27;case-terrarium&#x27;,name:&#x27;이끼 테라리움&#x27;,type:&#x27;terrarium&#x27;,light:&#x27;bright&#x27;,situation:&#x27;condensation&#x27;,title:&#x27;오전과 저녁의 결로 모습이 달랐어요&#x27;,facts:&#x27;가상의 뚜껑 있는 용기에서 관찰 시간에 따라 유리의 물방울 위치가 달라 보였어요.&#x27;,attempt:&#x27;용기 바깥에서 오전·저녁의 모습과 뚜껑 유무를 적었어요.&#x27;,result:&#x27;시간별 차이를 기록했어요. 적절한 수분 상태인지는 확인하지 않았어요.&#x27;,unknown:&#x27;구성 식물, 온도, 용기 안쪽 상태는 미확인이에요.&#x27;,difference:&#x27;결로 유무만으로 물 추가나 환기 여부를 정하는 사례가 아니에요.&#x27;},
+    {id:&#x27;case-unknown&#x27;,name:&#x27;이름 모를 식물&#x27;,type:&#x27;unknown&#x27;,light:&#x27;unknown&#x27;,situation:&#x27;arrival&#x27;,title:&#x27;선물받은 식물을 모르는 상태로 남겼어요&#x27;,facts:&#x27;가상의 선물 식물은 이름과 마지막 물 준 날을 모르는 상태였어요.&#x27;,attempt:&#x27;흙·물·뚜껑이 보이는지 적고, 선물한 사람에게 확인할 질문을 정리했어요.&#x27;,result:&#x27;이름과 재배 방식은 아직 확인 전이에요.&#x27;,unknown:&#x27;식물 종류, 재배 방식, 이전 관리 모두 미확인이에요.&#x27;,difference:&#x27;외형이 비슷해도 같은 식물이나 관리 조건이라고 가정하지 않아요.&#x27;},
+    {id:&#x27;case-repot&#x27;,name:&#x27;아글라오네마&#x27;,type:&#x27;soil&#x27;,light:&#x27;low&#x27;,situation:&#x27;repot&#x27;,title:&#x27;분갈이 이후 여러 변화를 구분해 적었어요&#x27;,facts:&#x27;가상의 흙 화분에서 분갈이와 자리 이동이 비슷한 시기에 있었어요.&#x27;,attempt:&#x27;두 작업의 날짜와 잎의 모습을 따로 적었어요.&#x27;,result:&#x27;다음 기록에서 새잎이 보였다고 적었지만 어느 작업의 영향인지는 확인할 수 없어요.&#x27;,unknown:&#x27;용토·뿌리 상태·실제 광량과 이전 생육 속도는 미확인이에요.&#x27;,difference:&#x27;새잎이 보였다는 기록이 해당 분갈이 방법의 효과를 증명하지 않아요.&#x27;},
+    {id:&#x27;case-paludarium&#x27;,name:&#x27;식물이 있는 팔루다리움&#x27;,type:&#x27;paludarium&#x27;,light:&#x27;lamp&#x27;,situation:&#x27;equipment&#x27;,title:&#x27;수위와 장비 표시를 관찰로 구분했어요&#x27;,facts:&#x27;가상의 팔루다리움에서 평소와 수위가 달라 보이고 장비 표시를 확인하려 했어요.&#x27;,attempt:&#x27;용기 바깥에서 보이는 수위와 장비의 켜짐 표시만 적었어요.&#x27;,result:&#x27;다음 관찰과 장비 점검 결과는 아직 없어요.&#x27;,unknown:&#x27;구성 식물·장비 모델·평소 수위 기준은 미확인이에요.&#x27;,difference:&#x27;장비 조작이나 동물 사육 방법을 안내하는 사례가 아니에요.&#x27;}
+  ];
+  const lightLabels={all:&#x27;모든 빛 조건&#x27;,bright:&#x27;밝은 곳 · 실측 없음&#x27;,low:&#x27;빛이 적어 보이는 곳&#x27;,lamp:&#x27;식물등 사용&#x27;,unknown:&#x27;빛 조건 모름&#x27;};
+  const situationLabels={all:&#x27;모든 상황&#x27;,move:&#x27;자리 이동&#x27;,water:&#x27;물의 높이·상태&#x27;,condensation:&#x27;결로&#x27;,arrival:&#x27;처음 들인 식물&#x27;,repot:&#x27;분갈이 이후&#x27;,equipment:&#x27;장비·수위&#x27;};
+  const caseState={query:&#x27;&#x27;,type:&#x27;all&#x27;,light:&#x27;all&#x27;,situation:&#x27;all&#x27;,detail:null};
+  function renderCases(host,context={}){
+    start(host);const id=selectedId(context),plant=id?api.getPlant(id):null,redraw=()=&gt;renderCases(host,context);
+    const intro=box(host,&#x27;비슷해 보여도 조건을 함께 살펴요&#x27;);text(intro,&#x27;아래 여섯 기록은 모두 체험용 가상 사례예요. 실제 사용자 글·상담 결과가 아니며, 효과를 확인한 관리법도 아니에요.&#x27;,&#x27;p-careflow-warning&#x27;);
+    if(caseState.detail){
+      const item=caseData.find(c=&gt;c.id===caseState.detail);if(!item){caseState.detail=null;redraw();return;}
+      const b=box(host,item.title);text(b,&#x27;가상 사례 · &#x27;+item.name+&#x27; · &#x27;+types[item.type]+&#x27; · &#x27;+lightLabels[item.light],&#x27;p-careflow-tag&#x27;);
+      details(b,[[&#x27;사례에서 본 것&#x27;,item.facts],[&#x27;시도한 것&#x27;,item.attempt],[&#x27;후속 결과&#x27;,item.result],[&#x27;미확인 항목&#x27;,item.unknown],[&#x27;조건 차이&#x27;,item.difference]]);
+      const mine=box(host,&#x27;내 식물과 비교할 점&#x27;);plantPicker(mine,plant?.id||&#x27;&#x27;,newId=&gt;{if(newId){api.selectPlant(newId);api.open(&#x27;cases&#x27;,{plantId:newId});}},&#x27;사례와 비교할 내 식물&#x27;);
+      if(plant){text(mine,&#x27;내 식물: &#x27;+plantTitle(plant));text(mine,plant.type===item.type?&#x27;재배 방식은 같아도 식물·빛·배지·최근 작업이 다를 수 있어요. 내 식물의 빛 조건은 아직 확인하지 않았어요.&#x27;:&#x27;사례와 내 식물의 재배 방식이 달라요. 같은 관찰법이나 작업을 그대로 적용하지 마세요.&#x27;,&#x27;p-careflow-warning&#x27;);actions(mine,button(&#x27;내 식물 관찰하기&#x27;,()=&gt;openObservation(plant.id),true),button(&#x27;이 식물 도움 찾기&#x27;,()=&gt;api.openHelp(plant.id,2)));}
+      else{text(mine,&#x27;대상을 고르면 내 식물의 관찰이나 도움 찾기로 이어져요.&#x27;);actions(mine,button(&#x27;정원에서 대상 등록&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));}
+      text(mine,&#x27;사례의 시도와 결과를 내 식물의 관찰 기록으로 복사하지 않아요.&#x27;);actions(b,button(&#x27;사례 목록으로&#x27;,()=&gt;{caseState.detail=null;redraw();focus(host.querySelector(&#x27;[data-careflow-results] h2&#x27;));}));return;
+    }
+    const filters=box(host,&#x27;어떤 사례를 살펴볼까요?&#x27;);filters.classList.add(&#x27;p-careflow-filters&#x27;);
+    field(filters,&#x27;식물 이름·찾을 말&#x27;,&#x27;text&#x27;,caseState.query,v=&gt;caseState.query=v,{max:80,placeholder:&#x27;예: 몬스테라, 결로, 이름 모를 식물&#x27;});
+    field(filters,&#x27;재배 방식&#x27;,&#x27;select&#x27;,caseState.type,v=&gt;caseState.type=v,{values:{all:&#x27;모든 재배 방식&#x27;,...types}});
+    field(filters,&#x27;빛 조건&#x27;,&#x27;select&#x27;,caseState.light,v=&gt;caseState.light=v,{values:lightLabels});
+    field(filters,&#x27;살펴볼 상황&#x27;,&#x27;select&#x27;,caseState.situation,v=&gt;caseState.situation=v,{values:situationLabels});
+    actions(filters,button(&#x27;조건에 맞는 사례 보기&#x27;,()=&gt;{redraw();focus(host.querySelector(&#x27;[data-careflow-results] h2&#x27;));},true),button(&#x27;조건 초기화&#x27;,()=&gt;{Object.assign(caseState,{query:&#x27;&#x27;,type:&#x27;all&#x27;,light:&#x27;all&#x27;,situation:&#x27;all&#x27;,detail:null});redraw();focus(host.querySelector(&#x27;[data-careflow-results] h2&#x27;));}));
+    const query=clean(caseState.query).toLocaleLowerCase(&#x27;ko-KR&#x27;);const results=caseData.filter(c=&gt;(caseState.type===&#x27;all&#x27;||c.type===caseState.type)&amp;&amp;(caseState.light===&#x27;all&#x27;||c.light===caseState.light)&amp;&amp;(caseState.situation===&#x27;all&#x27;||c.situation===caseState.situation)&amp;&amp;(!query||[c.name,c.title,c.facts,types[c.type],situationLabels[c.situation]].join(&#x27; &#x27;).toLocaleLowerCase(&#x27;ko-KR&#x27;).includes(query)));
+    const list=box(host,&#x27;가상 사례 &#x27;+results.length+&#x27;개&#x27;);list.dataset.careflowResults=&#x27;cases&#x27;;
+    if(!results.length){text(list,&#x27;이 조건으로 준비한 가상 사례가 없어요. 실제로 비슷한 사례가 없다는 뜻은 아니에요.&#x27;);actions(list,button(&#x27;전체 사례 보기&#x27;,()=&gt;{Object.assign(caseState,{query:&#x27;&#x27;,type:&#x27;all&#x27;,light:&#x27;all&#x27;,situation:&#x27;all&#x27;});redraw();focus(host.querySelector(&#x27;[data-careflow-results] h2&#x27;));}));}
+    results.forEach(item=&gt;{const card=node(&#x27;article&#x27;,&#x27;p-careflow-entry&#x27;);title(card,item.title,&#x27;h3&#x27;);text(card,item.name+&#x27; · &#x27;+types[item.type]+&#x27; · &#x27;+lightLabels[item.light]);text(card,item.result);actions(card,button(&#x27;조건과 후속 결과 보기&#x27;,()=&gt;{caseState.detail=item.id;redraw();focus(host.querySelectorAll(&#x27;h2&#x27;)[1]);}));list.append(card);});
+  }
+  function newTransfer(plant){return {preview:false,form:{purpose:&#x27;아직 정하지 않음&#x27;,photo:&#x27;none&#x27;,size:&#x27;&#x27;,rooted:&#x27;unknown&#x27;,pot:&#x27;unknown&#x27;,price:&#x27;&#x27;,shipping:&#x27;&#x27;,method:&#x27;unknown&#x27;,region:&#x27;&#x27;,note:&#x27;&#x27;,shareObservation:false,observationId:observations(plant.id).at(-1)?.id||&#x27;&#x27;,sharePrivateNote:false,shareLocation:false}};}
+  function transferRows(plant,d){
+    const f=d.form,record=observations(plant.id).find(r=&gt;r.id===f.observationId);const rows=[[&#x27;대상&#x27;,plant.name],[&#x27;재배 방식&#x27;,types[plant.type]||types.unknown],[&#x27;카드 목적&#x27;,f.purpose],[&#x27;사진 종류&#x27;,photoLabels[f.photo]],[&#x27;크기&#x27;,clean(f.size)||&#x27;모름&#x27;],[&#x27;발근 상태&#x27;,rootedLabels[f.rooted]],[&#x27;화분&#x27;,potLabels[f.pot]],[&#x27;수령 방식&#x27;,methodLabels[f.method]],[&#x27;넓은 거래 지역&#x27;,clean(f.region)||&#x27;아직 정하지 않음&#x27;],[&#x27;카드 설명&#x27;,clean(f.note)||&#x27;추가 설명 없음&#x27;]];
+    rows.push(...offerCosts(f.purpose===&#x27;나눔·분양 검토&#x27;?&#x27;free&#x27;:f.purpose===&#x27;판매 검토&#x27;?&#x27;paid&#x27;:&#x27;unknown&#x27;,f.price,f.shipping,f.method));
+    if(f.shareLocation)rows.push([&#x27;포함한 놓인 곳&#x27;,plant.location]);
+    if(f.shareObservation){rows.push([&#x27;선택한 관찰&#x27;,record?observationText(record,plant.type)+&#x27; · &#x27;+timestamp(record.createdAt):&#x27;선택한 관찰이 없거나 취소되어 포함하지 않았어요.&#x27;]);if(record&amp;&amp;f.sharePrivateNote)rows.push([&#x27;포함한 개인 메모&#x27;,record.note||&#x27;선택한 관찰에 메모가 없어요.&#x27;]);}
+    return rows;
+  }
+  function renderTransfer(host,context={}){
+    if(context.kind===&#x27;material&#x27;){renderMaterialTransfer(host,context);return;}
+    start(host);const id=selectedId(context),plant=id?api.getPlant(id):null;if(!plant){noPlant(host,&#x27;transfer&#x27;);return;}
+    if(!transfers.has(id))transfers.set(id,newTransfer(plant));const d=transfers.get(id),f=d.form,redraw=()=&gt;renderTransfer(host,{plantId:id});
+    const validRecords=observations(id);let removedObservation=false;
+    if(f.shareObservation&amp;&amp;!validRecords.some(record=&gt;record.id===f.observationId)){f.shareObservation=false;f.sharePrivateNote=false;f.observationId=validRecords.at(-1)?.id||&#x27;&#x27;;removedObservation=true;}
+    const intro=box(host,&#x27;판매·분양 정보를 먼저 정리해요&#x27;);plantPicker(intro,id,newId=&gt;{if(newId){api.selectPlant(newId);api.open(&#x27;transfer&#x27;,{plantId:newId});}});text(intro,&#x27;현재 창에서 보는 카드 예시예요. 사진 선택·매물 발행·연락처 수집·전송은 하지 않아요.&#x27;);
+    if(removedObservation)text(intro,&#x27;선택했던 관찰이 취소되어 카드에서 제외했어요. 필요한 관찰을 다시 고를 수 있어요.&#x27;,&#x27;p-careflow-warning&#x27;);
+    if(d.preview){
+      const card=box(host,&#x27;내가 포함한 카드 미리보기&#x27;);card.dataset.careflowPreview=&#x27;transfer&#x27;;text(card,&#x27;공개·발행되지 않은 체험용 카드&#x27;,&#x27;p-careflow-tag&#x27;);details(card,transferRows(plant,d));
+      text(card,&#x27;관찰 &#x27;+(f.shareObservation?&#x27;포함 선택&#x27;:&#x27;제외&#x27;)+&#x27; · 개인 메모 &#x27;+(f.shareObservation&amp;&amp;f.sharePrivateNote?&#x27;포함 선택&#x27;:&#x27;제외&#x27;)+&#x27; · 놓인 곳 &#x27;+(f.shareLocation?&#x27;포함 선택&#x27;:&#x27;제외&#x27;),&#x27;p-careflow-outcome&#x27;);
+      text(card,f.photo===&#x27;none&#x27;?&#x27;첨부된 사진은 없어요. 실제 개체를 확인한 카드가 아니에요.&#x27;:&#x27;선택한 것은 사진의 종류예요. 실제로 첨부된 사진은 없고 상태·품질을 확인한 것이 아니에요.&#x27;,&#x27;p-careflow-warning&#x27;);
+      actions(card,button(&#x27;포함 항목 다시 고르기&#x27;,()=&gt;{d.preview=false;redraw();focus(host.querySelector(&#x27;[data-careflow-form] h2&#x27;));},true),button(&#x27;내 정원으로&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));return;
+    }
+    const form=box(host,&#x27;어떤 내용을 보여줄까요?&#x27;);form.dataset.careflowForm=&#x27;transfer&#x27;;
+    let price;
+    field(form,&#x27;판매·분양 목적&#x27;,&#x27;select&#x27;,f.purpose,v=&gt;{f.purpose=v;price.disabled=v!==&#x27;판매 검토&#x27;;},{values:{&#x27;아직 정하지 않음&#x27;:&#x27;아직 정하지 않음&#x27;,&#x27;판매 검토&#x27;:&#x27;판매 검토&#x27;,&#x27;나눔·분양 검토&#x27;:&#x27;무료 나눔·분양 검토&#x27;}});
+    price=moneyInput(form,&#x27;판매 희망 금액 · 선택&#x27;,f.price,v=&gt;f.price=v,&#x27;판매 호가를 적는 예시예요. 빈값은 미확인이고 무료 나눔은 물품 0원으로 표시해요.&#x27;);price.disabled=f.purpose!==&#x27;판매 검토&#x27;;
+    field(form,&#x27;설명에 사용할 사진의 종류&#x27;,&#x27;select&#x27;,f.photo,v=&gt;f.photo=v,{values:photoLabels,note:&#x27;사진은 선택하거나 첨부하지 않아요. 대표·모주 사진은 거래할 실제 개체 사진과 달라요.&#x27;});
+    field(form,&#x27;확인한 크기 · 선택&#x27;,&#x27;text&#x27;,f.size,v=&gt;f.size=v,{max:100,placeholder:&#x27;예: 화분 위부터 높이 25cm · 모르면 비워두기&#x27;});
+    field(form,&#x27;뿌리 상태&#x27;,&#x27;select&#x27;,f.rooted,v=&gt;f.rooted=v,{values:rootedLabels});field(form,&#x27;화분 포함 여부&#x27;,&#x27;select&#x27;,f.pot,v=&gt;f.pot=v,{values:potLabels});field(form,&#x27;수령 방식&#x27;,&#x27;select&#x27;,f.method,v=&gt;f.method=v,{values:methodLabels});
+    const shipping=moneyInput(form,&#x27;배송비 · 선택&#x27;,f.shipping,v=&gt;f.shipping=v,&#x27;배송비가 없다는 것을 확인한 경우에만 0을 적어요. 직거래 이동 비용은 별도예요.&#x27;);
+    field(form,&#x27;넓은 거래 지역 · 선택&#x27;,&#x27;text&#x27;,f.region,v=&gt;f.region=v,{max:60,placeholder:&#x27;예: 서울 마포구 · 상세 주소는 쓰지 마세요&#x27;});
+    field(form,&#x27;카드에 넣을 설명 · 선택&#x27;,&#x27;textarea&#x27;,f.note,v=&gt;f.note=v,{max:400,placeholder:&#x27;예: 확인하지 못한 점, 빠진 구성품 · 연락처와 주소는 쓰지 마세요&#x27;});
+    const sharing=node(&#x27;div&#x27;,&#x27;p-careflow-outcome&#x27;);title(sharing,&#x27;포함할 기록을 직접 골라요&#x27;,&#x27;h3&#x27;);text(sharing,&#x27;관찰·개인 메모·놓인 곳은 처음에 모두 제외해요. 이름과 위에서 적은 카드 설명은 미리보기에 표시돼요.&#x27;);form.append(sharing);
+    const records=observations(id),recordOptions={&#x27;&#x27;:&#x27;아직 고르지 않음&#x27;};records.slice().reverse().forEach(r=&gt;{recordOptions[r.id]=observationText(r,plant.type)+&#x27; · &#x27;+timestamp(r.createdAt);});
+    const recordField=field(sharing,&#x27;포함할 유효 관찰&#x27;,&#x27;select&#x27;,f.observationId,v=&gt;f.observationId=v,{values:recordOptions});recordField.disabled=!f.shareObservation||!records.length;
+    let privateCheck;
+    check(sharing,&#x27;선택한 관찰의 상태와 시각 포함&#x27;,f.shareObservation,v=&gt;{f.shareObservation=v;recordField.disabled=!v||!records.length;privateCheck.disabled=!v||!records.length;if(!v){f.sharePrivateNote=false;privateCheck.checked=false;}},!records.length);
+    privateCheck=check(sharing,&#x27;선택한 관찰의 개인 메모도 포함&#x27;,f.sharePrivateNote,v=&gt;f.sharePrivateNote=v,!f.shareObservation||!records.length);
+    check(sharing,&#x27;등록한 놓인 곳도 포함&#x27;,f.shareLocation,v=&gt;f.shareLocation=v);
+    if(!records.length)text(sharing,&#x27;포함할 유효 관찰이 없어요. 관찰 없이 카드 내용을 정리해도 돼요.&#x27;);
+    const message=feedback(form);
+    actions(form,button(&#x27;내가 포함한 카드 미리보기&#x27;,()=&gt;{
+      if(f.purpose===&#x27;판매 검토&#x27;&amp;&amp;!validMoney(price,f.price)){message.textContent=&#x27;판매 희망 금액은 0원 이상 정수로 적거나 비워두세요.&#x27;;price.focus();return;}
+      if(!validMoney(shipping,f.shipping)){message.textContent=&#x27;배송비는 0원 이상 정수로 적거나 미확인이면 비워두세요.&#x27;;shipping.focus();return;}
+      if(f.shareObservation&amp;&amp;!observations(id).some(r=&gt;r.id===f.observationId)){message.textContent=&#x27;포함할 유효 관찰을 고르거나 관찰 포함을 해제해 주세요.&#x27;;recordField.focus();return;}
+      d.preview=true;redraw();focus(host.querySelector(&#x27;[data-careflow-preview] h2&#x27;));
+    },true),button(&#x27;내 정원으로&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));
+  }
+  function blankMaterial(){return {preview:false,form:{name:&#x27;&#x27;,amount:&#x27;&#x27;,unit:&#x27;unknown&#x27;,opened:&#x27;unknown&#x27;,storage:&#x27;&#x27;,purpose:&#x27;free&#x27;,price:&#x27;&#x27;,shipping:&#x27;&#x27;,method:&#x27;unknown&#x27;,region:&#x27;&#x27;,condition:&#x27;&#x27;,question:&#x27;&#x27;}};}
+  function renderMaterialTransfer(host,context={}){
+    start(host);const key=context.materialId||context.offer?.id||&#x27;direct&#x27;;if(!materialTransfers.has(key))materialTransfers.set(key,blankMaterial());const d=materialTransfers.get(key),f=d.form,redraw=()=&gt;renderMaterialTransfer(host,context);
+    const units={unknown:&#x27;단위 모름&#x27;,L:&#x27;L&#x27;,kg:&#x27;kg&#x27;,g:&#x27;g&#x27;,&#x27;개&#x27;:&#x27;개&#x27;,&#x27;봉&#x27;:&#x27;봉&#x27;},openedLabels={unknown:&#x27;모름&#x27;,unopened:&#x27;미개봉&#x27;,opened:&#x27;개봉함&#x27;};
+    const intro=box(host,&#x27;남은 원예자재를 설명해요&#x27;);text(intro,&#x27;개인 간 소량 구매·나눔을 준비하는 카드 예시예요. 식물을 등록하지 않아도 작성할 수 있고, 게시하거나 거래를 연결하지 않아요.&#x27;);text(intro,&#x27;남은 양·개봉·보관 상태를 아는 만큼 적어요. 이 카드가 재사용 안전이나 품질을 확인해 주지는 않아요.&#x27;,&#x27;p-careflow-warning&#x27;);
+    if(d.preview){
+      const card=box(host,&#x27;자재 구매·나눔 카드 미리보기&#x27;);card.dataset.careflowPreview=&#x27;material&#x27;;text(card,&#x27;공개·발행되지 않은 체험용 카드&#x27;,&#x27;p-careflow-tag&#x27;);
+      details(card,[[&#x27;품목&#x27;,clean(f.name)],[&#x27;남은 양&#x27;,f.amount?(f.amount+&#x27; &#x27;+(f.unit===&#x27;unknown&#x27;?&#x27;단위 미확인&#x27;:units[f.unit])):&#x27;양 미확인&#x27;],[&#x27;개봉 여부&#x27;,openedLabels[f.opened]],[&#x27;알고 있는 보관 상태&#x27;,clean(f.storage)||&#x27;모름&#x27;],[&#x27;거래 구상&#x27;,f.purpose===&#x27;free&#x27;?&#x27;무료 나눔&#x27;:&#x27;유료 소량 판매&#x27;],[&#x27;수령 방식&#x27;,methodLabels[f.method]],...offerCosts(f.purpose,f.price,f.shipping,f.method),[&#x27;넓은 거래 지역&#x27;,clean(f.region)||&#x27;아직 정하지 않음&#x27;],[&#x27;상태·조건&#x27;,clean(f.condition)||&#x27;추가 확인 전&#x27;],[&#x27;먼저 확인할 질문&#x27;,clean(f.question)||&#x27;아직 정하지 않음&#x27;]]);
+      text(card,&#x27;사진·연락처·집 주소는 받지 않았어요. 배송비·수령 장소·현재 상태는 실제 거래 전에 별도로 확인할 사항이에요.&#x27;);
+      actions(card,button(&#x27;카드 내용 수정&#x27;,()=&gt;{d.preview=false;redraw();focus(host.querySelector(&#x27;[data-careflow-form] h2&#x27;));},true),button(&#x27;새 자재 카드 작성&#x27;,()=&gt;{materialTransfers.delete(key);redraw();focus(host.querySelector(&#x27;[data-careflow-form] h2&#x27;));}));actions(card,button(&#x27;내 정원으로&#x27;,()=&gt;api.navigate(&#x27;garden&#x27;)));return;
+    }
+    const form=box(host,&#x27;어떤 자재가 남았나요?&#x27;);form.dataset.careflowForm=&#x27;material&#x27;;
+    const name=field(form,&#x27;품목 이름&#x27;,&#x27;text&#x27;,f.name,v=&gt;f.name=v,{max:100,placeholder:&#x27;예: 남은 펄라이트 · 정확한 제품명은 모름&#x27;});
+    const amount=field(form,&#x27;남은 양 · 모르면 비워두기&#x27;,&#x27;number&#x27;,f.amount,v=&gt;f.amount=v,{placeholder:&#x27;예: 2&#x27;});amount.min=&#x27;0&#x27;;amount.step=&#x27;any&#x27;;
+    field(form,&#x27;양의 단위&#x27;,&#x27;select&#x27;,f.unit,v=&gt;f.unit=v,{values:units,note:&#x27;서로 다른 단위는 임의로 바꾸지 않아요. 봉 단위라면 한 봉의 용량을 상태·조건에 적어 주세요.&#x27;});
+    field(form,&#x27;개봉 여부&#x27;,&#x27;select&#x27;,f.opened,v=&gt;f.opened=v,{values:openedLabels});
+    field(form,&#x27;알고 있는 보관 상태 · 선택&#x27;,&#x27;textarea&#x27;,f.storage,v=&gt;f.storage=v,{max:300,placeholder:&#x27;예: 개봉 날짜는 모름, 실내 보관 · 모르면 비워두기&#x27;});
+    let price;
+    field(form,&#x27;판매 또는 나눔&#x27;,&#x27;select&#x27;,f.purpose,v=&gt;{f.purpose=v;price.disabled=v===&#x27;free&#x27;;},{values:{free:&#x27;무료 나눔&#x27;,paid:&#x27;유료 소량 판매&#x27;}});
+    price=field(form,&#x27;희망 금액 · 유료일 때 선택&#x27;,&#x27;number&#x27;,f.price,v=&gt;f.price=v,{placeholder:&#x27;금액 미정이면 비워두기&#x27;,note:&#x27;거래가가 아닌 희망 금액이에요. 배송비·수령 비용은 포함하지 않아요.&#x27;});price.min=&#x27;0&#x27;;price.step=&#x27;1&#x27;;price.disabled=f.purpose===&#x27;free&#x27;;
+    field(form,&#x27;수령 방식&#x27;,&#x27;select&#x27;,f.method,v=&gt;f.method=v,{values:methodLabels});
+    const shipping=moneyInput(form,&#x27;배송비 · 선택&#x27;,f.shipping,v=&gt;f.shipping=v,&#x27;무료 나눔도 수령 비용은 별도예요. 배송비 미확인 상태를 무료 배송으로 표시하지 않아요.&#x27;);
+    field(form,&#x27;넓은 거래 지역 · 선택&#x27;,&#x27;text&#x27;,f.region,v=&gt;f.region=v,{max:60,placeholder:&#x27;예: 서울 마포구 · 상세 주소는 쓰지 마세요&#x27;});
+    field(form,&#x27;확인한 상태·수령 조건 · 선택&#x27;,&#x27;textarea&#x27;,f.condition,v=&gt;f.condition=v,{max:400,placeholder:&#x27;예: 포장 상태, 확인하지 못한 부분 · 연락처·주소 제외&#x27;});
+    field(form,&#x27;거래 전 확인하고 싶은 질문 · 선택&#x27;,&#x27;textarea&#x27;,f.question,v=&gt;f.question=v,{max:300,placeholder:&#x27;예: 실제 잔량이나 수령 방법을 더 확인하고 싶어요&#x27;});
+    const message=feedback(form);
+    actions(form,button(&#x27;자재 카드 미리보기&#x27;,()=&gt;{
+      if(!clean(f.name)){message.textContent=&#x27;어떤 자재인지 품목 이름을 적어 주세요.&#x27;;name.focus();return;}
+      if(amount.validity.badInput||(f.amount&amp;&amp;(!Number.isFinite(Number(f.amount))||Number(f.amount)&lt;=0))){message.textContent=&#x27;남은 양은 0보다 큰 수로 적거나, 모르면 비워두세요.&#x27;;amount.focus();return;}
+      if(f.purpose===&#x27;paid&#x27;&amp;&amp;!validMoney(price,f.price)){message.textContent=&#x27;희망 금액은 0원 이상 정수로 적거나, 미정이면 비워두세요.&#x27;;price.focus();return;}
+      if(!validMoney(shipping,f.shipping)){message.textContent=&#x27;배송비는 0원 이상 정수로 적거나 미확인이면 비워두세요.&#x27;;shipping.focus();return;}
+      d.preview=true;redraw();focus(host.querySelector(&#x27;[data-careflow-preview] h2&#x27;));
+    },true),button(&#x27;작성 취소&#x27;,()=&gt;{materialTransfers.delete(key);api.navigate(&#x27;garden&#x27;);}));
+  }
+  api.registerView(&#x27;arrival&#x27;,{title:&#x27;들인 식물 확인하기&#x27;,subtitle:&#x27;당시 설명과 지금 보이는 상태를 함께 남겨요.&#x27;,nav:&#x27;garden&#x27;,render:renderArrival});
+  api.registerView(&#x27;followup&#x27;,{title:&#x27;다음 관찰을 이어가요&#x27;,subtitle:&#x27;내가 정한 계획과 실제 경과를 구분해요.&#x27;,nav:&#x27;today&#x27;,render:renderFollowup});
+  api.registerView(&#x27;cases&#x27;,{title:&#x27;조건을 함께 보는 사례&#x27;,subtitle:&#x27;가상의 관찰 기록으로 내 상황을 비교해요.&#x27;,nav:&#x27;cases&#x27;,render:renderCases});
+  api.registerView(&#x27;transfer&#x27;,{title:&#x27;판매·분양 카드 준비&#x27;,subtitle:&#x27;보여줄 내용과 제외할 기록을 직접 골라요.&#x27;,nav:&#x27;garden&#x27;,render:renderTransfer});
+})();
+&lt;/script&gt;
+
 &lt;/div&gt;
 &lt;!-- PLANTORY_FRAGMENT_END --&gt;
 

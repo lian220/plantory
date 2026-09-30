@@ -1,0 +1,295 @@
+<style>
+  #plantory-concept .p-careflow{display:grid;gap:16px}
+  #plantory-concept .p-careflow h2{font-size:19px;line-height:1.45}
+  #plantory-concept .p-careflow h3{font-size:16px;line-height:1.5}
+  #plantory-concept .p-careflow p{margin-top:8px}
+  #plantory-concept .p-careflow .p-careflow-field{display:block;margin-top:16px;font-size:14px}
+  #plantory-concept .p-careflow .p-careflow-field:first-child{margin-top:0}
+  #plantory-concept .p-careflow textarea{resize:vertical;min-height:84px}
+  #plantory-concept .p-careflow select,#plantory-concept .p-careflow input{min-width:0;max-width:100%}
+  #plantory-concept .p-careflow-check{display:flex;align-items:center;gap:10px;min-height:48px;font-size:14px;padding:8px 0}
+  #plantory-concept .p-careflow-check input{width:22px;height:22px;flex-shrink:0;accent-color:var(--p-accent)}
+  #plantory-concept .p-careflow-dl{display:grid;grid-template-columns:90px minmax(0,1fr);gap:10px 12px;margin:18px 0 0;font-size:14px}
+  #plantory-concept .p-careflow-dl dt{color:var(--p-muted)}
+  #plantory-concept .p-careflow-dl dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+  #plantory-concept .p-careflow-message{font-size:14px;color:var(--p-accent);margin-top:12px;white-space:pre-wrap}
+  #plantory-concept .p-careflow-warning{border-left:3px solid var(--p-gold);padding:10px 12px;background:var(--p-soft);font-size:13px;color:var(--p-muted)}
+  #plantory-concept .p-careflow-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  #plantory-concept .p-careflow-entry{padding:16px 0;border-top:1px solid var(--p-line)}
+  #plantory-concept .p-careflow-entry[data-cancelled=true]{border-left:3px solid var(--p-line);padding-left:12px}
+  #plantory-concept .p-careflow .p-actions{align-items:stretch}
+  #plantory-concept .p-careflow .p-actions button{white-space:normal;overflow-wrap:anywhere}
+  #plantory-concept .p-careflow .p-careflow-tag{display:inline-block;font-size:12px;color:var(--p-gold);padding:4px 0}
+  #plantory-concept .p-careflow .p-careflow-filters{border-bottom:1px solid var(--p-line);padding-bottom:18px}
+  #plantory-concept .p-careflow .p-careflow-outcome{margin-top:14px;padding:12px;background:var(--p-soft);border-radius:10px}
+  #plantory-concept .p-careflow :is(h2,h3)[tabindex]:focus{outline:2px solid var(--p-accent);outline-offset:5px}
+  @media(max-width:360px){#plantory-concept .p-careflow-dl{grid-template-columns:78px minmax(0,1fr);gap:8px}}
+</style>
+<script>
+(() => {
+  'use strict';
+  const api=window.PlantoryPrototype;
+  if(!api)return;
+  const types={soil:'일반 흙 화분',hydro:'수경재배',terrarium:'테라리움',paludarium:'팔루다리움',unknown:'재배 방식 모름'};
+  const origins={purchase:'구입',gift:'선물',transfer:'개인 분양·나눔'};
+  const arrivalStates={same:'설명과 비슷해요',different:'다른 점이 있어요',unknown:'아직 모르겠어요'};
+  const progressLabels={better:'나아져 보여요',similar:'비슷해 보여요',worse:'더 걱정돼요',unknown:'아직 모르겠어요'};
+  const workLabels={consultation:'상담 내용을 직접 정리',repot:'분갈이',move:'자리 이동',other:'그 밖의 일·관찰 계획'};
+  const photoLabels={none:'사진 없음',individual:'판매·분양할 실제 개체 사진',representative:'대표 이미지',parent:'모주 사진'};
+  const rootedLabels={unknown:'모름',rooted:'뿌리가 있음',cutting:'삽수·뿌리 확인 전'};
+  const potLabels={unknown:'모름',yes:'화분 포함',no:'화분 미포함'};
+  const methodLabels={unknown:'아직 정하지 않음',shipping:'배송',meet:'지역 직거래',either:'배송·지역 직거래 모두 검토'};
+  const arrivals=new Map(),followups=new Map(),transfers=new Map(),materialTransfers=new Map();
+  let fieldId=0,planId=0;
+  const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=String(text);return n;};
+  const copy=value=>JSON.parse(JSON.stringify(value));
+  const clean=value=>String(value||'').trim();
+  const validType=value=>Object.hasOwn(types,value)?value:'unknown';
+  const plantTitle=p=>p.name+' · '+p.location+' · '+(types[p.type]||types.unknown);
+  const selectedId=context=>context&&Object.hasOwn(context,'plantId')?(context.plantId||null):(api.getSelectedPlant()?.id||null);
+  function text(parent,value,cls='p-small'){parent.append(node('p',cls,value));}
+  function title(parent,value,level='h2'){const h=node(level,'',value);h.tabIndex=-1;parent.append(h);return h;}
+  function box(host,heading){const b=node('article','p-box');if(heading)title(b,heading);host.append(b);return b;}
+  function start(host){host.classList.add('p-stack','p-careflow');host.replaceChildren();}
+  function button(label,fn,primary=false){const b=node('button',primary?'p-primary':'p-secondary',label);b.type='button';b.addEventListener('click',fn);return b;}
+  function actions(parent,...buttons){const wrap=node('div','p-actions');wrap.append(...buttons);parent.append(wrap);return wrap;}
+  function details(parent,rows){const dl=node('dl','p-careflow-dl');rows.forEach(([label,value])=>dl.append(node('dt','',label),node('dd','',value===undefined||value===''?'미확인':value)));parent.append(dl);return dl;}
+  function field(parent,label,kind,value,change,options={}){
+    const wrap=node('label','p-careflow-field',label),input=node(kind==='textarea'?'textarea':kind==='select'?'select':'input','p-input');
+    input.id='p-careflow-field-'+(++fieldId);wrap.htmlFor=input.id;
+    if(kind==='select')Object.entries(options.values||{}).forEach(([key,labelText])=>{const option=node('option','',labelText);option.value=key;input.append(option);});
+    else if(kind!=='textarea')input.type=kind;
+    if(kind==='textarea')input.rows=3;
+    if(options.max)input.maxLength=options.max;
+    if(options.placeholder)input.placeholder=options.placeholder;
+    if(kind==='text')input.autocomplete='off';
+    input.value=value||'';input.addEventListener(kind==='select'?'change':'input',()=>change(input.value));wrap.append(input);parent.append(wrap);
+    if(options.note){const hint=node('p','p-fieldnote',options.note);hint.id=input.id+'-note';input.setAttribute('aria-describedby',hint.id);parent.append(hint);}
+    return input;
+  }
+  function check(parent,label,value,change,disabled=false){const wrap=node('label','p-careflow-check'),input=node('input');input.type='checkbox';input.checked=value;input.disabled=disabled;input.addEventListener('change',()=>change(input.checked));wrap.append(input,node('span','',label));parent.append(wrap);return input;}
+  function feedback(parent,value=''){const p=node('p','p-careflow-message',value);p.setAttribute('role','status');parent.append(p);return p;}
+  function focus(nodeToFocus){if(!nodeToFocus)return;nodeToFocus.scrollIntoView({block:'start',behavior:'instant'});nodeToFocus.focus({preventScroll:true});}
+  function timestamp(value){const date=new Date(value);return Number.isNaN(date.valueOf())?'시각 미확인':new Intl.DateTimeFormat('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(date);}
+  function observationText(record,type){
+    const labels={wet:'아직 젖어 있음',dry:'말라 있음',unknown:'모름',condensation:'결로가 보임',clear:'결로가 안 보임',changed:type==='paludarium'?'수위가 달라 보임':'변화가 보임',stable:type==='hydro'||type==='paludarium'?'평소와 비슷해 보임':'큰 변화는 없음'};
+    return labels[record.status]||record.status||'상태 미확인';
+  }
+  function observations(id){return api.getObservations(id).filter(record=>!record.cancelled);}
+  function currentObservation(parent,plant){const record=observations(plant.id).at(-1);text(parent,record?'최근 유효 관찰: '+observationText(record,plant.type)+' · '+timestamp(record.createdAt):'아직 유효한 관찰이 없어요. 계획을 정리한 뒤 현재 상태를 남겨도 돼요.');}
+  function contextRows(id,key,rows){if(typeof api.setContext==='function')api.setContext(id,key,rows);}
+  const won=value=>Number(value).toLocaleString('ko-KR')+'원';
+  function offerCosts(purpose,price,shipping,method){
+    const item=purpose==='free'?0:purpose==='paid'&&price!==''?Number(price):null;
+    const delivery=shipping!==''?Number(shipping):null;
+    let total='물품 금액과 수령 비용을 확인해야 해요.';
+    if(method==='meet')total=item===null?'물품 금액 미확인 · 이동 비용은 별도':won(item)+' · 물품만, 직거래 이동 비용 별도';
+    else if(method==='shipping'&&item!==null&&delivery!==null)total=won(item+delivery)+' · 입력한 물품값과 배송비 기준';
+    else if(method==='shipping'&&item!==null)total=won(item)+' + 배송비 미확인';
+    else if(item!==null)total=won(item)+' + 수령 방식·비용 확인 필요';
+    return [['물품 희망 금액',item===null?'미확인':purpose==='free'?'0원 · 무료 나눔':won(item)+' · 판매 호가'],['배송비',method==='meet'?'직거래 · 배송 대상 아님':delivery===null?'미확인':won(delivery)+(method==='shipping'?'':' · 배송 선택 시')],['비교용 합계',total]];
+  }
+  function moneyInput(parent,label,value,change,note){const input=field(parent,label,'number',value,change,{placeholder:'미확인이면 비워두기',note});input.min='0';input.step='1';return input;}
+  function validMoney(input,value){return !input.validity.badInput&&(value===''||(Number.isFinite(Number(value))&&Number(value)>=0&&Number.isInteger(Number(value))));}
+  function plantPicker(parent,plantId,change,label='대상 식물'){
+    const values={'':'식물을 골라 주세요'};api.getPlants().forEach(p=>{values[p.id]=(p.sample?'샘플 · ':'')+plantTitle(p);});
+    const select=field(parent,label,'select',plantId||'',change,{values});if(plantId)select.querySelector('option[value=""]').disabled=true;return select;
+  }
+  function noPlant(host,id){const b=box(host,'먼저 대상 식물을 골라 주세요');text(b,'직접 등록한 식물이나 샘플을 골라 이 흐름을 체험할 수 있어요.');plantPicker(b,'',plantId=>{if(plantId){api.selectPlant(plantId);api.open(id,{plantId});}});actions(b,button('내 정원으로',()=>api.navigate('garden')));}
+  function openObservation(id){api.selectPlant(id);api.navigate('today');}
+  function originKey(context){return context.offer?.id?'offer:'+context.offer.id:context.plantId?'plant:'+context.plantId:'direct';}
+  function newArrival(context){
+    const plant=context.plantId?api.getPlant(context.plantId):null,offer=context.offer?.kind==='plant'?copy(context.offer):null;
+    return {plantId:plant?.id||null,offer,saved:null,editing:false,form:{origin:offer?'purchase':'gift',name:plant?.name||offer?.name||'',location:plant?.location||'',type:validType(plant?.type||offer?.type),description:offer?[offer.size,offer.condition,offer.components].filter(Boolean).join(' · '):'',condition:'unknown',question:''}};
+  }
+  function arrivalSummary(d){const p=api.getPlant(d.plantId),s=d.saved;return [['대상',p?plantTitle(p):s.name||'이름 모를 식물'],['들인 경로',origins[s.origin]],['당시 설명',s.description||'확인한 설명 없음'],['수령 상태',arrivalStates[s.condition]],['확인할 점',s.question||'아직 정하지 않음']];}
+  function renderArrival(host,context={}){
+    start(host);const key=originKey(context);if(!arrivals.has(key))arrivals.set(key,newArrival(context));const d=arrivals.get(key);
+    if(context.plantId&&!api.getPlant(context.plantId)){noPlant(host,'arrival');return;}
+    const redraw=()=>renderArrival(host,context);
+    const intro=box(host,'들인 날의 설명과 상태를 남겨요');text(intro,'구입·선물·개인 분양 모두 살펴볼 수 있어요. 사진을 선택하거나 건강을 판정하는 기능은 없어요.');
+    if(d.offer){text(intro,'체험용 가상 매물에서 이어졌어요. 실제 구입이나 거래가 이루어진 것은 아니에요.','p-careflow-warning');details(intro,[['후보',d.offer.name],['판매처 예시',d.offer.seller||'판매처 미확인'],['당시 조건',[d.offer.size,d.offer.condition,d.offer.components].filter(Boolean).join(' · ')||'미확인']]);}
+    if(d.saved&&!d.editing){
+      const result=box(host,'입양 확인을 정리했어요');result.dataset.careflowResult='arrival';details(result,arrivalSummary(d));text(result,'이 확인과 연결한 식물은 현재 창에서만 유지돼요. 실제 검수·판매자 연락·영구 저장은 하지 않아요.');
+      actions(result,button('이 식물 상태 살펴보기',()=>openObservation(d.plantId),true),button('입양 내용 수정',()=>{d.form=copy(d.saved);d.editing=true;redraw();focus(host.querySelector('[data-careflow-form] h2'));}));
+      actions(result,button('입양 확인 취소',()=>{d.saved=null;d.editing=false;contextRows(d.plantId,'arrival',[]);redraw();feedback(host,'입양 확인만 취소했어요. 이미 등록한 식물과 관찰은 그대로예요.');}),button('내 정원으로',()=>api.navigate('garden')));
+      if(key==='direct')actions(result,button('다른 식물 입양 확인',()=>{arrivals.delete('direct');redraw();focus(host.querySelector('h2'));}));return;
+    }
+    const form=box(host,d.plantId?'이 식물의 입양 확인':'새 식물 입양 확인');form.dataset.careflowForm='arrival';
+    const existing=d.plantId?api.getPlant(d.plantId):null;
+    if(existing)text(form,plantTitle(existing),'p-context p-small');
+    field(form,'들인 경로','select',d.form.origin,v=>d.form.origin=v,{values:origins});
+    if(!existing){field(form,'이름 또는 별명 · 선택','text',d.form.name,v=>d.form.name=v,{max:80,placeholder:'모르면 비워두기'});field(form,'놓인 곳 · 선택','text',d.form.location,v=>d.form.location=v,{max:100,placeholder:'예: 거실 창가 · 주소는 쓰지 마세요'});field(form,'재배 방식','select',d.form.type,v=>d.form.type=v,{values:types});}
+    field(form,'당시 들은 설명 · 선택','textarea',d.form.description,v=>d.form.description=v,{max:500,placeholder:'예: 화분 포함, 뿌리 상태는 모름'});
+    field(form,'설명과 지금 상태를 비교하면','select',d.form.condition,v=>d.form.condition=v,{values:arrivalStates});
+    field(form,'다른 점이나 확인하고 싶은 점 · 선택','textarea',d.form.question,v=>d.form.question=v,{max:500,placeholder:'눈에 보이는 점과 아직 모르는 점을 적어 주세요'});
+    text(form,'다른 점이 보여도 원인이나 판매자 책임을 확정하지 않아요. 판매자에게 물을 내용을 정리하는 체험이에요.','p-careflow-warning');
+    const message=feedback(form);
+    actions(form,button(existing?'입양 확인 반영':'입양 확인하고 내 식물에 추가',()=>{
+      if(!d.plantId){const p=api.createPlant({name:clean(d.form.name)||'이름 모를 식물',location:clean(d.form.location)||'놓인 곳 모름',type:validType(d.form.type),origin:d.form.origin});if(!p?.id){message.textContent='식물을 연결하지 못했어요. 입력을 확인한 뒤 다시 눌러 주세요.';return;}d.plantId=p.id;}
+      d.saved=copy(d.form);d.editing=false;arrivals.set('plant:'+d.plantId,d);api.selectPlant(d.plantId);contextRows(d.plantId,'arrival',arrivalSummary(d));redraw();focus(host.querySelector('[data-careflow-result] h2'));
+    },true),button(d.saved?'수정 취소':'입양 입력 취소',()=>{
+      if(d.saved){d.form=copy(d.saved);d.editing=false;redraw();return;}
+      arrivals.delete(key);api.navigate('garden');
+    }));
+  }
+  function blankPlan(){return {work:'other',action:'',next:'',date:'',progress:'unknown'};}
+  function followupRows(record){return [['정리한 일',workLabels[record.work]],['한 일·상담 메모',record.action||'아직 적지 않음'],['다음 확인',record.next],['다시 볼 날짜',record.date||'아직 정하지 않음'],['내가 본 경과',progressLabels[record.progress]]];}
+  function syncFollowup(plantId,d){const latest=d.records.filter(r=>!r.cancelled).at(-1);contextRows(plantId,'followup',latest?followupRows(latest):[]);}
+  function renderFollowup(host,context={}){
+    start(host);const id=selectedId(context),plant=id?api.getPlant(id):null;if(!plant){noPlant(host,'followup');return;}
+    if(!followups.has(id))followups.set(id,{form:blankPlan(),editingId:null,records:[],notice:'',inquiryId:null});const d=followups.get(id),redraw=()=>renderFollowup(host,{plantId:id});
+    const intro=box(host,'다음에 확인할 일을 정해요');plantPicker(intro,id,newId=>{if(newId){api.selectPlant(newId);api.open('followup',{plantId:newId});}});currentObservation(intro,plant);text(intro,'내가 한 일이나 들은 상담 내용을 직접 정리하는 시안이에요. 전문가 답변을 제공하거나 관리 주기를 정해주지는 않아요.');
+    const form=box(host,d.editingId?'경과 기록 수정':'내 계획과 경과 남기기');form.dataset.careflowForm='followup';
+    field(form,'어떤 일을 정리하나요?','select',d.form.work,v=>d.form.work=v,{values:workLabels});
+    field(form,'실제로 한 일·직접 정리한 상담 내용 · 선택','textarea',d.form.action,v=>d.form.action=v,{max:500,placeholder:'아직 실행하지 않았다면 계획이라고 적어 주세요'});
+    const next=field(form,'다음에 확인할 것','textarea',d.form.next,v=>d.form.next=v,{max:300,placeholder:'예: 같은 시간에 잎의 모습을 다시 살펴보기'});
+    field(form,'내가 다시 볼 날짜 · 선택','date',d.form.date,v=>d.form.date=v,{note:'날짜를 정하지 않고 남겨도 돼요. 알림 발송이나 급수 권고는 하지 않아요.'});
+    field(form,'내가 본 경과','select',d.form.progress,v=>d.form.progress=v,{values:progressLabels});const message=feedback(form,d.notice);
+    actions(form,button(d.editingId?'수정 내용 반영':'경과 기록 남기기',()=>{
+      if(!clean(d.form.next)){message.textContent='다음에 확인할 것을 적어 주세요. 모르면 “확인 방법을 더 알아보기”로 남겨도 돼요.';next.focus();return;}
+      const value=copy(d.form);value.next=clean(value.next);value.action=clean(value.action);
+      if(d.editingId){const record=d.records.find(r=>r.id===d.editingId&&!r.cancelled);if(!record){d.notice='수정할 기록을 다시 골라 주세요.';d.editingId=null;redraw();return;}Object.assign(record,value,{updatedAt:Date.now()});d.notice='같은 경과 기록을 수정했어요.';}
+      else{d.records.push({...value,id:'care-plan-'+(++planId),createdAt:Date.now(),cancelled:false});d.notice='경과 기록을 남겼어요. 다음 행동과 날짜는 내가 정한 계획이에요.';}
+      d.editingId=null;d.form=blankPlan();syncFollowup(id,d);redraw();focus(host.querySelector('[data-careflow-history] h2'));
+    },true));
+    if(d.editingId)actions(form,button('수정 취소',()=>{d.editingId=null;d.form=blankPlan();d.notice='수정을 취소했어요. 기존 경과는 그대로예요.';redraw();focus(host.querySelector('[data-careflow-history] h2'));}));
+    const history=box(host,'이 식물의 경과 기록');history.dataset.careflowHistory='followup';
+    if(!d.records.length)text(history,'아직 남긴 경과가 없어요. 위에서 다음 확인 한 가지부터 정리해 보세요.');
+    const list=node('ol','p-careflow-list');history.append(list);
+    d.records.slice().reverse().forEach(record=>{
+      const item=node('li','p-careflow-entry');item.dataset.cancelled=String(record.cancelled);title(item,(record.cancelled?'취소됨 · ':'')+workLabels[record.work],'h3');text(item,'내가 정리 · '+timestamp(record.createdAt)+(record.updatedAt?' · 수정 '+timestamp(record.updatedAt):''));details(item,followupRows(record));
+      const changeState=cancelled=>{record.cancelled=cancelled;if(d.editingId===record.id){d.editingId=null;d.form=blankPlan();}if(cancelled&&d.inquiryId===record.id)d.inquiryId=null;syncFollowup(id,d);d.notice=cancelled?'경과 기록을 취소했어요. 도움 요청 요약에도 반영했어요.':'같은 경과 기록을 되살렸어요.';redraw();focus(host.querySelector('[data-careflow-history] h2'));};
+      if(record.cancelled)actions(item,button('취소 되돌리기',()=>changeState(false)));
+      else{
+        actions(item,button('이 경과 수정',()=>{d.form={work:record.work,action:record.action,next:record.next,date:record.date,progress:record.progress};d.editingId=record.id;d.notice='반영하기 전까지 기존 경과는 유지돼요.';redraw();focus(host.querySelector('[data-careflow-form] h2'));}),button('경과 취소',()=>changeState(true)));
+        if(record.progress==='worse'||record.progress==='unknown')actions(item,button('이 경과로 도움 준비',()=>{d.inquiryId=record.id;redraw();focus(host.querySelector('[data-careflow-inquiry] h2'));}));
+      }
+      list.append(item);
+    });
+    const inquiry=d.records.find(r=>r.id===d.inquiryId&&!r.cancelled);
+    if(inquiry){const b=box(host,'다시 물어볼 내용');b.dataset.careflowInquiry='followup';text(b,plantTitle(plant),'p-context p-small');details(b,followupRows(inquiry));text(b,'원인·회복 여부를 확정한 내용이 아니에요. 선택한 경과를 같은 식물의 도움 요청 예시에 연결할 수 있어요.');actions(b,button('이 내용으로 도움 방식 보기',()=>{contextRows(id,'followup',followupRows(inquiry));api.openHelp(id,2);},true),button('현재 상태 관찰하기',()=>openObservation(id)));}
+    actions(history,button('이 식물 관찰 남기기',()=>openObservation(id)),button('내 정원으로',()=>api.navigate('garden')));
+  }
+  const caseData=[
+    {id:'case-soil',name:'몬스테라',type:'soil',light:'bright',situation:'move',title:'자리를 옮긴 뒤 잎이 달라 보였어요',facts:'가상의 몬스테라를 창가에서 책장으로 옮긴 뒤 잎 한 장이 전보다 처져 보였어요.',attempt:'같은 시간의 모습을 비교하고 자리 이동 날짜를 적었어요. 원인을 정하지 않았어요.',result:'후속 관찰은 아직 남기지 않았어요.',unknown:'흙 안쪽 상태, 이전 관리, 새 위치의 실제 빛은 미확인이에요.',difference:'위치 변경 하나만으로 잎 변화의 원인을 정할 수 없어요.'},
+    {id:'case-hydro',name:'스킨답서스',type:'hydro',light:'bright',situation:'water',title:'물의 높이가 달라 보여 기준을 남겼어요',facts:'가상의 수경 용기에서 물 높이가 이전 기억과 달라 보였어요.',attempt:'현재 높이와 관찰 시각을 메모했어요. 물이나 영양제를 바꾸지는 않았어요.',result:'다음 기록에도 높이가 달라 보인다고 적었지만, 같은 조건에서 측정한 것은 아니에요.',unknown:'뿌리 상태와 평소 수위, 관찰 사이의 환경 변화는 미확인이에요.',difference:'용기·구성·평소 기준이 다르면 이 기록을 그대로 적용할 수 없어요.'},
+    {id:'case-terrarium',name:'이끼 테라리움',type:'terrarium',light:'bright',situation:'condensation',title:'오전과 저녁의 결로 모습이 달랐어요',facts:'가상의 뚜껑 있는 용기에서 관찰 시간에 따라 유리의 물방울 위치가 달라 보였어요.',attempt:'용기 바깥에서 오전·저녁의 모습과 뚜껑 유무를 적었어요.',result:'시간별 차이를 기록했어요. 적절한 수분 상태인지는 확인하지 않았어요.',unknown:'구성 식물, 온도, 용기 안쪽 상태는 미확인이에요.',difference:'결로 유무만으로 물 추가나 환기 여부를 정하는 사례가 아니에요.'},
+    {id:'case-unknown',name:'이름 모를 식물',type:'unknown',light:'unknown',situation:'arrival',title:'선물받은 식물을 모르는 상태로 남겼어요',facts:'가상의 선물 식물은 이름과 마지막 물 준 날을 모르는 상태였어요.',attempt:'흙·물·뚜껑이 보이는지 적고, 선물한 사람에게 확인할 질문을 정리했어요.',result:'이름과 재배 방식은 아직 확인 전이에요.',unknown:'식물 종류, 재배 방식, 이전 관리 모두 미확인이에요.',difference:'외형이 비슷해도 같은 식물이나 관리 조건이라고 가정하지 않아요.'},
+    {id:'case-repot',name:'아글라오네마',type:'soil',light:'low',situation:'repot',title:'분갈이 이후 여러 변화를 구분해 적었어요',facts:'가상의 흙 화분에서 분갈이와 자리 이동이 비슷한 시기에 있었어요.',attempt:'두 작업의 날짜와 잎의 모습을 따로 적었어요.',result:'다음 기록에서 새잎이 보였다고 적었지만 어느 작업의 영향인지는 확인할 수 없어요.',unknown:'용토·뿌리 상태·실제 광량과 이전 생육 속도는 미확인이에요.',difference:'새잎이 보였다는 기록이 해당 분갈이 방법의 효과를 증명하지 않아요.'},
+    {id:'case-paludarium',name:'식물이 있는 팔루다리움',type:'paludarium',light:'lamp',situation:'equipment',title:'수위와 장비 표시를 관찰로 구분했어요',facts:'가상의 팔루다리움에서 평소와 수위가 달라 보이고 장비 표시를 확인하려 했어요.',attempt:'용기 바깥에서 보이는 수위와 장비의 켜짐 표시만 적었어요.',result:'다음 관찰과 장비 점검 결과는 아직 없어요.',unknown:'구성 식물·장비 모델·평소 수위 기준은 미확인이에요.',difference:'장비 조작이나 동물 사육 방법을 안내하는 사례가 아니에요.'}
+  ];
+  const lightLabels={all:'모든 빛 조건',bright:'밝은 곳 · 실측 없음',low:'빛이 적어 보이는 곳',lamp:'식물등 사용',unknown:'빛 조건 모름'};
+  const situationLabels={all:'모든 상황',move:'자리 이동',water:'물의 높이·상태',condensation:'결로',arrival:'처음 들인 식물',repot:'분갈이 이후',equipment:'장비·수위'};
+  const caseState={query:'',type:'all',light:'all',situation:'all',detail:null};
+  function renderCases(host,context={}){
+    start(host);const id=selectedId(context),plant=id?api.getPlant(id):null,redraw=()=>renderCases(host,context);
+    const intro=box(host,'비슷해 보여도 조건을 함께 살펴요');text(intro,'아래 여섯 기록은 모두 체험용 가상 사례예요. 실제 사용자 글·상담 결과가 아니며, 효과를 확인한 관리법도 아니에요.','p-careflow-warning');
+    if(caseState.detail){
+      const item=caseData.find(c=>c.id===caseState.detail);if(!item){caseState.detail=null;redraw();return;}
+      const b=box(host,item.title);text(b,'가상 사례 · '+item.name+' · '+types[item.type]+' · '+lightLabels[item.light],'p-careflow-tag');
+      details(b,[['사례에서 본 것',item.facts],['시도한 것',item.attempt],['후속 결과',item.result],['미확인 항목',item.unknown],['조건 차이',item.difference]]);
+      const mine=box(host,'내 식물과 비교할 점');plantPicker(mine,plant?.id||'',newId=>{if(newId){api.selectPlant(newId);api.open('cases',{plantId:newId});}},'사례와 비교할 내 식물');
+      if(plant){text(mine,'내 식물: '+plantTitle(plant));text(mine,plant.type===item.type?'재배 방식은 같아도 식물·빛·배지·최근 작업이 다를 수 있어요. 내 식물의 빛 조건은 아직 확인하지 않았어요.':'사례와 내 식물의 재배 방식이 달라요. 같은 관찰법이나 작업을 그대로 적용하지 마세요.','p-careflow-warning');actions(mine,button('내 식물 관찰하기',()=>openObservation(plant.id),true),button('이 식물 도움 찾기',()=>api.openHelp(plant.id,2)));}
+      else{text(mine,'대상을 고르면 내 식물의 관찰이나 도움 찾기로 이어져요.');actions(mine,button('정원에서 대상 등록',()=>api.navigate('garden')));}
+      text(mine,'사례의 시도와 결과를 내 식물의 관찰 기록으로 복사하지 않아요.');actions(b,button('사례 목록으로',()=>{caseState.detail=null;redraw();focus(host.querySelector('[data-careflow-results] h2'));}));return;
+    }
+    const filters=box(host,'어떤 사례를 살펴볼까요?');filters.classList.add('p-careflow-filters');
+    field(filters,'식물 이름·찾을 말','text',caseState.query,v=>caseState.query=v,{max:80,placeholder:'예: 몬스테라, 결로, 이름 모를 식물'});
+    field(filters,'재배 방식','select',caseState.type,v=>caseState.type=v,{values:{all:'모든 재배 방식',...types}});
+    field(filters,'빛 조건','select',caseState.light,v=>caseState.light=v,{values:lightLabels});
+    field(filters,'살펴볼 상황','select',caseState.situation,v=>caseState.situation=v,{values:situationLabels});
+    actions(filters,button('조건에 맞는 사례 보기',()=>{redraw();focus(host.querySelector('[data-careflow-results] h2'));},true),button('조건 초기화',()=>{Object.assign(caseState,{query:'',type:'all',light:'all',situation:'all',detail:null});redraw();focus(host.querySelector('[data-careflow-results] h2'));}));
+    const query=clean(caseState.query).toLocaleLowerCase('ko-KR');const results=caseData.filter(c=>(caseState.type==='all'||c.type===caseState.type)&&(caseState.light==='all'||c.light===caseState.light)&&(caseState.situation==='all'||c.situation===caseState.situation)&&(!query||[c.name,c.title,c.facts,types[c.type],situationLabels[c.situation]].join(' ').toLocaleLowerCase('ko-KR').includes(query)));
+    const list=box(host,'가상 사례 '+results.length+'개');list.dataset.careflowResults='cases';
+    if(!results.length){text(list,'이 조건으로 준비한 가상 사례가 없어요. 실제로 비슷한 사례가 없다는 뜻은 아니에요.');actions(list,button('전체 사례 보기',()=>{Object.assign(caseState,{query:'',type:'all',light:'all',situation:'all'});redraw();focus(host.querySelector('[data-careflow-results] h2'));}));}
+    results.forEach(item=>{const card=node('article','p-careflow-entry');title(card,item.title,'h3');text(card,item.name+' · '+types[item.type]+' · '+lightLabels[item.light]);text(card,item.result);actions(card,button('조건과 후속 결과 보기',()=>{caseState.detail=item.id;redraw();focus(host.querySelectorAll('h2')[1]);}));list.append(card);});
+  }
+  function newTransfer(plant){return {preview:false,form:{purpose:'아직 정하지 않음',photo:'none',size:'',rooted:'unknown',pot:'unknown',price:'',shipping:'',method:'unknown',region:'',note:'',shareObservation:false,observationId:observations(plant.id).at(-1)?.id||'',sharePrivateNote:false,shareLocation:false}};}
+  function transferRows(plant,d){
+    const f=d.form,record=observations(plant.id).find(r=>r.id===f.observationId);const rows=[['대상',plant.name],['재배 방식',types[plant.type]||types.unknown],['카드 목적',f.purpose],['사진 종류',photoLabels[f.photo]],['크기',clean(f.size)||'모름'],['발근 상태',rootedLabels[f.rooted]],['화분',potLabels[f.pot]],['수령 방식',methodLabels[f.method]],['넓은 거래 지역',clean(f.region)||'아직 정하지 않음'],['카드 설명',clean(f.note)||'추가 설명 없음']];
+    rows.push(...offerCosts(f.purpose==='나눔·분양 검토'?'free':f.purpose==='판매 검토'?'paid':'unknown',f.price,f.shipping,f.method));
+    if(f.shareLocation)rows.push(['포함한 놓인 곳',plant.location]);
+    if(f.shareObservation){rows.push(['선택한 관찰',record?observationText(record,plant.type)+' · '+timestamp(record.createdAt):'선택한 관찰이 없거나 취소되어 포함하지 않았어요.']);if(record&&f.sharePrivateNote)rows.push(['포함한 개인 메모',record.note||'선택한 관찰에 메모가 없어요.']);}
+    return rows;
+  }
+  function renderTransfer(host,context={}){
+    if(context.kind==='material'){renderMaterialTransfer(host,context);return;}
+    start(host);const id=selectedId(context),plant=id?api.getPlant(id):null;if(!plant){noPlant(host,'transfer');return;}
+    if(!transfers.has(id))transfers.set(id,newTransfer(plant));const d=transfers.get(id),f=d.form,redraw=()=>renderTransfer(host,{plantId:id});
+    const validRecords=observations(id);let removedObservation=false;
+    if(f.shareObservation&&!validRecords.some(record=>record.id===f.observationId)){f.shareObservation=false;f.sharePrivateNote=false;f.observationId=validRecords.at(-1)?.id||'';removedObservation=true;}
+    const intro=box(host,'판매·분양 정보를 먼저 정리해요');plantPicker(intro,id,newId=>{if(newId){api.selectPlant(newId);api.open('transfer',{plantId:newId});}});text(intro,'현재 창에서 보는 카드 예시예요. 사진 선택·매물 발행·연락처 수집·전송은 하지 않아요.');
+    if(removedObservation)text(intro,'선택했던 관찰이 취소되어 카드에서 제외했어요. 필요한 관찰을 다시 고를 수 있어요.','p-careflow-warning');
+    if(d.preview){
+      const card=box(host,'내가 포함한 카드 미리보기');card.dataset.careflowPreview='transfer';text(card,'공개·발행되지 않은 체험용 카드','p-careflow-tag');details(card,transferRows(plant,d));
+      text(card,'관찰 '+(f.shareObservation?'포함 선택':'제외')+' · 개인 메모 '+(f.shareObservation&&f.sharePrivateNote?'포함 선택':'제외')+' · 놓인 곳 '+(f.shareLocation?'포함 선택':'제외'),'p-careflow-outcome');
+      text(card,f.photo==='none'?'첨부된 사진은 없어요. 실제 개체를 확인한 카드가 아니에요.':'선택한 것은 사진의 종류예요. 실제로 첨부된 사진은 없고 상태·품질을 확인한 것이 아니에요.','p-careflow-warning');
+      actions(card,button('포함 항목 다시 고르기',()=>{d.preview=false;redraw();focus(host.querySelector('[data-careflow-form] h2'));},true),button('내 정원으로',()=>api.navigate('garden')));return;
+    }
+    const form=box(host,'어떤 내용을 보여줄까요?');form.dataset.careflowForm='transfer';
+    let price;
+    field(form,'판매·분양 목적','select',f.purpose,v=>{f.purpose=v;price.disabled=v!=='판매 검토';},{values:{'아직 정하지 않음':'아직 정하지 않음','판매 검토':'판매 검토','나눔·분양 검토':'무료 나눔·분양 검토'}});
+    price=moneyInput(form,'판매 희망 금액 · 선택',f.price,v=>f.price=v,'판매 호가를 적는 예시예요. 빈값은 미확인이고 무료 나눔은 물품 0원으로 표시해요.');price.disabled=f.purpose!=='판매 검토';
+    field(form,'설명에 사용할 사진의 종류','select',f.photo,v=>f.photo=v,{values:photoLabels,note:'사진은 선택하거나 첨부하지 않아요. 대표·모주 사진은 거래할 실제 개체 사진과 달라요.'});
+    field(form,'확인한 크기 · 선택','text',f.size,v=>f.size=v,{max:100,placeholder:'예: 화분 위부터 높이 25cm · 모르면 비워두기'});
+    field(form,'뿌리 상태','select',f.rooted,v=>f.rooted=v,{values:rootedLabels});field(form,'화분 포함 여부','select',f.pot,v=>f.pot=v,{values:potLabels});field(form,'수령 방식','select',f.method,v=>f.method=v,{values:methodLabels});
+    const shipping=moneyInput(form,'배송비 · 선택',f.shipping,v=>f.shipping=v,'배송비가 없다는 것을 확인한 경우에만 0을 적어요. 직거래 이동 비용은 별도예요.');
+    field(form,'넓은 거래 지역 · 선택','text',f.region,v=>f.region=v,{max:60,placeholder:'예: 서울 마포구 · 상세 주소는 쓰지 마세요'});
+    field(form,'카드에 넣을 설명 · 선택','textarea',f.note,v=>f.note=v,{max:400,placeholder:'예: 확인하지 못한 점, 빠진 구성품 · 연락처와 주소는 쓰지 마세요'});
+    const sharing=node('div','p-careflow-outcome');title(sharing,'포함할 기록을 직접 골라요','h3');text(sharing,'관찰·개인 메모·놓인 곳은 처음에 모두 제외해요. 이름과 위에서 적은 카드 설명은 미리보기에 표시돼요.');form.append(sharing);
+    const records=observations(id),recordOptions={'':'아직 고르지 않음'};records.slice().reverse().forEach(r=>{recordOptions[r.id]=observationText(r,plant.type)+' · '+timestamp(r.createdAt);});
+    const recordField=field(sharing,'포함할 유효 관찰','select',f.observationId,v=>f.observationId=v,{values:recordOptions});recordField.disabled=!f.shareObservation||!records.length;
+    let privateCheck;
+    check(sharing,'선택한 관찰의 상태와 시각 포함',f.shareObservation,v=>{f.shareObservation=v;recordField.disabled=!v||!records.length;privateCheck.disabled=!v||!records.length;if(!v){f.sharePrivateNote=false;privateCheck.checked=false;}},!records.length);
+    privateCheck=check(sharing,'선택한 관찰의 개인 메모도 포함',f.sharePrivateNote,v=>f.sharePrivateNote=v,!f.shareObservation||!records.length);
+    check(sharing,'등록한 놓인 곳도 포함',f.shareLocation,v=>f.shareLocation=v);
+    if(!records.length)text(sharing,'포함할 유효 관찰이 없어요. 관찰 없이 카드 내용을 정리해도 돼요.');
+    const message=feedback(form);
+    actions(form,button('내가 포함한 카드 미리보기',()=>{
+      if(f.purpose==='판매 검토'&&!validMoney(price,f.price)){message.textContent='판매 희망 금액은 0원 이상 정수로 적거나 비워두세요.';price.focus();return;}
+      if(!validMoney(shipping,f.shipping)){message.textContent='배송비는 0원 이상 정수로 적거나 미확인이면 비워두세요.';shipping.focus();return;}
+      if(f.shareObservation&&!observations(id).some(r=>r.id===f.observationId)){message.textContent='포함할 유효 관찰을 고르거나 관찰 포함을 해제해 주세요.';recordField.focus();return;}
+      d.preview=true;redraw();focus(host.querySelector('[data-careflow-preview] h2'));
+    },true),button('내 정원으로',()=>api.navigate('garden')));
+  }
+  function blankMaterial(){return {preview:false,form:{name:'',amount:'',unit:'unknown',opened:'unknown',storage:'',purpose:'free',price:'',shipping:'',method:'unknown',region:'',condition:'',question:''}};}
+  function renderMaterialTransfer(host,context={}){
+    start(host);const key=context.materialId||context.offer?.id||'direct';if(!materialTransfers.has(key))materialTransfers.set(key,blankMaterial());const d=materialTransfers.get(key),f=d.form,redraw=()=>renderMaterialTransfer(host,context);
+    const units={unknown:'단위 모름',L:'L',kg:'kg',g:'g','개':'개','봉':'봉'},openedLabels={unknown:'모름',unopened:'미개봉',opened:'개봉함'};
+    const intro=box(host,'남은 원예자재를 설명해요');text(intro,'개인 간 소량 구매·나눔을 준비하는 카드 예시예요. 식물을 등록하지 않아도 작성할 수 있고, 게시하거나 거래를 연결하지 않아요.');text(intro,'남은 양·개봉·보관 상태를 아는 만큼 적어요. 이 카드가 재사용 안전이나 품질을 확인해 주지는 않아요.','p-careflow-warning');
+    if(d.preview){
+      const card=box(host,'자재 구매·나눔 카드 미리보기');card.dataset.careflowPreview='material';text(card,'공개·발행되지 않은 체험용 카드','p-careflow-tag');
+      details(card,[['품목',clean(f.name)],['남은 양',f.amount?(f.amount+' '+(f.unit==='unknown'?'단위 미확인':units[f.unit])):'양 미확인'],['개봉 여부',openedLabels[f.opened]],['알고 있는 보관 상태',clean(f.storage)||'모름'],['거래 구상',f.purpose==='free'?'무료 나눔':'유료 소량 판매'],['수령 방식',methodLabels[f.method]],...offerCosts(f.purpose,f.price,f.shipping,f.method),['넓은 거래 지역',clean(f.region)||'아직 정하지 않음'],['상태·조건',clean(f.condition)||'추가 확인 전'],['먼저 확인할 질문',clean(f.question)||'아직 정하지 않음']]);
+      text(card,'사진·연락처·집 주소는 받지 않았어요. 배송비·수령 장소·현재 상태는 실제 거래 전에 별도로 확인할 사항이에요.');
+      actions(card,button('카드 내용 수정',()=>{d.preview=false;redraw();focus(host.querySelector('[data-careflow-form] h2'));},true),button('새 자재 카드 작성',()=>{materialTransfers.delete(key);redraw();focus(host.querySelector('[data-careflow-form] h2'));}));actions(card,button('내 정원으로',()=>api.navigate('garden')));return;
+    }
+    const form=box(host,'어떤 자재가 남았나요?');form.dataset.careflowForm='material';
+    const name=field(form,'품목 이름','text',f.name,v=>f.name=v,{max:100,placeholder:'예: 남은 펄라이트 · 정확한 제품명은 모름'});
+    const amount=field(form,'남은 양 · 모르면 비워두기','number',f.amount,v=>f.amount=v,{placeholder:'예: 2'});amount.min='0';amount.step='any';
+    field(form,'양의 단위','select',f.unit,v=>f.unit=v,{values:units,note:'서로 다른 단위는 임의로 바꾸지 않아요. 봉 단위라면 한 봉의 용량을 상태·조건에 적어 주세요.'});
+    field(form,'개봉 여부','select',f.opened,v=>f.opened=v,{values:openedLabels});
+    field(form,'알고 있는 보관 상태 · 선택','textarea',f.storage,v=>f.storage=v,{max:300,placeholder:'예: 개봉 날짜는 모름, 실내 보관 · 모르면 비워두기'});
+    let price;
+    field(form,'판매 또는 나눔','select',f.purpose,v=>{f.purpose=v;price.disabled=v==='free';},{values:{free:'무료 나눔',paid:'유료 소량 판매'}});
+    price=field(form,'희망 금액 · 유료일 때 선택','number',f.price,v=>f.price=v,{placeholder:'금액 미정이면 비워두기',note:'거래가가 아닌 희망 금액이에요. 배송비·수령 비용은 포함하지 않아요.'});price.min='0';price.step='1';price.disabled=f.purpose==='free';
+    field(form,'수령 방식','select',f.method,v=>f.method=v,{values:methodLabels});
+    const shipping=moneyInput(form,'배송비 · 선택',f.shipping,v=>f.shipping=v,'무료 나눔도 수령 비용은 별도예요. 배송비 미확인 상태를 무료 배송으로 표시하지 않아요.');
+    field(form,'넓은 거래 지역 · 선택','text',f.region,v=>f.region=v,{max:60,placeholder:'예: 서울 마포구 · 상세 주소는 쓰지 마세요'});
+    field(form,'확인한 상태·수령 조건 · 선택','textarea',f.condition,v=>f.condition=v,{max:400,placeholder:'예: 포장 상태, 확인하지 못한 부분 · 연락처·주소 제외'});
+    field(form,'거래 전 확인하고 싶은 질문 · 선택','textarea',f.question,v=>f.question=v,{max:300,placeholder:'예: 실제 잔량이나 수령 방법을 더 확인하고 싶어요'});
+    const message=feedback(form);
+    actions(form,button('자재 카드 미리보기',()=>{
+      if(!clean(f.name)){message.textContent='어떤 자재인지 품목 이름을 적어 주세요.';name.focus();return;}
+      if(amount.validity.badInput||(f.amount&&(!Number.isFinite(Number(f.amount))||Number(f.amount)<=0))){message.textContent='남은 양은 0보다 큰 수로 적거나, 모르면 비워두세요.';amount.focus();return;}
+      if(f.purpose==='paid'&&!validMoney(price,f.price)){message.textContent='희망 금액은 0원 이상 정수로 적거나, 미정이면 비워두세요.';price.focus();return;}
+      if(!validMoney(shipping,f.shipping)){message.textContent='배송비는 0원 이상 정수로 적거나 미확인이면 비워두세요.';shipping.focus();return;}
+      d.preview=true;redraw();focus(host.querySelector('[data-careflow-preview] h2'));
+    },true),button('작성 취소',()=>{materialTransfers.delete(key);api.navigate('garden');}));
+  }
+  api.registerView('arrival',{title:'들인 식물 확인하기',subtitle:'당시 설명과 지금 보이는 상태를 함께 남겨요.',nav:'garden',render:renderArrival});
+  api.registerView('followup',{title:'다음 관찰을 이어가요',subtitle:'내가 정한 계획과 실제 경과를 구분해요.',nav:'today',render:renderFollowup});
+  api.registerView('cases',{title:'조건을 함께 보는 사례',subtitle:'가상의 관찰 기록으로 내 상황을 비교해요.',nav:'cases',render:renderCases});
+  api.registerView('transfer',{title:'판매·분양 카드 준비',subtitle:'보여줄 내용과 제외할 기록을 직접 골라요.',nav:'garden',render:renderTransfer});
+})();
+</script>
