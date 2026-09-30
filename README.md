@@ -4,6 +4,16 @@
 
 현재 단계는 사업 아이템 분석·기획과 모바일 시안 검토다. 이 저장소에는 시각 기획서, 서비스 안내서, 탐색용 시안이 들어 있다. 실제 참가자 테스트·수요 검증은 아직 진행하지 않았으며 식물 인식·상담 매칭·거래·관리 서버는 구현하지 않았다.
 
+## 웹에서 체험하기
+
+- [모바일 프로토타입](https://lian220.github.io/plantory/concept.html)
+- [서비스 안내서](https://lian220.github.io/plantory/service-guide.html)
+- [사업 기획서](https://lian220.github.io/plantory/)
+
+GitHub Pages는 `main` 브랜치의 루트(`/`)를 게시한다. `.nojekyll`로 정적 HTML·CSS·JavaScript와 캡처 파일을 그대로 제공한다. 별도 설치 없이 링크를 열면 되며, 입력은 현재 창에서만 유지된다. 실제 가격 연동·상담 접수·결제·서버 저장은 제공하지 않는다.
+
+시안을 수정할 때는 `python3 scripts/export-concept.py`로 `concept.html`을 갱신한 뒤 함께 커밋·push한다. GitHub Pages 배포가 끝나면 웹에도 반영된다.
+
 ## 내부 기획 문서 열기
 
 별도 설치 없이 `index.html`을 브라우저에서 열 수 있다. 로컬 서버를 사용하려면:
@@ -65,4 +75,4 @@ python3 -m unittest discover -s scripts -p test_export.py
 
 ## 저장소
 
-`lian220/plantory`의 비공개 저장소로 관리한다. Git push와 인터넷 웹사이트 공개는 별개이며, 이 단계에는 공개 배포가 포함되지 않는다.
+사용자의 2026-09-30 요청에 따라 `lian220/plantory` 저장소를 공개하고 GitHub Pages로 체험 시안을 제공한다. 저장소의 기획 문서·소스·커밋 이력도 공개된다. 공개 대상은 현재의 정적 시안이며 실제 서비스 운영 기능은 별도로 준비한다.
